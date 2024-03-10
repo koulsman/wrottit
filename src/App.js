@@ -2,14 +2,15 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import { Modal } from '@mantine/core';
-import Login from "./Login";
+import Login from "./Login.tsx";
 import React from 'react';
 // kidc
 
 function App() {
   return (
+    <main>
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -22,15 +23,16 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
 
-      <BrowserRouter>
+      
         <Routes>
           <Route index element={<App />} />
           <Route path="/Login" element={<Login />} />
           </Routes>
-          </BrowserRouter>
+         
     </div>
+    </main>
   );
 }
 
