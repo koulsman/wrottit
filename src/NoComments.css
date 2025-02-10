@@ -1,0 +1,21 @@
+
+.noComments {
+    display: flex;
+    flex-direction: row;
+}
+
+.sadImage {
+    
+    color: blue;
+    width: 25em;
+    height: 25em;
+    /* background-color: blue; */
+   
+}
+
+.noCommentsText {
+    text-align: start;
+    width: 20em;
+
+}
+

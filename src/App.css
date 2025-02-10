@@ -3,21 +3,58 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  margin: 4em auto auto auto;
+  height: 5em;
   pointer-events: none;
+  position: relative;
+  top: 0;
+  
+  z-index: 10;
+ 
+  /* justify-content:center; */
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.header-parent {
+  position:relative;
+  top:0;
+  display:flex;
+  justify-content: center;
+  
+  
+}
+
+.wrot {
+  margin-top: 4em;
+  -webkit-animation: mover 4s infinite  alternate;
+  animation: mover 4s infinite  alternate;
+  height: 3em;
+  width: 5em;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  
+
+
+  /* justify-content:center; */
+
+}
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-2em); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-2em); }
 }
 
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -35,4 +72,77 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Log-Sign {
+  display: flex;
+  justify-content: end;
+}
+
+.User-pass-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.Text-input {
+  border: none;
+  border-radius: 0.5em;
+  border-color: #E5E4E2;
+  background-color: #E5E4E2; 
+  /* platinum */
+  padding: 1em;
+  margin-bottom: 1em;
+  color: black;
+}
+
+.Social-media-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.Social-media-logo {
+  width: 2em;
+  height: 2em;
+  margin: 1em;
+}
+
+.Signup-text {
+  padding: 1em;
+  color: blue;
+}
+
+.Items-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.Items-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.Search{
+  padding-left: 25px;
+  
+  background-size: 20px;
+}
+
+.Wrot-search {
+  height: 6em;
+  width: 8em;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    margin: 0 1em 1em 1em;
+    justify-content: center;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  margin: 0 1em 1em 1em;
+  justify-content: flex-end;
 }

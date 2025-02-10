@@ -1,0 +1,27 @@
+.like {
+    width: 5em;
+    height: 1em;
+    /* color: blue; */
+    border: 5em solid white;
+}
+
+.postInteractionContainer {
+    display: flex;
+     flex-direction :row;
+     /* align-items: spaceetween; */
+     border-radius: 1em;
+     background-color: #E5E4E2;
+     color: black;
+     min-width: 3em;
+}
+
+.likesCounter {
+    display: flex;
+    align-items: center;
+}
+
+.vectors {
+    padding: 0.5em;
+    width: 2em; 
+    height: 2em;
+}
