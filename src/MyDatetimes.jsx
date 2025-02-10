@@ -17,6 +17,7 @@ export default function myDatetimes() {
           <Table.Th >ENTSOE_GR_DAM_Price</Table.Th>
           <Table.Th>ENTSOE_FR_DAM_Price</Table.Th>
           </Table.Thead>
+       {/* ? */}
        
         <Table.Tbody>
         {timeseries.map((x, key, index) => (
