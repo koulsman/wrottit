@@ -7,23 +7,9 @@ import { createTheme, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import { Navbar } from './Navbar';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { UnstyledButton, Tooltip, Title, rem } from '@mantine/core';
-import {
-  IconHome2,
-  IconGauge,
-  IconDeviceDesktopAnalytics,
-  IconFingerprint,
-  IconCalendarStats,
-  IconUser,
-  IconSettings,
-} from '@tabler/icons-react';
-import { MantineLogo } from '@mantinex/mantine-logo';
-import classes from './DoubleNavbar.module.css';
+
 import '@mantine/dropzone/styles.css';
-import { initializeApp } from 'firebase/app'
-import {
-	getFirestore, collection,getDocs
-	} from 'firebase/firestore'
+
   import '@mantine/tiptap/styles.css';
   import '@mantine/dates/styles.css';
 
