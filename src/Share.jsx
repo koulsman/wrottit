@@ -3,7 +3,9 @@ import share from "./images/share.svg"
 import { Popover, Text, Button } from '@mantine/core';
 
 
-export default function Share() {
+export default function Share({postid}) {
+    const urlForCopy = `http://localhost:3000/post/${postid}`
+
     function handleShare() {
 
     }
@@ -16,9 +18,11 @@ export default function Share() {
             {/* <div className="likesCounter">{comments}</div> */}
         </div>
       </Popover.Target>
-      <Popover.Dropdown>
+      <Popover.Dropdown style={{width: '26em'}}>
         {/* <div>{FacebookIcon}{EmailIcon}{FacebookMessengerIcon}</div> */}
-       share
+       share 
+       <br/>
+       {urlForCopy}
        
 
       </Popover.Dropdown>

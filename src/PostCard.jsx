@@ -99,7 +99,7 @@ export default function PostCard({ postid, community, title, username, content, 
            
             <Likes postid = {postid} votes={upvotes}/>
            <div  onClick={handleClick}><Comments commentsCounter={commentsCounter}/></div> 
-            <Share /></SimpleGrid>
+            <Share postid={postid}/></SimpleGrid>
         </Card.Section>
       </Card>
 
