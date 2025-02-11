@@ -20,7 +20,7 @@ export default function Share({postid}) {
       </Popover.Target>
       <Popover.Dropdown style={{width: '26em'}}>
         {/* <div>{FacebookIcon}{EmailIcon}{FacebookMessengerIcon}</div> */}
-       share 
+       
        <br/>
        {urlForCopy}
        
