@@ -36,10 +36,10 @@ export default function PostCard({ postid, community, title, username, content, 
         <Card.Section onClick={handleClick} withBorder inheritPadding py="xs">
           <Group justify="space-between">
             <div style={{ display: "flex", alignItems: "flex-start", flexDirection: "column" }}>
-              <Text fw={300}>{community}</Text>
-              <Text fw={200}>{username}</Text>
+              <Text fw={300}>{community}&nbsp; &#183; &nbsp;{username} </Text>
+              <Text fw={200}></Text>
               <Text fw={500}>{title}</Text>
-              <Text fw={500}>{content}</Text>
+              
           
             </div>
             <Menu withinPortal position="bottom-end" shadow="sm">
@@ -88,7 +88,7 @@ export default function PostCard({ postid, community, title, username, content, 
 
         <Card.Section inheritPadding mt="sm" pb="md">
           <SimpleGrid cols={3}>
-          <Text mt="sm" c="dimmed" size="sm">
+          <Text mt="m" fw={500}  size="l" style={{textAlign: "left"}}>
           {content}
         </Text>
           </SimpleGrid>

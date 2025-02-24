@@ -1,64 +1,47 @@
 import './Likes.css';
-import share from "./images/share.svg"
-import { Popover, Text, Button } from '@mantine/core';
+import share from "./images/share.svg";
+import { Popover, Button } from '@mantine/core';
+import {
+  FacebookShareButton,
+  FacebookMessengerShareButton,
+  WhatsappShareButton,
+  TwitterShareButton,
+  EmailShareButton,
+  
+} from "react-share";
+import FacebookIcon from "./images/facebook-icon.svg";
+import TwitterIcon from './images/twitter-icon.svg'
 
+export default function Share({ postid }) {
+  const urlForCopy = `http://localhost:3000/post/${postid}`;
 
-export default function Share({postid}) {
-    const urlForCopy = `http://localhost:3000/post/${postid}`
-
-    function handleShare() {
-
-    }
-    return(
-        <Popover width={200} position="bottom" withArrow shadow="md">
+  return (
+    <Popover width={200} position="bottom" withArrow shadow="md">
       <Popover.Target>
-      <div className='postInteractionContainer' style={{}}>
-            <img src={share} className="vectors"
-                    onClick={handleShare} />
-            {/* <div className="likesCounter">{comments}</div> */}
+        <div className='postInteractionContainer'>
+          <img src={share} className="vectors" alt="share icon" />
         </div>
       </Popover.Target>
-      <Popover.Dropdown style={{width: '26em'}}>
-        {/* <div>{FacebookIcon}{EmailIcon}{FacebookMessengerIcon}</div> */}
-       
-       <br/>
-       {urlForCopy}
-       
-{/* ? */}
+      <Popover.Dropdown style={{ width: '26em' }}>
+        <div className="flex flex-col gap-2">
+          <FacebookShareButton url={urlForCopy}>
+            <img src={FacebookIcon} style={{width: "2em", height: "2em", margin: "1em"}}/>
+          </FacebookShareButton>
 
+          {/* <FacebookMessengerShareButton url={urlForCopy} appId="YOUR_FACEBOOK_APP_ID">
+            <Button leftIcon={<FaFacebookMessenger />} color="blue">Share on Messenger</Button>
+          </FacebookMessengerShareButton> */}
+
+         
+
+          <TwitterShareButton url={urlForCopy}>
+          <img src={TwitterIcon} style={{width: "2em", height: "2em", margin: "1em"}}/>
+          </TwitterShareButton>
+          <button>
+          {urlForCopy}
+          </button>
+        </div>
       </Popover.Dropdown>
     </Popover>
-        
-    )
+  );
 }
-// }
-// import {useState, useEffet} from 'react'
-
-// export default function Share() {
-//     return (
-//         <div>
-//             share
-//         </div>
-//     )
-// }
-// import React from "react";
-// // import { FacebookMessengerShareButton } from "react-share";
-// import { Button } from "@mantine/core";
-
-
-// const Share = ({ url, title, postid }) => {
-//     const copyURL  = `http://localhost:3000/post/${postid}`
-//     // const redirectedURL = `https://www.facebook.com/dialog/send?link=${encodeURIComponent(url)}&app_id=http://localhost:3000/post/&redirect_uri=${encodeURIComponent(url)}`
-//     console.log(postid + "postID")
-//   const handleShare = () => {
-//     window.open(copyURL, '_blank');
-//   };
-
-//   return (
-//     <Button onClick={handleShare} className="flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700">
-//       <button size={18} /> Share on Messenger
-//     </Button>
-//   );
-// };
-
-// export default Share;

@@ -32,6 +32,7 @@ import MyComments from "./MyComments";
 import '@mantine/dates/styles.css';
 import MyDatetimes from "./MyDatetimes";
 import About from "./About";
+import GearSpinner from "../src/images/gear-spinner.svg"
 
 function App() {
   const [isLoggedIn] = useAtom(isLoggedInAtom);
@@ -40,7 +41,8 @@ function App() {
   const [posts, setPosts] = useState([]);
 const [sortedPosts, setSortedPosts] = useState([]);
   const dark = colorScheme === "dark";
-  const [postsDirection,setPostsDirection] = useState("newest")
+  const [postsDirection,setPostsDirection] = useState("newest");
+  const [isFetching,setIsFetching] = useState(false);
 
   function postsDirectionHandler(direction) {
     setPostsDirection(direction);
@@ -55,11 +57,13 @@ const [sortedPosts, setSortedPosts] = useState([]);
   }
 
   async function handlePosts() {
+    setIsFetching(true)
     try {
       const response = await axios.get("http://localhost:3002/posts");
       console.log("Posts fetched:", response.data);
       setPosts(response.data);
       setSortedPosts(response.data); // Keep a copy for sorting
+      setIsFetching(false)
     } catch (error) {
       console.error("Error getting posts:", error);
     }
@@ -174,6 +178,7 @@ const [sortedPosts, setSortedPosts] = useState([]);
                       </Menu.Dropdown>
                     </Menu>
                     </div>
+                    {isFetching  &&  <img src={GearSpinner} style={{height: "10em", width: "10em", margin: "auto"}}></img>}
                     {postsDirection === "newest" &&
   sortedPosts.length > 0 && 
   <div style={{ display: "flex", flexDirection: "column-reverse" }}>

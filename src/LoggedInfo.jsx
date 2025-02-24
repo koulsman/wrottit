@@ -36,6 +36,10 @@ export default function LoggedInfo({name,uid, status}) {
         navigate(`/${loggedUser?._id}/MyComments`)
     }
 
+    function handleSavedPosts() {
+      navigate(`/${loggedUser?._id}/SavedPosts`)
+  }
+  
     async function handlePosts() {
       console.log("!!!!!!!!!!!!!!UID:", uid);
       try {
@@ -64,13 +68,14 @@ export default function LoggedInfo({name,uid, status}) {
                 status:
                 {isLoggedIn === true ? <div style={{display: "flex"}}>active 
                   
-                <ColorSwatch color="#00FF00" style={{display: "flex", alignItems: "flex-end", width: "1em"}}/> </div> : <div>status inactive</div>}
+                <ColorSwatch color="#00FF00" style={{display: "flex", alignItems: "flex-end", width: "0.5em",marginRight: "1em"}}/> </div> : <div>status inactive</div>}
                 
                 <Divider my="md" />
                 <NavLink label="my likes" onClick={handleMyLikes}></NavLink>
                 <NavLink label="my posts" onClick={handleMyPosts}></NavLink>
                 <NavLink label="my comments" onClick={handleMyComments}></NavLink>
                 <NavLink label="my datetimes" onClick={handleMyDatetimes}></NavLink>
+                <NavLink label="my datetimes" onClick={handleSavedPosts}></NavLink>
                 <Divider my="md" />
                 <Button onClick={handleLogOut}>Logout</Button>
                 

@@ -30,6 +30,7 @@ import { useAtom } from "jotai";
 import { isLoggedInAtom, loggedUserAtom } from "./isLoggedIn";
 import { Navbar } from "./Navbar";
 import NoComments from "./NoComments";
+import GearSpinner from "../src/images/gear-spinner.svg"
 
 function SelectedPostPage() {
   const { id } = useParams();
@@ -39,17 +40,19 @@ function SelectedPostPage() {
   const [returnedComments, setReturnedComments] = useState([]);
   const [commentsDirection, setCommentsDirection] = useState("column");
   const [isLoggedIn, setIsLoggedIn] = useAtom(isLoggedInAtom);
-  const [commentsNumber,setCommentsNumber] = useState(0)
+  const [commentsNumber,setCommentsNumber] = useState(0);
+  const [isFetching,setIsFetching] = useState(false)
 
   useEffect(() => {
     async function fetchPost() {
+      setIsFetching(true)
       try {
         const response = await axios.get(`http://localhost:3002/posts/${id}`);
         setPost(response.data);
         console.log(response.data)
         setReturnedComments(response.data.comments || []); // Set comments array or empty array if undefined
         console.log(JSON.stringify(response.data.comments) + "comments")
-       
+        setIsFetching(false)
       } catch (error) {
         console.error("Error fetching post:", error);
       }
@@ -157,6 +160,7 @@ function SelectedPostPage() {
           </Grid>
 
           <div style={{ display: "flex", flexDirection: commentsDirection }}>
+            {isFetching  &&  <img src={GearSpinner} style={{height: "10em", width: "10em", margin: "auto"}}></img>}
            {returnedComments.length > 0 ? 
            returnedComments.map(
             (returnedComment, index) =>

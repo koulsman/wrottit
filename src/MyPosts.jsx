@@ -28,10 +28,10 @@ export default function MyPosts() {
   return (
     <div>
     <Grid>
-      <Grid.Col span="auto">
+      <Grid.Col span="4">
                 <Navbar />
               </Grid.Col>
-       <Grid.Col span="auto">
+       <Grid.Col span="4">
        {posts.map((post, index) => (
         // {posts.filter().map((post, index) => (
         <PostCard

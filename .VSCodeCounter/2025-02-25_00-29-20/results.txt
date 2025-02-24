@@ -1,0 +1,116 @@
+Date : 2025-02-25 00:29:20
+Directory : c:\Users\Σταύρος\Desktop\wrotit
+Total : 75 files,  25376 codes, 155 comments, 418 blanks, all 25949 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          4 |     22,814 |          0 |          5 |     22,819 |
+| JavaScript         |         36 |      2,085 |        109 |        312 |      2,506 |
+| PostCSS            |          6 |        236 |          7 |         56 |        299 |
+| XML                |         16 |         72 |          2 |          0 |         74 |
+| TypeScript JSX     |          3 |         54 |          4 |         15 |         73 |
+| TypeScript         |          6 |         36 |         10 |          7 |         53 |
+| JSON with Comments |          1 |         26 |          0 |          1 |         27 |
+| Markdown           |          1 |         26 |          0 |         21 |         47 |
+| HTML               |          1 |         20 |         23 |          1 |         44 |
+| Properties         |          1 |          7 |          0 |          0 |          7 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                        | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                           |         75 |     25,376 |        155 |        418 |     25,949 |
+| . (Files)                                                                   |          7 |     21,149 |          0 |         26 |     21,175 |
+| public                                                                      |          2 |         45 |         23 |          2 |         70 |
+| src                                                                         |         65 |      4,180 |        132 |        390 |      4,702 |
+| src (Files)                                                                 |         42 |      3,779 |        113 |        340 |      4,232 |
+| src\ServersAndSchemas                                                       |          6 |        316 |         12 |         48 |        376 |
+| src\firebase                                                                |          1 |         13 |          5 |          2 |         20 |
+| src\images                                                                  |         16 |         72 |          2 |          0 |         74 |
+| types                                                                       |          1 |          2 |          0 |          0 |          2 |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                    | language           | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| c:\Users\Σταύρος\Desktop\wrotit\.env                                        | Properties         |          7 |          0 |          0 |          7 |
+| c:\Users\Σταύρος\Desktop\wrotit\README.md                                   | Markdown           |         26 |          0 |         21 |         47 |
+| c:\Users\Σταύρος\Desktop\wrotit\craco.config.js                             | JavaScript         |         17 |          0 |          0 |         17 |
+| c:\Users\Σταύρος\Desktop\wrotit\package-lock.json                           | JSON               |     20,959 |          0 |          1 |     20,960 |
+| c:\Users\Σταύρος\Desktop\wrotit\package.json                                | JSON               |        100 |          0 |          3 |        103 |
+| c:\Users\Σταύρος\Desktop\wrotit\postcss.config.js                           | JavaScript         |         14 |          0 |          0 |         14 |
+| c:\Users\Σταύρος\Desktop\wrotit\public\index.html                           | HTML               |         20 |         23 |          1 |         44 |
+| c:\Users\Σταύρος\Desktop\wrotit\public\manifest.json                        | JSON               |         25 |          0 |          1 |         26 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\About.jsx                               | JavaScript         |         14 |          0 |          1 |         15 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\App.css                                 | PostCSS            |        115 |          4 |         29 |        148 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\App.jsx                                 | JavaScript         |        235 |         17 |         21 |        273 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\App.test.tsx                            | TypeScript JSX     |          8 |          0 |          2 |         10 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\CommentCard.jsx                         | JavaScript         |         17 |          0 |          3 |         20 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Comments.jsx                            | JavaScript         |         12 |          1 |          5 |         18 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\CreatePost.jsx                          | JavaScript         |        189 |          1 |         26 |        216 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\DatePicker.jsx                          | JavaScript         |         20 |          0 |          2 |         22 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Demo.module.css                         | PostCSS            |         20 |          0 |          4 |         24 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\ImageDropzone.jsx                       | JavaScript         |         93 |          1 |         12 |        106 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\ImageModal.jsx                          | JavaScript         |          8 |          0 |          2 |         10 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Likes.css                               | PostCSS            |         22 |          2 |          4 |         28 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Likes.jsx                               | JavaScript         |         82 |          0 |         12 |         94 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo.jsx                          | JavaScript         |         81 |          2 |         16 |         99 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Login.jsx                               | JavaScript         |         91 |          0 |          5 |         96 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\MyComments.jsx                          | JavaScript         |          5 |          0 |          1 |          6 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\MyDatetimes.jsx                         | JavaScript         |         48 |          3 |         12 |         63 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\MyLikes.jsx                             | JavaScript         |         50 |          2 |          5 |         57 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\MyPosts.jsx                             | JavaScript         |         50 |          2 |          5 |         57 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Navbar.jsx                              | JavaScript         |         54 |         21 |         13 |         88 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Navbar.module.css                       | PostCSS            |         54 |          0 |          9 |         63 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\NoComments.css                          | PostCSS            |         13 |          1 |          8 |         22 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\NoComments.jsx                          | JavaScript         |         21 |          0 |          8 |         29 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\PostCard.jsx                            | JavaScript         |         95 |          0 |         21 |        116 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Posts.jsx                               | JavaScript         |         21 |          0 |          2 |         23 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\SearchDemo.jsx                          | JavaScript         |         36 |          3 |          6 |         45 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Searchbar.jsx                           | JavaScript         |         32 |          3 |         10 |         45 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\SelectedPostPage.jsx                    | JavaScript         |        165 |          8 |         18 |        191 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\ServersAndSchemas\CommunitySchema.js    | JavaScript         |         20 |          0 |          4 |         24 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\ServersAndSchemas\CommunityServer.js    | JavaScript         |         45 |          0 |          6 |         51 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\ServersAndSchemas\PostModel.js          | JavaScript         |         37 |          1 |          5 |         43 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\ServersAndSchemas\PostServer.js         | JavaScript         |        116 |          4 |         14 |        134 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\ServersAndSchemas\UserModel.js          | JavaScript         |         13 |          1 |          3 |         17 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\ServersAndSchemas\UserServer.js         | JavaScript         |         85 |          6 |         16 |        107 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Share.jsx                               | JavaScript         |         25 |         26 |         13 |         64 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Signup.jsx                              | JavaScript         |        124 |          0 |          6 |        130 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\TextEditor.jsx                          | JavaScript         |         52 |          0 |          7 |         59 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\WordsModel.js                           | JavaScript         |          0 |          0 |          1 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\WordsServer.js                          | JavaScript         |        113 |          6 |         30 |        149 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Wrot.tsx                                | TypeScript JSX     |         16 |          0 |          2 |         18 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\declaration.d.ts                        | TypeScript         |          3 |          0 |          0 |          3 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\firebase\Firebase.ts                    | TypeScript         |         13 |          5 |          2 |         20 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\chat.svg                         | XML                |          4 |          0 |          0 |          4 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\checked.svg                      | XML                |          4 |          0 |          0 |          4 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\communities.svg                  | XML                |          9 |          0 |          0 |          9 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\dislike.svg                      | XML                |          4 |          0 |          0 |          4 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\facebook-icon.svg                | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\gear-spinner.svg                 | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\google-icon.svg                  | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\home.svg                         | XML                |         13 |          1 |          0 |         14 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\light-switch-off-svgrepo-com.svg | XML                |          4 |          0 |          0 |          4 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\light-switch-on-svgrepo-com.svg  | XML                |          4 |          0 |          0 |          4 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\like.svg                         | XML                |          4 |          0 |          0 |          4 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\search.svg                       | XML                |         12 |          1 |          0 |         13 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\share.svg                        | XML                |          4 |          0 |          0 |          4 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\top.svg                          | XML                |          2 |          0 |          0 |          2 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\twitter-icon.svg                 | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\unchecked.svg                    | XML                |          4 |          0 |          0 |          4 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\index.css                               | PostCSS            |         12 |          0 |          2 |         14 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\index.tsx                               | TypeScript JSX     |         30 |          4 |         11 |         45 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\isLoggedIn.jsx                          | JavaScript         |          5 |          1 |          1 |          7 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\react-app-env.d.ts                      | TypeScript         |          4 |          1 |          1 |          6 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\reportWebVitals.ts                      | TypeScript         |         13 |          0 |          3 |         16 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\setupTests.ts                           | TypeScript         |          1 |          4 |          1 |          6 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\timeseries.json                         | JSON               |      1,730 |          0 |          0 |      1,730 |
+| c:\Users\Σταύρος\Desktop\wrotit\tsconfig.json                               | JSON with Comments |         26 |          0 |          1 |         27 |
+| c:\Users\Σταύρος\Desktop\wrotit\types\png.d.ts                              | TypeScript         |          2 |          0 |          0 |          2 |
+| Total                                                                       |                    |     25,376 |        155 |        418 |     25,949 |
++-----------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
