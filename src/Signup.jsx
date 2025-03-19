@@ -7,6 +7,14 @@ import Google from "./images/google-icon.svg";
 import axios from "axios";
 import { isLoggedInAtom, loggedUserAtom } from "./isLoggedIn";
 import { useAtom } from "jotai";
+import bcrypt from "bcryptjs";
+import blackUserImage from "./images/UserImage/black.svg"
+import blueUserImage from "./images/UserImage/blue.svg"
+import burgundyUserImage from "./images/UserImage/burgundy.svg"
+import limeUserImage from "./images/UserImage/lime.svg"
+import orangeUserImage from "./images/UserImage/orange.svg"
+import pinkUserImage from "./images/UserImage/pink.svg"
+import spiralUserImage from "./images/UserImage/spiral.svg"
 
 export function Signup() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -19,12 +27,27 @@ export function Signup() {
   const [isLoggedIn, setIsLoggedIn] = useAtom(isLoggedInAtom);
   const [loggedUser, setLoggedUser] = useAtom(loggedUserAtom);
 
+
+  
+  const userImagesArray = [blackUserImage,blueUserImage,burgundyUserImage,limeUserImage,orangeUserImage,pinkUserImage,spiralUserImage];
+  function randomUserImageHandler() {
+    
+    const randomNumber = Math.floor(Math.random() * 6) + 1;
+    const chosenUserImage = userImagesArray[randomNumber]
+    return chosenUserImage;
+  }
+
   async function handleSignup() {
+    
+  
     try {
       const response = await axios.post("http://localhost:3001/users", {
         name,
         email,
-        password,
+        
+        userImage: randomUserImageHandler(),
+        // password
+        password: bcrypt.hashSync(password, 10)
       });
       const newUser = response.data;
       setLoggedUser(newUser); // Update loggedUser

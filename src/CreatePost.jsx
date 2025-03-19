@@ -3,7 +3,10 @@ import { Button, Textarea, Tabs } from "@mantine/core";
 import { useAtom } from "jotai";
 import { isLoggedInAtom, loggedUserAtom } from "./isLoggedIn";
 import axios from "axios";
-import ImageDropzone from "./ImageDropzone"; // Ensure the ImageDropzone component is correctly implemented
+
+import { Group, Text, rem } from "@mantine/core";
+import { IconUpload, IconPhoto, IconX } from "@tabler/icons-react";
+import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
 
 function CreatePost() {
   const [isCreatingPost, setIsCreatingPost] = useState(false);
@@ -21,6 +24,19 @@ function CreatePost() {
   const [isLoggedIn, setIsLoggedIn] = useAtom(isLoggedInAtom);
   const [loggedUser, setLoggedUser] = useAtom(loggedUserAtom);
 
+  const [uploading, setUploading] = useState(false);
+
+  function handleImageDrop(files) {
+    console.log("Dropped Files:", files);
+    
+    files.forEach((file) => {
+      if (!(file instanceof File)) {
+        console.error("Invalid file type detected:", file);
+      }
+    });
+  
+    setImages((prev) => [...prev, ...files]);
+  }
   function contentHandler(e) {
     setContent(e.target.value);
   }
@@ -36,7 +52,7 @@ function CreatePost() {
   };
 
   useEffect(() => {
-    if (communityClicked && community === '') {
+    if (communityClicked && community === "") {
       document.addEventListener("mousedown", handleCloseCommunityChooser);
     }
     return () => {
@@ -59,7 +75,10 @@ function CreatePost() {
   }
 
   const handleCloseNewPost = (event) => {
-    if (postCreationRef.current && !postCreationRef.current.contains(event.target)) {
+    if (
+      postCreationRef.current &&
+      !postCreationRef.current.contains(event.target)
+    ) {
       setIsCreatingPost(false);
     }
   };
@@ -72,44 +91,39 @@ function CreatePost() {
   }, []);
 
   async function submitPost() {
-    if (!title || !community || !content) {
-      alert("Please fill in all required fields.");
+    if (!title || !community || (!content && images.length === 0)) {
+      alert("Please fill in all required fields (title, community, and either content or an image).");
       return;
     }
-
+  
     try {
       const fullDate = new Date();
-      const day = fullDate.getDate();
-      const month = fullDate.getMonth() + 1; // months are 0-based
-      const year = fullDate.getFullYear();
-      const date = `${day}/${month}/${year}`;
-
+      const date = `${fullDate.getDate()}/${fullDate.getMonth() + 1}/${fullDate.getFullYear()}`;
+  
       const formData = new FormData();
       formData.append("uname", loggedUser?.name);
       formData.append("uid", loggedUser?._id);
       formData.append("title", title);
       formData.append("community", community);
-      formData.append("content", content);
+      formData.append("content", content || ""); // Ensure content is always a string
       formData.append("upvotes", 0);
       formData.append("date", date);
-
+  
       images.forEach((image) => {
-        formData.append("images", image);
+        formData.append("images", image); // Appends images
       });
-
+  
       const response = await axios.post("http://localhost:3002/posts", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        headers: { "Content-Type": "multipart/form-data" },
       });
-
+  
       setSubmittedPost(response.data);
-      // alert("Posted successfully!");
-      window.location.reload()
+      window.location.reload();
     } catch (error) {
       console.error("Error posting:", error.response?.data || error.message);
     }
-}
+  }
+  
 
   return (
     <>
@@ -178,7 +192,72 @@ function CreatePost() {
                   </Tabs.Panel>
 
                   <Tabs.Panel value="images">
-                    <ImageDropzone value={images} onChange={setImages} />
+                    <div>
+                      <Dropzone
+                        onDrop={handleImageDrop}
+                        onReject={(files) =>
+                          console.log("Rejected files:", files)
+                        }
+                        maxSize={5 * 1024 ** 2}
+                        accept={IMAGE_MIME_TYPE}
+                        
+                      >
+                        <Group
+                          justify="center"
+                          gap="xl"
+                          mih={220}
+                          style={{ pointerEvents: "none" }}
+                        >
+                          <Dropzone.Accept>
+                            <IconUpload
+                              style={{
+                                width: rem(52),
+                                height: rem(52),
+                                color: "var(--mantine-color-blue-6)",
+                              }}
+                              stroke={1.5}
+                            />
+                          </Dropzone.Accept>
+                          <Dropzone.Reject>
+                            <IconX
+                              style={{
+                                width: rem(52),
+                                height: rem(52),
+                                color: "var(--mantine-color-red-6)",
+                              }}
+                              stroke={1.5}
+                            />
+                          </Dropzone.Reject>
+                          <Dropzone.Idle>
+                            <IconPhoto
+                              style={{
+                                width: rem(52),
+                                height: rem(52),
+                                color: "var(--mantine-color-dimmed)",
+                              }}
+                              stroke={1.5}
+                            />
+                          </Dropzone.Idle>
+
+                          <div>
+                            <Text size="xl" inline>
+                              Drag images here or click to select files
+                            </Text>
+                            {images.map((file, index) => (
+                              <img
+                                key={index}
+                                src={URL.createObjectURL(file)}
+                                height="100em"
+                                width="100em"
+                                style={{ margin: "1em" }}
+                                alt="preview"
+                              />
+                            ))}
+                          </div>
+                        </Group>
+                      </Dropzone>
+                      
+                    </div>
                   </Tabs.Panel>
                 </Tabs>
 

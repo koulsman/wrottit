@@ -56,6 +56,8 @@ function SelectedPostPage() {
       } catch (error) {
         console.error("Error fetching post:", error);
       }
+      console.log(id + "id of post")
+    console.log(post)
     }
 
     fetchPost();
@@ -68,6 +70,8 @@ function SelectedPostPage() {
     console.log(uname)
     const uid = loggedUser._id;
     console.log(comment)
+    console.log(id + "id of post")
+    console.log(post)
     try {
       const response = await axios.post(
         `http://localhost:3002/posts/${id}/comments`,
@@ -84,6 +88,13 @@ function SelectedPostPage() {
 
     } catch (error) {
       console.error("Error submitting comment:", error);
+    }
+    try {
+      const response = await axios.post(`http://localhost:3001/users/${uid}/commented`, {id})
+      console.log(response + "done")
+    }
+    catch(error) {
+      console.log(error)
     }
     window.location.reload();
   }

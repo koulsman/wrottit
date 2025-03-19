@@ -15,10 +15,22 @@ export default function LoggedInfo({name,uid, status}) {
     const [opened, { open, close }] = useDisclosure(false);
     const [isLoggedIn,setIsLoggedIn] = useAtom(isLoggedInAtom);
     const [loggedUser,setLoggedUser] = useAtom(loggedUserAtom)
+    const [userImage,setUserImage] = useState('')
     const [posts,setPosts] = useState([])
     const navigate = useNavigate()
     console.log(loggedUserAtom)
     
+
+    // async function handleUserImage() {
+    //   try {
+    //       const res = await axios.get('http://localhost:3000/users/userImage')
+    //       setUserImage(res)
+    //       console.log(userImage)
+    //   }
+    //   catch(err) {
+    //     console.log(err)
+    //   }
+    // }
     function handleMyDatetimes() {
       navigate('/MyDatetimes')
     }
@@ -39,6 +51,10 @@ export default function LoggedInfo({name,uid, status}) {
     function handleSavedPosts() {
       navigate(`/${loggedUser?._id}/SavedPosts`)
   }
+
+  function changeUserImage() {
+    navigate(`/${loggedUser?._id}/ChangeUserImage`)
+  }
   
     async function handlePosts() {
       console.log("!!!!!!!!!!!!!!UID:", uid);
@@ -53,16 +69,18 @@ export default function LoggedInfo({name,uid, status}) {
   
     useEffect(() => {
       handlePosts();
+      // handleUserImage();
     }, []);
     function handleLogOut() {
        setIsLoggedIn(isLoggedIn => isLoggedIn = false);
+       setLoggedUser(loggedUser => loggedUser = '')
     }
 
     return (
         <>
           <Drawer position="right" opened={opened}  onClose={close} >
             {/* Drawer content */}
-          
+                {userImage}
                 Name : {name}
                 <br/>
                 status:
@@ -76,6 +94,7 @@ export default function LoggedInfo({name,uid, status}) {
                 <NavLink label="my comments" onClick={handleMyComments}></NavLink>
                 <NavLink label="my datetimes" onClick={handleMyDatetimes}></NavLink>
                 <NavLink label="my datetimes" onClick={handleSavedPosts}></NavLink>
+                <NavLink label="Change User Image" onClick={changeUserImage}></NavLink>
                 <Divider my="md" />
                 <Button onClick={handleLogOut}>Logout</Button>
                 

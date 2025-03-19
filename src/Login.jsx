@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { Modal, Button, Tooltip, Divider } from "@mantine/core";
 import Facebook from "./images/facebook-icon.svg";
@@ -9,6 +9,7 @@ import axios from "axios";
 import LoggedInfo from "./LoggedInfo";
 import { isLoggedInAtom, loggedUserAtom } from "./isLoggedIn";
 import { useAtom } from "jotai";
+import bcrypt from "bcryptjs";
 
 export function Login() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -21,21 +22,25 @@ export function Login() {
     try {
       const response = await axios.post("http://localhost:3001/users/login", {
         email,
-        password,
+        password
       });
       const userInfo = response.data;
-      setLoggedUser(userInfo); // Update loggedUser 
-      console.log(loggedUser + "LOLO LO LOGGED USER")
-      console.log(loggedUser?._id)
-      setIsLoggedIn(true); // Mark user as logged in
+      setLoggedUser(userInfo);
+      setIsLoggedIn(true);
       alert("Login successful!");
-      close();
     } catch (error) {
       console.error("Error logging in:", error);
       alert("Error logging in. Please check your credentials and try again.");
       setIsLoggedIn(false);
     }
   }
+
+  // Close modal when user logs in
+  useEffect(() => {
+    if (isLoggedIn) {
+      close();
+    }
+  }, [isLoggedIn, close]);
 
   return (
     <>
@@ -73,17 +78,10 @@ export function Login() {
         </div>
         <Button onClick={handleLogin}>Login</Button>
         <div style={{ marginTop: '8px' }}>
-            {/* <strong>Displayed Password:</strong> {hiddenPassword} */}
-            <strong>Displayed Password:</strong> {password}
-          
           <p>Forgot your username or password?</p>
-          <a href="#">
-            <p>If yes, click me!</p>
-          </a>
-          <p>New to Wrottit?
-            <Signup />
-          </p>
-          </div>
+          <a href="#"><p>If yes, click me!</p></a>
+          <p>New to Wrottit? <Signup /></p>
+        </div>
       </Modal>
       {isLoggedIn ? (
         <LoggedInfo name={loggedUser?.name} uid={loggedUser?._id} status={isLoggedIn} />

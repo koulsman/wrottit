@@ -8,16 +8,23 @@ import Comments from "./Comments";
 import Share from "./Share";
 import { useNavigate } from "react-router-dom";
 import { connectFirestoreEmulator } from "firebase/firestore";
+import Saved from './images/savedpost.svg'
+import Unsaved from './images/unsavedpost.svg'
 
 
 export default function PostCard({ postid, community, title, username, content, images, upvotes, comments }) {
   const [opened, { open, close }] = useDisclosure(false);
   const [imageSelected, setImageSelected] = useState("");
   const navigate = useNavigate("");
+  const [savedPost,setSavedPost] = useState(false)
   
 
   console.log(typeof comments)
   const commentsCounter = Array.isArray(comments) ? comments.length : 0;
+
+  async function saveHandler() {
+      setSavedPost(!savedPost)
+  }
  
   function handleImageModal(image) {
     setImageSelected(image);
@@ -56,10 +63,11 @@ export default function PostCard({ postid, community, title, username, content, 
                   Download zip
                 </Menu.Item>
                 <Menu.Item
-                  leftSection={<IconEye style={{ width: rem(14), height: rem(14) }} />}
-                >
-                  Preview all
-                </Menu.Item>
+  leftSection={<img src={savedPost ? Saved : Unsaved} alt="Save Icon" style={{ width: "1.5em", height: "1.5em", backgroundColor: "white"}} />}
+  onClick={saveHandler}
+>
+  Save
+</Menu.Item>
                 <Menu.Item
                   leftSection={<IconTrash style={{ width: rem(14), height: rem(14) }} />}
                   color="red"

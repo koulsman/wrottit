@@ -32,6 +32,7 @@ import MyComments from "./MyComments";
 import '@mantine/dates/styles.css';
 import MyDatetimes from "./MyDatetimes";
 import About from "./About";
+import ChangeUserImage from "./ChangeUserImage";
 import GearSpinner from "../src/images/gear-spinner.svg"
 
 function App() {
@@ -264,6 +265,7 @@ const [sortedPosts, setSortedPosts] = useState([]);
             <Route path="/:id/myLikes" element={<MyLikes />} />
             <Route path="/:id/myPosts" element={<MyPosts />} />
             <Route path="/:id/myComments" element={<MyComments />} />
+            <Route path="/:id/ChangeUserImage" element={<ChangeUserImage />} />
             <Route path="/myDatetimes" element={<MyDatetimes />} />
             <Route path="/About" element={<About />} />
           </Routes>

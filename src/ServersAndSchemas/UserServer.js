@@ -3,7 +3,7 @@ const express = require("express");
 const User = require("./UserModel"); // Import the User model
 const cors = require('cors'); // CORS middleware
 const bodyParser = require('body-parser'); // Body parser middleware
-
+const bcrypt = require("bcryptjs")
 const app = express();
 const port = 3001; // Update port to avoid conflict with frontend
 
@@ -32,7 +32,8 @@ app.post('/users', async (req, res) => {
   const user = new User({
     name: req.body.name,
     email: req.body.email,
-    password: req.body.password // Fix: Access password from req.body
+    password: req.body.password, // Fix: Access password from req.body,
+    userImage: req.body.userImage
   });
 
   try {
@@ -43,7 +44,25 @@ app.post('/users', async (req, res) => {
   }
 });
 
+app.post('/users/:uid/commented', async (req,res) => {
+  const { uid } = req.params;
+  const { id } = req.body;
 
+  try {
+    const user = await User.findByIdAndUpdate(
+      uid,
+      { $push: { commented: { id } } }, // Push the new comment into the array
+      { new: true } // Return the updated document
+    );
+    if (!user) {
+      return res.status(404).send({ message: 'user not found' });
+    }
+    res.status(200).send(user); // Send updated post
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: 'Internal server error' });
+  }
+})
 async function getUser(req, res, next) {
   let user;
   try {
@@ -71,24 +90,52 @@ app.get('/users/:email', getUser, (req, res) => {
 app.get('/users/:password', getUser, (req, res) => {
   res.json(res.user);
 });
+app.get('/users/:userImage', getUser, (req, res) => {
+  res.json(res.user);
+});
 app.post('/users/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // Αναζητούμε τον χρήστη με βάση το email
+    // Find user by email
     const user = await User.findOne({ email: email });
 
-    // Έλεγχος αν ο χρήστης υπάρχει και το password ταιριάζει
-    if (user && user.password === password) {
-      res.status(200).json(user); // Επιστρέφουμε τα δεδομένα του χρήστη
-    } else {
-      res.status(401).json({ message: 'Invalid email or password' }); // Σφάλμα αν το email ή το password είναι λάθος
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid email or password' });
     }
+
+    // Compare provided password with stored hashed password
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Invalid email or password' });
+    }
+
+    // If password matches, return user data (excluding password for security)
+    res.status(200).json(user);
+
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
 
+// app.post('/users/login', async (req, res) => {
+//   const { email, password } = req.body;
+
+//   try {
+//     // Αναζητούμε τον χρήστη με βάση το email
+//     const user = await User.findOne({ email: email });
+
+//     // Έλεγχος αν ο χρήστης υπάρχει και το password ταιριάζει
+//     if (user && user.password === password) {
+//       res.status(200).json(user); // Επιστρέφουμε τα δεδομένα του χρήστη
+//     } else {
+//       res.status(401).json({ message: 'Invalid email or password' }); // Σφάλμα αν το email ή το password είναι λάθος
+//     }
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// });
 app.post('/users/liked',async (req, res) => {
   const user = new User({
     name: req.body.name,
