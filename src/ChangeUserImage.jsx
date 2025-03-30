@@ -8,7 +8,13 @@ import spiralUserImage from "./images/UserImage/spiral.svg";
 import { Avatar } from "@mantine/core";
 import { Navbar } from "./Navbar";
 import { Grid, GridCol } from "@mantine/core";
+import { useState } from "react";
+import { useAtom } from "jotai";
+// export const isLoggedInAtom = atomWithStorage('isLoggedIn', false);
+// export const loggedUserAtom = atomWithStorage('loggedUser', '');
+import { loggedUserAtom } from "./isLoggedIn";
 export default function ChangeUserImage() {
+  const [loggedUser,setLoggedUser] = useAtom(loggedUserAtom)
   const userImagesArray = [
     blackUserImage,
     blueUserImage,
@@ -18,6 +24,7 @@ export default function ChangeUserImage() {
     pinkUserImage,
     spiralUserImage,
   ];
+  console.log(JSON.stringify(loggedUser) + "logged user atom")
   return (
     <>
       <Grid>

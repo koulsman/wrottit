@@ -63,7 +63,7 @@ export default function PostCard({ postid, community, title, username, content, 
                   Download zip
                 </Menu.Item>
                 <Menu.Item
-  leftSection={<img src={savedPost ? Saved : Unsaved} alt="Save Icon" style={{ width: "1.5em", height: "1.5em", backgroundColor: "white"}} />}
+  leftSection={<img src={savedPost ? Saved : Unsaved} alt="Save Icon" style={{ width: "1.5em", height: "1.5em", color: "white"}} />}
   onClick={saveHandler}
 >
   Save

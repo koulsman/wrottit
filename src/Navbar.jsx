@@ -19,7 +19,8 @@ import {
 import homeLogo from "../src/images/home.svg"
 import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './Navbar.module.css';
-import { useNavigate} from 'react-router-dom'
+import { useNavigate} from 'react-router-dom';
+import { useEffect } from 'react';
 
 // const data = [
   
@@ -32,6 +33,15 @@ import { useNavigate} from 'react-router-dom'
 
 export function Navbar() {
   const [active, setActive] = useState('Billing');
+  const [isMobile,setIsMobile] = useState(false);
+
+  function handleResize() {
+    {window.innerWidth < 720 ? setIsMobile(true) : setIsMobile(false)}
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize)
+  })
   const navigate = useNavigate()
 
   function aboutHandler() {
@@ -40,6 +50,8 @@ export function Navbar() {
   function homeHandler() {
     navigate('/')
   }
+
+  
   // const links = data.map((item) => (
   //   <a
   //     className={classes.link}
@@ -55,9 +67,11 @@ export function Navbar() {
   //     <span>{item.label}</span>
   //   </a>
   // ));
-
+  
   return (
-    <nav className={classes.navbar}>
+    
+    <nav className={classes.navbar} style={{    position: "sticky",
+      top: "17em"}}>
       <div className={classes.navbarMain}>
         
       
@@ -65,19 +79,19 @@ export function Navbar() {
           
       <a href="#" className={classes.link} onClick={(event) => homeHandler()}>
         <IconHome className={classes.linkIcon} stroke={1.5} />
-        <span>Home</span>
+        {isMobile=== false && <span>Home</span>}
       </a> 
       <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
         <IconCircleArrowUp className={classes.linkIcon} stroke={1.5} />
-        <span>Top Posts</span>
+        {isMobile=== false && <span>Top Posts</span>}
       </a> 
       <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
         <IconLayoutGrid className={classes.linkIcon} stroke={1.5} />
-        <span>Communities</span>
+        {isMobile=== false && <span>Communities</span>}
       </a> 
       <a href="#" className={classes.link} onClick={aboutHandler}>
         <IconInfoCircle className={classes.linkIcon} stroke={1.5} />
-        <span>About Wrottit</span>
+        {isMobile=== false && <span>About Wrottit</span>}
       </a> 
     </div>
     

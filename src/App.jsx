@@ -44,6 +44,7 @@ const [sortedPosts, setSortedPosts] = useState([]);
   const dark = colorScheme === "dark";
   const [postsDirection,setPostsDirection] = useState("newest");
   const [isFetching,setIsFetching] = useState(false);
+  const [isMobile,setIsMobile] = useState(false)
 
   function postsDirectionHandler(direction) {
     setPostsDirection(direction);
@@ -73,11 +74,21 @@ const [sortedPosts, setSortedPosts] = useState([]);
   useEffect(() => {
     handlePosts();
   }, []);
+  
+   function handleResize() {
+    {window.innerWidth < 720 ? setIsMobile(true) : setIsMobile(false)}
+   }
 
+   useEffect(() => {
+    window.addEventListener("resize", handleResize)
+   })
   return (
     <Router>
       <div className="App">
-        <header>
+        <header style={{    position: "sticky",
+    top: 0,
+    zIndex: 500,
+    background: "#282c34"}}>
           {/* <Routes>
             <Route
               path="/"
@@ -93,7 +104,7 @@ const [sortedPosts, setSortedPosts] = useState([]);
        
           </Routes> */}
 
-          <Grid>
+          <Grid >
             <Grid.Col
               span="auto"
               style={{
@@ -103,15 +114,17 @@ const [sortedPosts, setSortedPosts] = useState([]);
                 height: "4em",
                 alignItems: "center",
                 justifyContent: "flex-start",
+                
               }}
             >
               <button
                 onClick={toggleColorScheme}
                 title="Toggle color scheme"
                 style={{
-                  width: "4em",
-                  height: "4em",
+                  width: "3em",
+                  height: "3em",
                   display: "flex",
+                  
                   alignItems: "center",
                   justifyContent: "center",
                   border: dark ? "0.1em solid white" : "0.1em solid black",
@@ -151,8 +164,8 @@ const [sortedPosts, setSortedPosts] = useState([]);
               path="/"
               element={
                 <Grid>
-                  <Grid.Col span="auto">
-                    <Navbar />
+                  <Grid.Col span= "auto" >
+                    <Navbar style={{position: "sticky"}} />
                   </Grid.Col>
                   <Grid.Col span="auto">
                     <CreatePost />

@@ -25,7 +25,7 @@ useEffect(() => {
   const icon = <IconComponents style={{ width: rem(6), height: rem(6) }} />;
   return (
     <>
-      <section style={{display: "flex",flexDirection: "column",padding: "2em"}} >
+      <section style={{display: "flex",flexDirection: "column"}} >
       {/* {searchbarClicked === true ?
       <div>
       <SearchbarIndicator/>
