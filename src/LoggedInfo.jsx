@@ -4,7 +4,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { Drawer, Button , Tooltip, NavLink} from '@mantine/core';
 import { Group, Avatar, Text, Accordion } from '@mantine/core';
 import { useAtom } from "jotai";
-import { isLoggedInAtom,loggedUserAtom } from "./isLoggedIn";
+import { isLoggedInAtom,loggedUserAtom } from "./Header/isLoggedIn";
 import { ColorSwatch, Indicator, Divider} from '@mantine/core';
 // import { Navigate } from "react-router-dom";
 import {useNavigate} from "react-router-dom";
@@ -78,7 +78,7 @@ export default function LoggedInfo({name,uid, status}) {
 
     return (
         <>
-          <Drawer position="right" opened={opened}  onClose={close} >
+          <Drawer position="right" opened={opened}  onClose={close} style={{zIndex: 10}}>
             {/* Drawer content */}
                 {userImage}
                 Name : {name}

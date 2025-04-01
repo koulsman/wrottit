@@ -12,7 +12,7 @@ import { useState } from "react";
 import { useAtom } from "jotai";
 // export const isLoggedInAtom = atomWithStorage('isLoggedIn', false);
 // export const loggedUserAtom = atomWithStorage('loggedUser', '');
-import { loggedUserAtom } from "./isLoggedIn";
+import { loggedUserAtom } from "./Header/isLoggedIn";
 export default function ChangeUserImage() {
   const [loggedUser,setLoggedUser] = useAtom(loggedUserAtom)
   const userImagesArray = [

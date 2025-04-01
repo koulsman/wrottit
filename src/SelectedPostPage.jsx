@@ -27,7 +27,7 @@ import {
   IconArrowsLeftRight,
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
-import { isLoggedInAtom, loggedUserAtom } from "./isLoggedIn";
+import { isLoggedInAtom, loggedUserAtom } from "./Header/isLoggedIn";
 import { Navbar } from "./Navbar";
 import NoComments from "./NoComments";
 import GearSpinner from "../src/images/gear-spinner.svg"

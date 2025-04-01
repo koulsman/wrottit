@@ -1,5 +1,5 @@
 import { Tooltip } from "@mantine/core";
-import wrot from "./images/wrot-logo-Photoroom.png-Photoroom.png";
+import wrot from "../images/wrot-logo-Photoroom.png-Photoroom.png";
 
 export default function Wrot() {
     const wrotSayings = ["I don't know if I'm extremely sensitive or life is unbearable","It's nice to see you!",

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { Modal, Button, Tooltip, Divider } from "@mantine/core";
-import Facebook from "./images/facebook-icon.svg";
-import Twitter from "./images/twitter-icon.svg";
-import Google from "./images/google-icon.svg";
+import Facebook from "../images/facebook-icon.svg";
+import Twitter from "../images/twitter-icon.svg";
+import Google from "../images/google-icon.svg";
 import { Signup } from "./Signup";
 import axios from "axios";
-import LoggedInfo from "./LoggedInfo";
+import LoggedInfo from "../LoggedInfo";
 import { isLoggedInAtom, loggedUserAtom } from "./isLoggedIn";
 import { useAtom } from "jotai";
 import bcrypt from "bcryptjs";
@@ -84,7 +84,7 @@ export function Login() {
         </div>
       </Modal>
       {isLoggedIn ? (
-        <LoggedInfo name={loggedUser?.name} uid={loggedUser?._id} status={isLoggedIn} />
+        <LoggedInfo style={{zIndex: 500}} name={loggedUser?.name} uid={loggedUser?._id} status={isLoggedIn} />
       ) : (
         <Button onClick={open}>Login</Button>
       )}

@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { Modal, Button, Tooltip, Divider, Checkbox, Flex } from "@mantine/core";
-import Facebook from "./images/facebook-icon.svg";
-import Twitter from "./images/twitter-icon.svg";
-import Google from "./images/google-icon.svg";
+import Facebook from "../images/facebook-icon.svg";
+import Twitter from "../images/twitter-icon.svg";
+import Google from "../images/google-icon.svg";
 import axios from "axios";
-import { isLoggedInAtom, loggedUserAtom } from "./isLoggedIn";
+import { isLoggedInAtom, loggedUserAtom } from "../Header/isLoggedIn";
 import { useAtom } from "jotai";
 import bcrypt from "bcryptjs";
-import blackUserImage from "./images/UserImage/black.svg"
-import blueUserImage from "./images/UserImage/blue.svg"
-import burgundyUserImage from "./images/UserImage/burgundy.svg"
-import limeUserImage from "./images/UserImage/lime.svg"
-import orangeUserImage from "./images/UserImage/orange.svg"
-import pinkUserImage from "./images/UserImage/pink.svg"
-import spiralUserImage from "./images/UserImage/spiral.svg"
+import blackUserImage from "../images/UserImage/black.svg"
+import blueUserImage from "../images/UserImage/blue.svg"
+import burgundyUserImage from "../images/UserImage/burgundy.svg"
+import limeUserImage from "../images/UserImage/lime.svg"
+import orangeUserImage from "../images/UserImage/orange.svg"
+import pinkUserImage from "../images/UserImage/pink.svg"
+import spiralUserImage from "../images/UserImage/spiral.svg"
 
 export function Signup() {
   const [opened, { open, close }] = useDisclosure(false);

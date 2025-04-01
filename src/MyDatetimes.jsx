@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { isLoggedInAtom, loggedUserAtom } from "./isLoggedIn";
+import { isLoggedInAtom, loggedUserAtom } from "./Header/isLoggedIn";
 import timeseries from "./timeseries.json";
 import DatePicker from "./DatePicker";
 import { Table } from '@mantine/core';

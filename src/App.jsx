@@ -11,13 +11,13 @@ import {
 } from "@mantine/core";
 import lightSwitchOff from "./images/light-switch-off-svgrepo-com.svg";
 import lightSwitchOn from "./images/light-switch-on-svgrepo-com.svg";
-import Wrot from "./Wrot";
+import Wrot from "./Header/Wrot";
 import wrottit from "./images/wrottit-logo.PNG";
-import { Login } from "./Login";
+import { Login } from "./Header/Login";
 import { Navbar } from "./Navbar";
-import SearchBar from "./Searchbar";
+import SearchBar from "./Header/Searchbar";
 import CreatePost from "./CreatePost";
-import { isLoggedInAtom, loggedUserAtom } from "./isLoggedIn";
+import { isLoggedInAtom, loggedUserAtom } from "./Header/isLoggedIn";
 import { useAtom } from "jotai";
 import "@mantine/tiptap/styles.css";
 import PostCard from "./PostCard";
@@ -31,7 +31,7 @@ import MyPosts from "./MyPosts";
 import MyComments from "./MyComments";
 import '@mantine/dates/styles.css';
 import MyDatetimes from "./MyDatetimes";
-import About from "./About";
+import About from "./Header/About";
 import ChangeUserImage from "./ChangeUserImage";
 import GearSpinner from "../src/images/gear-spinner.svg"
 

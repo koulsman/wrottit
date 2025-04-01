@@ -1,4 +1,4 @@
-import { isLoggedInAtom, loggedUserAtom } from "./isLoggedIn";
+import { isLoggedInAtom, loggedUserAtom } from "./Header/isLoggedIn";
 import { Grid } from "@mantine/core";
 import { Navbar } from "./Navbar";
 import { useAtom } from "jotai";
