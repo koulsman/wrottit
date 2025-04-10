@@ -87,7 +87,7 @@ const [sortedPosts, setSortedPosts] = useState([]);
       <div className="App">
         <header style={{    position: "sticky",
     top: 0,
-    zIndex: 500,
+    zIndex: 9,
     background: "#282c34"}}>
           {/* <Routes>
             <Route
@@ -172,7 +172,7 @@ const [sortedPosts, setSortedPosts] = useState([]);
                     <div style={{display: "flex", justifyContent: "flex-start"}}>
                     <Menu shadow="md" width={200}>
                       <Menu.Target>
-                        <Button>Sort By</Button>
+                        <Button style= {{marginTop: "1em"}}>Sort By</Button>
                       </Menu.Target>
 
                       <Menu.Dropdown>

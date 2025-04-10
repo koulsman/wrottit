@@ -89,7 +89,9 @@ function CreatePost() {
       document.removeEventListener("mousedown", handleCloseNewPost);
     };
   }, []);
-
+  async function handleImageUpload() {
+    console.log(images)
+  }
   async function submitPost() {
     if (!title || !community || (!content && images.length === 0)) {
       alert("Please fill in all required fields (title, community, and either content or an image).");
@@ -111,8 +113,9 @@ function CreatePost() {
   
       images.forEach((image) => {
         formData.append("images", image); // Appends images
+        
       });
-  
+      const cloudinaryResponse = await axios.post("cloudinary://238832425628676:q2qEiXD1AnxixxgdHhvvqoBRRcA@ddakpw9jf",formData);
       const response = await axios.post("http://localhost:3002/posts", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -161,8 +164,9 @@ function CreatePost() {
                       backgroundColor: "#E5E4E2",
                       marginBottom: "1em",
                       width: "15em",
-                      height: "3em",
+                      height: "4em",
                       borderRadius: "0.5em",
+                      textAlign: "start"
                     }}
                     ref={communityRef}
                     onClick={handleCommunity}
@@ -268,7 +272,7 @@ function CreatePost() {
                     alignItems: "flexEnd",
                   }}
                 >
-                  <Button onClick={submitPost}>Post</Button>
+                  <Button onClick={images.length > 0 ? handleImageUpload : submitPost}>Post</Button>
                 </div>
               </div>
             </div>

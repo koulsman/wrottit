@@ -78,7 +78,7 @@ export default function LoggedInfo({name,uid, status}) {
 
     return (
         <>
-          <Drawer position="right" opened={opened}  onClose={close} style={{zIndex: 10}}>
+          <Drawer position="right" opened={opened}  onClose={close}  style={{zIndex: 10}}>
             {/* Drawer content */}
                 {userImage}
                 Name : {name}
@@ -101,7 +101,7 @@ export default function LoggedInfo({name,uid, status}) {
           </Drawer>
           <Tooltip label="Open Profile">
           {/* <Button onClick={open}>{name}</Button> */}
-          <Indicator color="lime" onClick={open}>
+          <Indicator color="lime" onClick={opened? close : open}>
       <Avatar
         size="lg"
         radius="sm"

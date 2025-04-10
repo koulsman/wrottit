@@ -102,9 +102,9 @@ function SelectedPostPage() {
   return (
     <div>
       <Grid>
-        <Grid.Col span="auto">
-          <Navbar />
-        </Grid.Col>
+        <Grid.Col span= "auto" >
+                            <Navbar style={{position: "sticky"}} />
+                          </Grid.Col>
         <Grid.Col span="auto">
           {post ? (
             <PostCard
@@ -123,7 +123,7 @@ function SelectedPostPage() {
           )}
           <Divider my="md" />
       
-          <Grid>
+          
             <Grid.Col span={9}>
               <TextInput
                 radius="xl"
@@ -132,7 +132,7 @@ function SelectedPostPage() {
                 onChange={(event) => setComment(event.currentTarget.value)}
               />
             </Grid.Col>
-            <Grid.Col span={1}>
+            <Grid.Col span="auto">
               {isLoggedIn ? (
                 <Button onClick={submitComment}>Post comment</Button>
               ) : (
@@ -143,9 +143,9 @@ function SelectedPostPage() {
 
               
             </Grid.Col>
-          </Grid>
-          <Grid>
-            <Grid.Col span={1}>
+         
+          
+            <Grid.Col span="auto">
             {returnedComments.length > 0 &&
             <Menu shadow="md" width={200}>
            
@@ -168,7 +168,7 @@ function SelectedPostPage() {
               </Menu>
             }
             </Grid.Col>
-          </Grid>
+          
 
           <div style={{ display: "flex", flexDirection: commentsDirection }}>
             {isFetching  &&  <img src={GearSpinner} style={{height: "10em", width: "10em", margin: "auto"}}></img>}
