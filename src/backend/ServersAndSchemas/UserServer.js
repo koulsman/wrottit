@@ -63,6 +63,25 @@ app.post('/users/:uid/commented', async (req,res) => {
     res.status(500).send({ message: 'Internal server error' });
   }
 })
+app.post('/users/:uid/posts', async (req,res) => {
+  const { uid } = req.params;
+  const { id } = req.body;
+
+  try {
+    const user = await User.findByIdAndUpdate(
+      uid,
+      { $push: { posts: { id } } }, 
+      { new: true } 
+    );
+    if (!user) {
+      return res.status(404).send({ message: 'user not found' });
+    }
+    res.status(200).send(user); // Send updated post
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: 'Internal server error' });
+  }
+})
 async function getUser(req, res, next) {
   let user;
   try {

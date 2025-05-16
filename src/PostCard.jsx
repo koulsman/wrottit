@@ -24,6 +24,7 @@ export default function PostCard({ postid, community, title, username, content, 
 
   async function saveHandler() {
       setSavedPost(!savedPost)
+      
   }
  
   function handleImageModal(image) {

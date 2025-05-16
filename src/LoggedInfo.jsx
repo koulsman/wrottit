@@ -55,6 +55,12 @@ export default function LoggedInfo({name,uid, status}) {
   function changeUserImage() {
     navigate(`/${loggedUser?._id}/ChangeUserImage`)
   }
+
+  function communityCreatorHandler() {
+    navigate(`/${loggedUser?._id}/CommunityCreator`)
+  }
+
+
   
     async function handlePosts() {
       console.log("!!!!!!!!!!!!!!UID:", uid);
@@ -89,12 +95,13 @@ export default function LoggedInfo({name,uid, status}) {
                 <ColorSwatch color="#00FF00" style={{display: "flex", alignItems: "flex-end", width: "0.5em",marginRight: "1em"}}/> </div> : <div>status inactive</div>}
                 
                 <Divider my="md" />
-                <NavLink label="my likes" onClick={handleMyLikes}></NavLink>
-                <NavLink label="my posts" onClick={handleMyPosts}></NavLink>
-                <NavLink label="my comments" onClick={handleMyComments}></NavLink>
-                <NavLink label="my datetimes" onClick={handleMyDatetimes}></NavLink>
-                <NavLink label="my datetimes" onClick={handleSavedPosts}></NavLink>
+                <NavLink label="My Likes" onClick={handleMyLikes}></NavLink>
+                <NavLink label="My Posts" onClick={handleMyPosts}></NavLink>
+                <NavLink label="My Comments" onClick={handleMyComments}></NavLink>
+                {/* <NavLink label="my datetimes" onClick={handleMyDatetimes}></NavLink>
+                <NavLink label="my datetimes" onClick={handleSavedPosts}></NavLink> */}
                 <NavLink label="Change User Image" onClick={changeUserImage}></NavLink>
+                <NavLink label="Community Creator" onClick={communityCreatorHandler}></NavLink>
                 <Divider my="md" />
                 <Button onClick={handleLogOut}>Logout</Button>
                 

@@ -6,8 +6,9 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   userImage: {type: String, required: false},
-  liked: {type: Array,reqyuired: false },
-  commented: {type: Array, required: false}
+  liked: {type: Array,required: false },
+  commented: {type: Array, required: false},
+  posts: {type: Array, required: false}
 }, { 
   collection: 'users' // Specify the collection name explicitly
 });

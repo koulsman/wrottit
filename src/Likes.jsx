@@ -23,8 +23,8 @@ export default function Likes({votes,postid}) {
             if(likes <= votes) {
                 setLikes((likes) => likes + 1);
                 setPostLiked(true);
-                setPostDisliked(false)
-               
+                setPostDisliked(false);
+               //update likes
                 try {
                     const response = await axios.post(`http://localhost:3002/${postid}/upvotes`, {
                         likes,
@@ -34,9 +34,32 @@ export default function Likes({votes,postid}) {
                 } catch (error) {
                     alert(`Error: ${error.response?.data?.message || error.message}`);
                 }
+                //update posts liked by user
+                try{
+                    // const response = await axios.post(``)
+                }
+                catch(error) {
+
+                }
                 
             }
             
+        }
+        else if(loggedUser && postLiked === true) {
+            setLikes((likes) => likes - 1);
+            setPostLiked(false);
+
+                 try {
+                    const response = await axios.post(`http://localhost:3002/${postid}/upvotes`, {
+                        likes,
+                    });
+                    const newLikes = response.data;
+                    console.log(newLikes);
+                } catch (error) {
+                    alert(`Error: ${error.response?.data?.message || error.message}`);
+                }
+                
+        
         }
         
     }
