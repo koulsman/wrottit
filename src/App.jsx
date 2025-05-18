@@ -33,6 +33,7 @@ import '@mantine/dates/styles.css';
 import MyDatetimes from "./MyDatetimes";
 import About from "./Header/About";
 import ChangeUserImage from "./ChangeUserImage";
+import Communities from "./Communities";
 import {CommunityCreator} from "./CommunityCreator";
 import GearSpinner from "../src/images/gear-spinner.svg"
 
@@ -282,6 +283,7 @@ const [sortedPosts, setSortedPosts] = useState([]);
             <Route path="/:id/ChangeUserImage" element={<ChangeUserImage />} />
             <Route path="/myDatetimes" element={<MyDatetimes />} />
             <Route path="/About" element={<About />} />
+            <Route path="/Communities" element={<Communities />} />
             <Route path="/:id/CommunityCreator" element={<CommunityCreator />} />
           </Routes>
         </main>

@@ -50,6 +50,9 @@ export function Navbar() {
   function homeHandler() {
     navigate('/')
   }
+  function communityHandler() {
+    navigate('/Communities')
+  }
 
   
   // const links = data.map((item) => (
@@ -85,7 +88,7 @@ export function Navbar() {
         <IconCircleArrowUp className={classes.linkIcon} stroke={1.5} />
         {isMobile=== false && <span>Top Posts</span>}
       </a> 
-      <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
+      <a href="#" className={classes.link} onClick={communityHandler}>
         <IconLayoutGrid className={classes.linkIcon} stroke={1.5} />
         {isMobile=== false && <span>Communities</span>}
       </a> 
@@ -93,6 +96,7 @@ export function Navbar() {
         <IconInfoCircle className={classes.linkIcon} stroke={1.5} />
         {isMobile=== false && <span>About Wrottit</span>}
       </a> 
+      
     </div>
     
       {/* window.location.reload(); */}

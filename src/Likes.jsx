@@ -35,12 +35,12 @@ export default function Likes({votes,postid}) {
                     alert(`Error: ${error.response?.data?.message || error.message}`);
                 }
                 //update posts liked by user
-                try{
-                    // const response = await axios.post(``)
-                }
-                catch(error) {
+                // try{
+                //     const response = await axios.post(`http://localhost:3002/${postid}/upvotes`)
+                // }
+                // catch(error) {
 
-                }
+                // }
                 
             }
             
