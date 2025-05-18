@@ -1,4 +1,4 @@
-import { TextInput, Textarea, Button } from "@mantine/core";
+import { TextInput, Textarea, Button, Tooltip } from "@mantine/core";
 import { useReducer, useState } from "react";
 import { Card, Image, Text } from "@mantine/core";
 
@@ -30,6 +30,7 @@ export function CommunityCreator() {
         return { page: state.page - 1 };
     }
   }
+
   return (
     <div>
       <Grid>
@@ -48,6 +49,7 @@ export function CommunityCreator() {
                 </p>
                 <div
                   style={{
+                    
                     display: "flex",
                     justifyContent: "center",
                     flexDirection: "column",
@@ -55,7 +57,7 @@ export function CommunityCreator() {
                   }}
                 >
                   <TextInput
-                    style={{ width: "20em" }}
+                    style={{ width: "20em", marginTop: "1em" }}
                     label="Community Name"
                     placeholder="example: Rock Music"
                     description="Add a name for your community"
@@ -66,7 +68,7 @@ export function CommunityCreator() {
                     withAsterisk
                   />
                   <Textarea
-                    style={{ width: "20em", height: "14em" }}
+                    style={{ width: "20em", height: "14em", marginTop: "1em"}}
                     label="Community Description"
                     placeholder="example: This community is about Rock Music, where we share are favorite rock tracks and artists"
                     description="Add a description for your community"
@@ -91,6 +93,7 @@ export function CommunityCreator() {
                 </p>
 
                 <FileInput
+                  style={{width: "20em", margin: "auto"}}
                   leftSection={
                     <img
                       src={DefaultImage}
@@ -110,6 +113,7 @@ export function CommunityCreator() {
                 />
 
                 <FileInput
+                style={{width: "20em", margin: "auto"}}
                   leftSection={
                     <img
                       src={DefaultImage}
@@ -184,13 +188,26 @@ export function CommunityCreator() {
                   style={{ width: "3em" }}
                 />
               </Button>
-              {state.page !== 3 ? (
-                <Button onClick={() => dispatch({ type: "increment" })}>
-                  <img src={NextCard} alt="Next" style={{ width: "3em" }} />
-                </Button>
-              ) : (
-                <Button>Create Community! </Button>
-              )}
+
+              {(() => {
+                if (state.page !== 3) {
+                  return (
+                    <Button onClick={() => dispatch({ type: "increment" })}>
+                      <img src={NextCard} alt="Next" style={{ width: "3em" }} />
+                    </Button>
+                  );
+                } else {
+                  return communityName && communityDescription ? (
+                    <Button>Create Community!</Button>
+                  ) : (
+                    <Tooltip label="Please fill community name and community description to create your community!">
+                    <Button disabled>
+                      Create Community!
+                    </Button>
+                    </Tooltip>
+                  );
+                }
+              })()}
             </div>
           </div>
         </Grid.Col>
