@@ -3,12 +3,13 @@ import { useReducer, useState } from "react";
 import { Card, Image, Text } from "@mantine/core";
 
 import { Grid } from "@mantine/core";
-import { Navbar } from "./Navbar";
-import NextCard from "./images/next.svg";
-import PreviousCard from "./images/previous.svg";
-import DefaultImage from "./images/imageDefault.svg";
+import { Navbar } from "../NavBar/Navbar";
+import NextCard from "../images/next.svg";
+import PreviousCard from "../images/previous.svg";
+import DefaultImage from "../images/imageDefault.svg";
 import { FileInput } from "@mantine/core";
 import CommunityPreview from "./CommunityPreview";
+import axios from "axios";
 
 export function CommunityCreator() {
   const initialState = { page: 1 };
@@ -18,6 +19,9 @@ export function CommunityCreator() {
   const [communityRules, setCommunityRules] = useState("");
   const [communityBannerImage, setCommunityBannerImage] = useState(null);
   const [communityIconImage, setCommunityIconImage] = useState(null);
+
+  const [iconForCloudinary,setIconForCloudinary] = useState("");
+  const [bannerForCloudinary,setBannerForCloudinary] = useState("");
   const ImageIcon = <img src={DefaultImage} size={18} stroke={1.5} />;
 
   function reducer(state, action) {
@@ -31,13 +35,50 @@ export function CommunityCreator() {
     }
   }
 
+const uploadToCloudinary = async (file) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", "wrottit"); // replace with your actual upload preset name
+
+  const res = await axios.post(
+    "https://api.cloudinary.com/v1_1/ddakpw9jf/image/upload", // use your actual Cloudinary cloud name here
+    formData
+  );
+  return res.data.secure_url; // this is what you want to store in MongoDB
+};
+  async function communityCreatorHandler() {
+    try {
+      let bannerUrl = "";
+      let iconUrl = "";
+
+      if (communityBannerImage) {
+      bannerUrl = await uploadToCloudinary(bannerForCloudinary);
+    }
+
+    if (communityIconImage) {
+      iconUrl = await uploadToCloudinary(iconForCloudinary);
+    }
+     const response = await axios.post("http://localhost:3003/communities", {
+      name: communityName,
+      description: communityDescription,
+      iconImage: iconUrl,
+      bannerImage: bannerUrl,
+
+     })
+     console.log("Created community:", response.data);
+    }
+    catch (error) {
+          console.log(error)
+    }
+  }
+
   return (
     <div>
       <Grid>
         <Grid.Col span={3}>
           <Navbar />
         </Grid.Col>
-        <Grid.Col span="auto">
+        <Grid.Col span = {window.innerWidth < 720 ?  "7": "auto"}>
           <div>
             {state.page === 1 && (
               <div id="firstPage">
@@ -93,7 +134,7 @@ export function CommunityCreator() {
                 </p>
 
                 <FileInput
-                  style={{width: "20em", margin: "auto"}}
+                  style={{width: "10em", margin: "auto"}}
                   leftSection={
                     <img
                       src={DefaultImage}
@@ -108,12 +149,13 @@ export function CommunityCreator() {
                   onChange={(file) => {
                     if (file) {
                       setCommunityBannerImage(URL.createObjectURL(file));
+                      setBannerForCloudinary(file)
                     }
                   }}
                 />
 
                 <FileInput
-                style={{width: "20em", margin: "auto"}}
+                style={{width: "10em", margin: "auto"}}
                   leftSection={
                     <img
                       src={DefaultImage}
@@ -128,6 +170,7 @@ export function CommunityCreator() {
                   onChange={(file) => {
                     if (file) {
                       setCommunityIconImage(URL.createObjectURL(file));
+                      setIconForCloudinary(file);
                     }
                   }}
                 />
@@ -198,7 +241,7 @@ export function CommunityCreator() {
                   );
                 } else {
                   return communityName && communityDescription ? (
-                    <Button>Create Community!</Button>
+                    <Button onClick={(communityName,communityDescription) => communityCreatorHandler()}>Create Community!</Button>
                   ) : (
                     <Tooltip label="Please fill community name and community description to create your community!">
                     <Button disabled>

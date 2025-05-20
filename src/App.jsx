@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import MyLikes from "./MyLikes";
+import MyLikes from "./LoggedInfo/MyLikes";
 import "./App.css";
 import {
   Divider,
@@ -14,27 +14,27 @@ import lightSwitchOn from "./images/light-switch-on-svgrepo-com.svg";
 import Wrot from "./Header/Wrot";
 import wrottit from "./images/wrottit-logo.PNG";
 import { Login } from "./Header/Login";
-import { Navbar } from "./Navbar";
+import { Navbar } from "./NavBar/Navbar";
 import SearchBar from "./Header/Searchbar";
-import CreatePost from "./CreatePost";
+import CreatePost from "./Post Creation/CreatePost";
 import { isLoggedInAtom, loggedUserAtom } from "./Header/isLoggedIn";
 import { useAtom } from "jotai";
 import "@mantine/tiptap/styles.css";
-import PostCard from "./PostCard";
+import PostCard from "./PostPage/PostCard";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { NavLink } from "react-router";
-import PostPage from "./SelectedPostPage";
+import PostPage from "./PostPage/SelectedPostPage";
 import SearchDemo from "./SearchDemo";
-import MyPosts from "./MyPosts";
-import MyComments from "./MyComments";
+import MyPosts from "./LoggedInfo/MyPosts";
+import MyComments from "./LoggedInfo/MyComments";
 import '@mantine/dates/styles.css';
 import MyDatetimes from "./MyDatetimes";
-import About from "./Header/About";
+import About from "./NavBar/About";
 import ChangeUserImage from "./ChangeUserImage";
-import Communities from "./Communities";
-import {CommunityCreator} from "./CommunityCreator";
+import Communities from "./NavBar/Communities";
+import {CommunityCreator} from "./LoggedInfo/CommunityCreator";
 import GearSpinner from "../src/images/gear-spinner.svg"
 
 function App() {

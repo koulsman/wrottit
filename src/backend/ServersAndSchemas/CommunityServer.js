@@ -33,11 +33,12 @@ mongoose.connect(uri)
 app.post('/communities', async (req, res) => {
     const community = new Community({
       name: req.body.name,
-      cid: req.body.cid,
+      
       description: req.body.description,
+      rules: req.body.rules,
       isPrivate: req.body.isPrivate,
-      moderators: req.body.moderators,
-      mainImage: req.body.mainImage,
+      // moderators: req.body.moderators,
+      iconImage: req.body.iconImage,
       bannerImage: req.body.bannerImage, 
       members: req.body.members
     });

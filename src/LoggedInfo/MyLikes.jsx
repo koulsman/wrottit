@@ -1,11 +1,11 @@
-import { isLoggedInAtom, loggedUserAtom } from "./Header/isLoggedIn";
+import { isLoggedInAtom, loggedUserAtom } from "../Header/isLoggedIn";
 import { Grid } from "@mantine/core";
-import { Navbar } from "./Navbar";
+import { Navbar } from "../NavBar/Navbar";
 import { useAtom } from "jotai";
 import { useState, useEffect } from "react";
-import PostCard from "./PostCard";
+import PostCard from "../PostPage/PostCard";
 import axios from "axios";
-export default function MyPosts() {
+export default function MyLikes() {
       const [isLoggedIn] = useAtom(isLoggedInAtom);
       const [loggedUser] = useAtom(loggedUserAtom);
       const [posts, setPosts] = useState([]);
@@ -28,10 +28,10 @@ export default function MyPosts() {
   return (
     <div>
     <Grid>
-      <Grid.Col span="auto">
-                <Navbar style={{position: "sticky"}} />
+      <Grid.Col span="4">
+                <Navbar />
               </Grid.Col>
-       <Grid.Col span="auto">
+       <Grid.Col span="4">
        {posts.map((post, index) => (
         // {posts.filter().map((post, index) => (
         <PostCard

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Button, Textarea, Tabs } from "@mantine/core";
 import { useAtom } from "jotai";
-import { isLoggedInAtom, loggedUserAtom } from "./Header/isLoggedIn";
+import { isLoggedInAtom, loggedUserAtom } from "../Header/isLoggedIn";
 import axios from "axios";
 
 import { Group, Text, rem } from "@mantine/core";

@@ -1,5 +1,5 @@
-import Sad from './images/wrottit-sad-modified.png'
-import noComments from './images/Asset 1.svg'
+import Sad from '../images/wrottit-sad-modified.png'
+import noComments from '../images/Asset 1.svg'
 import { Grid } from '@mantine/core'
 import "./NoComments.css"
 export default function NoComments() {

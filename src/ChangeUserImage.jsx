@@ -6,7 +6,7 @@ import orangeUserImage from "./images/UserImage/orange.svg";
 import pinkUserImage from "./images/UserImage/pink.svg";
 import spiralUserImage from "./images/UserImage/spiral.svg";
 import { Avatar } from "@mantine/core";
-import { Navbar } from "./Navbar";
+import { Navbar } from "./NavBar/Navbar";
 import { Grid, GridCol } from "@mantine/core";
 import { useState } from "react";
 import { useAtom } from "jotai";

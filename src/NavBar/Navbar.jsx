@@ -16,7 +16,7 @@ import {
   IconLayoutGrid
 } from '@tabler/icons-react';
 
-import homeLogo from "../src/images/home.svg"
+import homeLogo from "../images/home.svg"
 import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './Navbar.module.css';
 import { useNavigate} from 'react-router-dom';
@@ -74,7 +74,7 @@ export function Navbar() {
   return (
     
     <nav className={classes.navbar} style={{    position: "sticky",
-      top: "17em"}}>
+      top: "17em", paddingLeft: "0"}}>
       <div className={classes.navbarMain}>
         
       

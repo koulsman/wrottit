@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createTheme, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
-import { Navbar } from './Navbar';
+import { Navbar } from './NavBar/Navbar';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import '@mantine/dropzone/styles.css';

@@ -1,5 +1,5 @@
 import "./Likes.css";
-import share from "./images/share.svg";
+import share from "../images/share.svg";
 import { Popover, Button, Text } from "@mantine/core";
 import {
   FacebookShareButton,
@@ -8,10 +8,10 @@ import {
   TwitterShareButton,
   EmailShareButton,
 } from "react-share";
-import FacebookIcon from "./images/facebook-icon.svg";
-import TwitterIcon from "./images/twitter-icon.svg";
+import FacebookIcon from "../images/facebook-icon.svg";
+import TwitterIcon from "../images/twitter-icon.svg";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import Copy from "./images/copy.svg";
+import Copy from "../images/copy.svg";
 
 export default function Share({ postid }) {
   const urlForCopy = `http://localhost:3000/post/${postid}`;

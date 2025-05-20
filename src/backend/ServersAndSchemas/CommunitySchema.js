@@ -3,14 +3,15 @@ const { Schema } = mongoose;
 
 const communitySchema = new Schema({
     name: {type: String, required: true},
-    cid: {type: String, required: true},
-    description: {type: String, required: false},
+   
+    description: {type: String, required: true},
     isPrivate: {type: Boolean, default: false},
-    moderators: [{
-          id: {type: String, required: true},
-          name: {type: String, required: true}
-    }],
-    mainImage: { type: Array, required: false },
+    // moderators: [{
+    //       id: {type: String, required: true},
+    //       name: {type: String, required: true}
+    // }],
+    rules: {type: String, required: false},
+    iconImage: { type: Array, required: false },
     bannerImage: { type: Array, required: false }, 
     members: {type: Number, default: 1}
 

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Like from "./images/like.svg";
-import Dislike from "./images/dislike.svg";
+import Like from "../images/like.svg";
+import Dislike from "../images/dislike.svg";
 import './Likes.css';
-import { isLoggedInAtom, loggedUserAtom } from './Header/isLoggedIn';
+import { isLoggedInAtom, loggedUserAtom } from '../Header/isLoggedIn';
 import { useAtom } from 'jotai';
 import axios from 'axios'
 

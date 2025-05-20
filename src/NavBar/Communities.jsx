@@ -1,4 +1,4 @@
-import SearchBar from "./Header/Searchbar";
+import SearchBar from "../Header/Searchbar";
 
 export default function Communities() {
     return (

@@ -6,7 +6,7 @@ import Twitter from "../images/twitter-icon.svg";
 import Google from "../images/google-icon.svg";
 import { Signup } from "./Signup";
 import axios from "axios";
-import LoggedInfo from "../LoggedInfo";
+import LoggedInfo from "../LoggedInfo/LoggedInfo";
 import { isLoggedInAtom, loggedUserAtom } from "./isLoggedIn";
 import { useAtom } from "jotai";
 import bcrypt from "bcryptjs";

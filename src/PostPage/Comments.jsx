@@ -1,4 +1,4 @@
-import Chat from "./images/chat.svg"
+import Chat from "../images/chat.svg"
 import { useState, useEffect } from "react";
 import axios from "axios";
 

@@ -27,10 +27,10 @@ import {
   IconArrowsLeftRight,
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
-import { isLoggedInAtom, loggedUserAtom } from "./Header/isLoggedIn";
-import { Navbar } from "./Navbar";
+import { isLoggedInAtom, loggedUserAtom } from "../Header/isLoggedIn";
+import { Navbar } from "../NavBar/Navbar";
 import NoComments from "./NoComments";
-import GearSpinner from "../src/images/gear-spinner.svg"
+import GearSpinner from "../images/gear-spinner.svg"
 
 function SelectedPostPage() {
   const { id } = useParams();
