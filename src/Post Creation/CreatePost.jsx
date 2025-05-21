@@ -92,6 +92,18 @@ function CreatePost() {
   async function handleImageUpload() {
     console.log(images)
   }
+
+  const uploadToCloudinary = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "wrottit"); // replace with your actual upload preset name
+  
+    const res = await axios.post(
+      "https://api.cloudinary.com/v1_1/ddakpw9jf/image/upload", // use your actual Cloudinary cloud name here
+      formData
+    );
+    return res.data.secure_url; // this is what you want to store in MongoDB
+  };
   async function submitPost() {
     if (!title || !community || (!content && images.length === 0)) {
       alert("Please fill in all required fields (title, community, and either content or an image).");

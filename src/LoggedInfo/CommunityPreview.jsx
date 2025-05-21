@@ -1,10 +1,11 @@
 import { Card, Image, Text} from '@mantine/core';
-
+import NoBanner from '../images/NoBanner.png'
+import NoIcon from '../images/NoIcon.png'
 
 export default function CommunityPreview({communityName, communityDescription, communityIconImage, communityBannerImage}) {
 return (
     <Card
-    style={{width: "25em"}}
+    style={{width: "25em", margin: "auto"}}
       shadow="sm"
       padding="xl"
       component="a"
@@ -12,7 +13,7 @@ return (
     >
       <Card.Section>
         {!communityBannerImage ? <Image
-          src="https://images.unsplash.com/photo-1579227114347-15d08fc37cae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
+          src={NoBanner}
           h={160}
           alt="No way!"
         /> : 
@@ -36,6 +37,11 @@ return (
   background: "blue",
   overflow: "hidden" // Make sure image doesn't overflow the circle
 }}>
+  {!communityIconImage ? <Image
+          src={NoIcon}
+          h={160}
+          alt="No way!"
+        /> : 
   <Image
   
     src={communityIconImage}
@@ -46,7 +52,7 @@ return (
       objectFit: "cover",
       borderRadius: "50%",
     }}
-  />
+  />}
 </div>
 
  
