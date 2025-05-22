@@ -5,6 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+![NoBanner](https://github.com/user-attachments/assets/34a8d1c4-320f-4998-92cb-7c46d2a57def)
 
 ### `npm start`
 
