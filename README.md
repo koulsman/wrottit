@@ -1,6 +1,6 @@
 # WROTTIT
 # Welcome to Wrottit
-This project was created by me, Stauros Koulas, as a Reddit clone for the sole porpose of: let's waste blood,seat and tears trying to undestrand and work by creating by myself a project that was created by hundreds of developers. Why not?
+This project was created by me, Stauros Koulas, as a Reddit clone for the sole porpose of: let's waste blood,seat and tears trying to understand React by creating by myself a project that was made by hundreds of developers. After all, why not?
 
 ## Available Scripts
 
