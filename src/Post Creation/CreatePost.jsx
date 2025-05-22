@@ -26,6 +26,8 @@ function CreatePost() {
 
   const [uploading, setUploading] = useState(false);
 
+  const [imageTabSelected,setImageTabSelected] = useState(false)
+
   function handleImageDrop(files) {
     console.log("Dropped Files:", files);
     
@@ -105,39 +107,38 @@ function CreatePost() {
     return res.data.secure_url; // this is what you want to store in MongoDB
   };
   async function submitPost() {
-    if (!title || !community || (!content && images.length === 0)) {
-      alert("Please fill in all required fields (title, community, and either content or an image).");
-      return;
-    }
-  
-    try {
-      const fullDate = new Date();
-      const date = `${fullDate.getDate()}/${fullDate.getMonth() + 1}/${fullDate.getFullYear()}`;
-  
-      const formData = new FormData();
-      formData.append("uname", loggedUser?.name);
-      formData.append("uid", loggedUser?._id);
-      formData.append("title", title);
-      formData.append("community", community);
-      formData.append("content", content || ""); // Ensure content is always a string
-      formData.append("upvotes", 0);
-      formData.append("date", date);
-  
-      images.forEach((image) => {
-        formData.append("images", image); // Appends images
-        
-      });
-      const cloudinaryResponse = await axios.post("cloudinary://238832425628676:q2qEiXD1AnxixxgdHhvvqoBRRcA@ddakpw9jf",formData);
-      const response = await axios.post("http://localhost:3002/posts", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-  
-      setSubmittedPost(response.data);
-      window.location.reload();
-    } catch (error) {
-      console.error("Error posting:", error.response?.data || error.message);
-    }
+  if (!title || !community || (!content && images.length === 0)) {
+    alert("Please fill in all required fields (title, community, and either content or an image).");
+    return;
   }
+  
+
+  
+  try {
+    // Step 1: Upload all images to Cloudinary
+    const uploadedImageUrls = [];
+    for (const image of images) {
+      const url = await uploadToCloudinary(image);
+      uploadedImageUrls.push(url);
+    }
+
+  
+  
+
+    const response = await axios.post("http://localhost:3002/posts", {
+      title: title,
+      community: community, 
+      uid: loggedUser._id,
+      uname: loggedUser.name,
+      content: content || "",
+      images: uploadedImageUrls
+    });
+    console.log("Created post:", response.data);
+  } catch (error) {
+    console.error("Post creation error:", error);
+  }
+  
+}
   
 
   return (
@@ -284,7 +285,8 @@ function CreatePost() {
                     alignItems: "flexEnd",
                   }}
                 >
-                  <Button onClick={images.length > 0 ? handleImageUpload : submitPost}>Post</Button>
+                  {images.length > 0 ? <Button onClick={ submitPost}>Post</Button> : <Button disabled>Post</Button>}
+                  
                 </div>
               </div>
             </div>

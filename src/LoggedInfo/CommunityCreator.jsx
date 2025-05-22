@@ -98,7 +98,7 @@ const uploadToCloudinary = async (file) => {
                   }}
                 >
                   <TextInput
-                    style={{ width: "20em", marginTop: "1em" }}
+                    style={{ maxWidth: "20em", marginTop: "1em" }}
                     label="Community Name"
                     placeholder="example: Rock Music"
                     description="Add a name for your community"
@@ -109,7 +109,7 @@ const uploadToCloudinary = async (file) => {
                     withAsterisk
                   />
                   <Textarea
-                    style={{ width: "20em", height: "14em", marginTop: "1em"}}
+                    style={{ maxWidth: "20em", height: "14em", marginTop: "1em"}}
                     label="Community Description"
                     placeholder="example: This community is about Rock Music, where we share are favorite rock tracks and artists"
                     description="Add a description for your community"
@@ -198,7 +198,7 @@ const uploadToCloudinary = async (file) => {
                   community and have a shared spirit across it's members!
                 </p>
                 <Textarea
-                  style={{ width: "20em", height: "14em" }}
+                  style={{ maxWidth: "20em", height: "14em", margin: "auto" }}
                   label="Rules"
                   placeholder="example: No other music other than rock music"
                   description="Add your community rules"

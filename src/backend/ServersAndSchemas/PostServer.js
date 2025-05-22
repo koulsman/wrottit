@@ -34,27 +34,29 @@ mongoose.connect(uri)
   });
 
 // Handling post creation
-app.post("/posts", upload.array("images"), async (req, res) => {
-  const { title, community, uid, uname, date, content, upvotes } = req.body;
-  const images = req.files; // Retrieve images
+
+// app.post("/posts", upload.none(), async (req, res) => {
+  
+app.post("/posts", upload.none(), async (req, res) => {
+  
+
+  const post = new Post({
+    title: req.body.title,
+    community: req.body.community,
+    uid: req.body.uid,
+    uname: req.body.uname,
+    content: req.body.content,
+    upvotes: req.body.upvotes || 0,
+    date: 'date',
+    comments: [],
+    images: req.body.images,
+  });
 
   try {
-    const post = new Post({
-      title,
-      community,
-      uid,
-      uname,
-      date,
-      content,
-      upvotes,
-      comments: [], // Ensure comments is always initialized as an array
-      images: images.map(image => image.path), // Save image paths in the database
-    });
-
     const newPost = await post.save();
-    res.status(201).json({ message: "Post created successfully!", data: newPost });
+    res.status(201).json(newPost);
   } catch (err) {
-    console.error("Error saving post:", err.message);
+    console.error(err);
     res.status(400).json({ message: err.message });
   }
 });

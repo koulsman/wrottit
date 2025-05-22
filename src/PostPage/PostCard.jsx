@@ -145,12 +145,13 @@ export default function PostCard({
               }}
             >
               <Image
-                src={`http://localhost:3000/${images[0].replace(/\\/g, "/")}`}
+                src={images[0]}
                 key={images[0]}
                 radius="sm"
                 onClick={() => handleImageModal(images[0])}
                 style={{ objectFit: "cover", cursor: "pointer" }}
               />
+              
             </div>
           )}
 
@@ -170,7 +171,7 @@ export default function PostCard({
               }}
             >
               <Image
-                src={`http://localhost:3000/${images[0].replace(/\\/g, "/")}`}
+                src={images[0]}
                 key={images[0]}
                 radius="sm"
                 onClick={() => handleImageModal(images[0])}
@@ -183,7 +184,7 @@ export default function PostCard({
                 }}
               />
               <Image
-                src={`http://localhost:3000/${images[1].replace(/\\/g, "/")}`}
+                src={images[1]}
                 key={images[1]}
                 radius="sm"
                 onClick={() => handleImageModal(images[1])}
@@ -212,7 +213,7 @@ export default function PostCard({
               }}
             >
               <Image
-                src={`http://localhost:3000/${images[0].replace(/\\/g, "/")}`}
+                src={images[0]}
                 key={images[0]}
                 radius="sm"
                 onClick={() => handleImageModal(images[0])}
@@ -226,7 +227,7 @@ export default function PostCard({
               />
               <div>
                 <Image
-                  src={`http://localhost:3000/${images[1].replace(/\\/g, "/")}`}
+                  src={images[1]}
                   key={images[1]}
                   radius="sm"
                   onClick={() => handleImageModal(images[1])}
@@ -239,7 +240,7 @@ export default function PostCard({
                   }}
                 />
                 <Image
-                  src={`http://localhost:3000/${images[2].replace(/\\/g, "/")}`}
+                  src={images[2]}
                   key={images[2]}
                   radius="sm"
                   onClick={() => handleImageModal(images[2])}
@@ -270,7 +271,7 @@ export default function PostCard({
               }}
             >
               <Image
-                src={`http://localhost:3000/${images[0].replace(/\\/g, "/")}`}
+                src={images[0]}
                 key={images[0]}
                 radius="sm"
                 onClick={() => handleImageModal(images[0])}
@@ -284,7 +285,7 @@ export default function PostCard({
               />
               <div>
                 <Image
-                  src={`http://localhost:3000/${images[1].replace(/\\/g, "/")}`}
+                  src={images[1]}
                   key={images[1]}
                   radius="sm"
                   onClick={() => handleImageModal(images[1])}

@@ -42,7 +42,7 @@ function App() {
   const [loggedUser] = useAtom(loggedUserAtom);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const [posts, setPosts] = useState([]);
-const [sortedPosts, setSortedPosts] = useState([]);
+  const [sortedPosts, setSortedPosts] = useState([]);
   const dark = colorScheme === "dark";
   const [postsDirection,setPostsDirection] = useState("newest");
   const [isFetching,setIsFetching] = useState(false);
