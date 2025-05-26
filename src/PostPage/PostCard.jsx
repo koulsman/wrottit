@@ -19,6 +19,8 @@ import { useNavigate } from "react-router-dom";
 import { connectFirestoreEmulator } from "firebase/firestore";
 import Saved from "../images/savedpost.svg";
 import Unsaved from "../images/unsavedpost.svg";
+import { Carousel } from "@mantine/carousel";
+import useEmblaCarousel from "embla-carousel-react";
 
 export default function PostCard({
   postid,
@@ -35,6 +37,7 @@ export default function PostCard({
   const navigate = useNavigate("");
   const [savedPost, setSavedPost] = useState(false);
 
+  const [emblaRef] = useEmblaCarousel({ loop: true, align: "center" });
   console.log(typeof comments);
   const commentsCounter = Array.isArray(comments) ? comments.length : 0;
 
@@ -52,6 +55,11 @@ export default function PostCard({
     navigate(`/post/${postid}`);
   };
 
+  const demoimages = [
+    "https://picsum.photos/400/300?1",
+    "https://picsum.photos/400/300?2",
+    "https://picsum.photos/400/300?3",
+  ];
   return (
     <>
       <Card
@@ -120,191 +128,34 @@ export default function PostCard({
         </Card.Section>
 
         <Card.Section mt="sm" onClick={handleClick}>
-          {/* {Array.isArray(images) &&
-            images.map((image) => (
-              <div>
-              <Image
-                src={`http://localhost:3000/${image.replace(/\\/g, '/')}`}
-                key={image}
-                radius="sm"
-                onClick={() => handleImageModal(image)}
-              />
-              {images.length}
-              </div>
-            ))} */}
-
-          {Array.isArray(images) && images.length === 1 && (
-            <div
-              style={{
-                display: "flex",
-                margin: "auto",
-                justifyContent: "center",
-                width: "100%",
-                height: "15em",
-                border: "0.5em solid",
-              }}
-            >
-              <Image
-                src={images[0]}
-                key={images[0]}
-                radius="sm"
-                onClick={() => handleImageModal(images[0])}
-                style={{ objectFit: "cover", cursor: "pointer" }}
-              />
-              
-            </div>
-          )}
-
-          {Array.isArray(images) && images.length === 2 && (
-            <div
-              style={{
-                display: "flex",
-                margin: "auto",
-                justifyContent: "center",
-
-                height: "15em",
-                border: "0.5em solid",
-                display: "flex",
-                flexDirection: "row",
-
-                borderColor: "blue",
-              }}
-            >
-              <Image
-                src={images[0]}
-                key={images[0]}
-                radius="sm"
-                onClick={() => handleImageModal(images[0])}
-                style={{
-                  objectFit: "cover",
-                  cursor: "pointer",
-                  width: "50%",
-                  border: "0.5em solid",
-                  borderColor: "black",
-                }}
-              />
-              <Image
-                src={images[1]}
-                key={images[1]}
-                radius="sm"
-                onClick={() => handleImageModal(images[1])}
-                style={{
-                  objectFit: "cover",
-                  cursor: "pointer",
-                  width: "50%",
-                  border: "0.5em solid",
-                  borderColor: "black",
-                }}
-              />
-            </div>
-          )}
-          {Array.isArray(images) && images.length === 3 && (
-            <div
-              style={{
-                display: "flex",
-                margin: "auto",
-                justifyContent: "center",
-
-                height: "15em",
-                border: "0.5em solid",
-                display: "flex",
-                flexDirection: "row",
-                borderColor: "blue",
-              }}
-            >
-              <Image
-                src={images[0]}
-                key={images[0]}
-                radius="sm"
-                onClick={() => handleImageModal(images[0])}
-                style={{
-                  objectFit: "cover",
-                  cursor: "pointer",
-                  width: "50%",
-                  border: "0.5em solid",
-                  borderColor: "black",
-                }}
-              />
-              <div>
-                <Image
-                  src={images[1]}
-                  key={images[1]}
-                  radius="sm"
-                  onClick={() => handleImageModal(images[1])}
-                  style={{
-                    objectFit: "cover",
-                    cursor: "pointer",
-                    width: "50%",
-                    border: "0.5em solid",
-                    borderColor: "black",
-                  }}
-                />
-                <Image
-                  src={images[2]}
-                  key={images[2]}
-                  radius="sm"
-                  onClick={() => handleImageModal(images[2])}
-                  style={{
-                    objectFit: "cover",
-                    cursor: "pointer",
-                    width: "50%",
-                    border: "0.5em solid",
-                    borderColor: "black",
-                  }}
-                />
-              </div>
-            </div>
-          )}
-
-          {Array.isArray(images) && images.length > 3 && (
-            <div
-              style={{
-                display: "flex",
-                margin: "auto",
-                justifyContent: "center",
-
-                height: "15em",
-                border: "0.5em solid",
-                display: "flex",
-                flexDirection: "row",
-                borderColor: "blue",
-              }}
-            >
-              <Image
-                src={images[0]}
-                key={images[0]}
-                radius="sm"
-                onClick={() => handleImageModal(images[0])}
-                style={{
-                  objectFit: "cover",
-                  cursor: "pointer",
-                  width: "50%",
-                  border: "0.5em solid",
-                  borderColor: "black",
-                }}
-              />
-              <div>
-                <Image
-                  src={images[1]}
-                  key={images[1]}
-                  radius="sm"
-                  onClick={() => handleImageModal(images[1])}
-                  style={{
-                    objectFit: "cover",
-                    cursor: "pointer",
-                    width: "50%",
-                    border: "0.5em solid",
-                    borderColor: "black",
-                  }}
-                />
-                <div>
-                  +{images.length - 2}
-                </div>
+          {Array.isArray(images) && images.length > 0 && (
+            <div style={{ overflow: "hidden" }} ref={emblaRef}>
+              <div style={{ display: "flex" }}>
+                {images.map((image, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      flex: "0 0 auto",
+                      width: "100%",
+                      maxWidth: "100%",
+                      padding: "0 10px",
+                    }}
+                  >
+                    <img
+                      src={image}
+                      alt={`Slide ${index + 1}`}
+                      style={{
+                        width: "100%",
+                        height: "400px",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           )}
         </Card.Section>
-
         <Card.Section inheritPadding mt="sm" pb="md">
           <SimpleGrid cols={3}>
             <Text mt="m" fw={500} size="l" style={{ textAlign: "left" }}>
