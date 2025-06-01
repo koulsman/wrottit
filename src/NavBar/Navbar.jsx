@@ -53,6 +53,9 @@ export function Navbar() {
   function communityHandler() {
     navigate('/Communities')
   }
+  function metallicaHandler() {
+    navigate('/MetallicaCommunity')
+  }
 
   
   // const links = data.map((item) => (
@@ -96,7 +99,10 @@ export function Navbar() {
         <IconInfoCircle className={classes.linkIcon} stroke={1.5} />
         {isMobile=== false && <span>About Wrottit</span>}
       </a> 
-      
+      <a href="#" className={classes.link} onClick={metallicaHandler}>
+        <IconInfoCircle className={classes.linkIcon} stroke={1.5} />
+        {isMobile=== false && <span>metallica</span>}
+      </a> 
     </div>
     
       {/* window.location.reload(); */}

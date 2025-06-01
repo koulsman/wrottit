@@ -20,7 +20,7 @@ import { connectFirestoreEmulator } from "firebase/firestore";
 import Saved from "../images/savedpost.svg";
 import Unsaved from "../images/unsavedpost.svg";
 import { Carousel } from "@mantine/carousel";
-import useEmblaCarousel from "embla-carousel-react";
+import ImageCarousel from "./ImageCarousel";
 
 export default function PostCard({
   postid,
@@ -37,7 +37,6 @@ export default function PostCard({
   const navigate = useNavigate("");
   const [savedPost, setSavedPost] = useState(false);
 
-  const [emblaRef] = useEmblaCarousel({ loop: true, align: "center" });
   console.log(typeof comments);
   const commentsCounter = Array.isArray(comments) ? comments.length : 0;
 
@@ -55,11 +54,21 @@ export default function PostCard({
     navigate(`/post/${postid}`);
   };
 
+  function handlePostImages(event) {
+    event.stopPropagation()
+  }
+
+  function nextSlideHandler() {
+    console.log("next slide")
+  }
+
   const demoimages = [
     "https://picsum.photos/400/300?1",
     "https://picsum.photos/400/300?2",
     "https://picsum.photos/400/300?3",
   ];
+
+
   return (
     <>
       <Card
@@ -127,34 +136,12 @@ export default function PostCard({
           </Group>
         </Card.Section>
 
-        <Card.Section mt="sm" onClick={handleClick}>
-          {Array.isArray(images) && images.length > 0 && (
-            <div style={{ overflow: "hidden" }} ref={emblaRef}>
-              <div style={{ display: "flex" }}>
-                {images.map((image, index) => (
-                  <div
-                    key={index}
-                    style={{
-                      flex: "0 0 auto",
-                      width: "100%",
-                      maxWidth: "100%",
-                      padding: "0 10px",
-                    }}
-                  >
-                    <img
-                      src={image}
-                      alt={`Slide ${index + 1}`}
-                      style={{
-                        width: "100%",
-                        height: "400px",
-                        objectFit: "cover",
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+        <Card.Section  style={{ display: "flex" }} mt="sm" onClick={handlePostImages}>
+          
+         
+            {Array.isArray(images) && images.length > 0 && (
+              <ImageCarousel  images={images} slidesInView={() => nextSlideHandler()}/>
+            )}
         </Card.Section>
         <Card.Section inheritPadding mt="sm" pb="md">
           <SimpleGrid cols={3}>

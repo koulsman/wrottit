@@ -59,3 +59,17 @@ app.post('/communities', async (req, res) => {
       res.status(500).json({ message: err.message });
     }
   });
+
+ app.get('/communities/:id', async (req, res) => {
+  const id = req.params.id; 
+  try {
+    const community = await Community.findById(id); 
+    if (!community) {
+      return res.status(404).json({ message: 'Community not found' });
+    }
+    res.json(community);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+

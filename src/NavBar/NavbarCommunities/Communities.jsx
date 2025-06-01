@@ -1,10 +1,12 @@
-import SearchBar from "../Header/Searchbar";
-import CommunityPreview from "../LoggedInfo/CommunityPreview";
+import SearchCommunities from './SearchCommunities'
+import CommunityPreview from "../../LoggedInfo/CommunityPreview";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 export default function Communities() {
     const [communities,setCommunities] = useState([])
+    const navigate = useNavigate();
     async function handleCommunities() {
     
     try {
@@ -19,6 +21,8 @@ export default function Communities() {
       console.error("Error getting posts:", error);
     }
   }
+
+ 
 // communityName, communityDescription, communityIconImage, communityBannerImage
 
 
@@ -28,10 +32,10 @@ export default function Communities() {
     return (
         <div>
             <h1>Browse or Search Communities</h1>
-            <SearchBar />
+            <SearchCommunities communities = {communities}/>
             {communities.map((community,index) => {
-                return (<CommunityPreview style={{margin: "1em 0 1em 0"}} key={index} communityName={community.name} communityDescription={community.description}
-                     communityIconImage={community.iconImage} communityBannerImage={community.bannerImage}/>)
+                return (<CommunityPreview  key={community._id} communityId = {community._id}  communityName={community.name} communityDescription={community.description}
+                     communityIconImage={community.iconImage} communityBannerImage={community.bannerImage} />)
                     
             })}
         </div>

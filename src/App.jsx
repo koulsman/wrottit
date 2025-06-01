@@ -33,9 +33,11 @@ import '@mantine/dates/styles.css';
 import MyDatetimes from "./MyDatetimes";
 import About from "./NavBar/About";
 import ChangeUserImage from "./ChangeUserImage";
-import Communities from "./NavBar/Communities";
+import Communities from "./NavBar/NavbarCommunities/Communities";
 import {CommunityCreator} from "./LoggedInfo/CommunityCreator";
 import GearSpinner from "../src/images/gear-spinner.svg"
+import MetallicaCommunity from './NavBar/MetallicaCommunity'
+import SelectedCommunity from "./NavBar/MetallicaCommunity";
 
 function App() {
   const [isLoggedIn] = useAtom(isLoggedInAtom);
@@ -84,6 +86,7 @@ function App() {
    useEffect(() => {
     window.addEventListener("resize", handleResize)
    })
+   
   return (
     <Router>
       <div className="App">
@@ -278,6 +281,7 @@ function App() {
             ></Route>
             <Route path="/post/:id" element={<PostPage />} />
             <Route path="/:id/myLikes" element={<MyLikes />} />
+            <Route path="/:communityid/SelectedCommunity" element={<SelectedCommunity />} />
             <Route path="/:id/myPosts" element={<MyPosts />} />
             <Route path="/:id/myComments" element={<MyComments />} />
             <Route path="/:id/ChangeUserImage" element={<ChangeUserImage />} />
@@ -285,6 +289,9 @@ function App() {
             <Route path="/About" element={<About />} />
             <Route path="/Communities" element={<Communities />} />
             <Route path="/:id/CommunityCreator" element={<CommunityCreator />} />
+            <Route path="/MetallicaCommunity" element={<MetallicaCommunity />} />
+            <Route path="/" element={<App />} />
+            <Route path="/MainMenu" element={<App />} />
           </Routes>
         </main>
       </div>

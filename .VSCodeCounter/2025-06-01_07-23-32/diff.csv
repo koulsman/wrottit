@@ -1,0 +1,80 @@
+"filename", "language", "JavaScript JSX", "PostCSS", "XML", "TypeScript JSX", "JSON", "JavaScript", "TypeScript", "comment", "blank", "total"
+"c:\Users\Σταύρος\Desktop\wrotit\package-lock.json", "JSON", 0, 0, 0, 0, 133, 0, 0, 0, 0, 133
+"c:\Users\Σταύρος\Desktop\wrotit\package.json", "JSON", 0, 0, 0, 0, 3, 0, 0, 0, 0, 3
+"c:\Users\Σταύρος\Desktop\wrotit\src\About.jsx", "JavaScript", 0, 0, 0, 0, 0, -14, 0, 0, -1, -15
+"c:\Users\Σταύρος\Desktop\wrotit\src\App.jsx", "JavaScript JSX", 15, 0, 0, 0, 0, 0, 0, 7, 4, 26
+"c:\Users\Σταύρος\Desktop\wrotit\src\ChangeUserImage.jsx", "JavaScript JSX", 51, 0, 0, 0, 0, 0, 0, 2, 2, 55
+"c:\Users\Σταύρος\Desktop\wrotit\src\CommentCard.jsx", "JavaScript", 0, 0, 0, 0, 0, -17, 0, 0, -3, -20
+"c:\Users\Σταύρος\Desktop\wrotit\src\Comments.jsx", "JavaScript", 0, 0, 0, 0, 0, -12, 0, -1, -5, -18
+"c:\Users\Σταύρος\Desktop\wrotit\src\CreatePost.jsx", "JavaScript", 0, 0, 0, 0, 0, -189, 0, -1, -26, -216
+"c:\Users\Σταύρος\Desktop\wrotit\src\Header\Login.jsx", "JavaScript JSX", 88, 0, 0, 0, 0, 0, 0, 1, 5, 94
+"c:\Users\Σταύρος\Desktop\wrotit\src\Header\Searchbar.jsx", "JavaScript JSX", 30, 0, 0, 0, 0, 0, 0, 5, 10, 45
+"c:\Users\Σταύρος\Desktop\wrotit\src\Header\Signup.jsx", "JavaScript JSX", 139, 0, 0, 0, 0, 0, 0, 1, 13, 153
+"c:\Users\Σταύρος\Desktop\wrotit\src\Header\Wrot.tsx", "TypeScript JSX", 0, 0, 0, 16, 0, 0, 0, 0, 2, 18
+"c:\Users\Σταύρος\Desktop\wrotit\src\Header\isLoggedIn.jsx", "JavaScript JSX", 5, 0, 0, 0, 0, 0, 0, 1, 1, 7
+"c:\Users\Σταύρος\Desktop\wrotit\src\ImageDropzone.jsx", "JavaScript", 0, 0, 0, 0, 0, -93, 0, -1, -12, -106
+"c:\Users\Σταύρος\Desktop\wrotit\src\ImageModal.jsx", "JavaScript", 0, 0, 0, 0, 0, -8, 0, 0, -2, -10
+"c:\Users\Σταύρος\Desktop\wrotit\src\Likes.css", "PostCSS", 0, -22, 0, 0, 0, 0, 0, -2, -4, -28
+"c:\Users\Σταύρος\Desktop\wrotit\src\Likes.jsx", "JavaScript", 0, 0, 0, 0, 0, -82, 0, 0, -12, -94
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo.jsx", "JavaScript", 0, 0, 0, 0, 0, -82, 0, -2, -16, -100
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\CommunityCreator.jsx", "JavaScript JSX", 255, 0, 0, 0, 0, 0, 0, 0, 18, 273
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\CommunityPreview.jsx", "JavaScript JSX", 76, 0, 0, 0, 0, 0, 0, 0, 6, 82
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\LoggedInfo.jsx", "JavaScript JSX", 88, 0, 0, 0, 0, 0, 0, 17, 20, 125
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\MyComments.jsx", "JavaScript JSX", 5, 0, 0, 0, 0, 0, 0, 0, 1, 6
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\MyLikes.jsx", "JavaScript JSX", 50, 0, 0, 0, 0, 0, 0, 2, 5, 57
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\MyPosts.jsx", "JavaScript JSX", 50, 0, 0, 0, 0, 0, 0, 2, 5, 57
+"c:\Users\Σταύρος\Desktop\wrotit\src\Login.jsx", "JavaScript", 0, 0, 0, 0, 0, -88, 0, -1, -5, -94
+"c:\Users\Σταύρος\Desktop\wrotit\src\MyComments.jsx", "JavaScript", 0, 0, 0, 0, 0, -5, 0, 0, -1, -6
+"c:\Users\Σταύρος\Desktop\wrotit\src\MyDatetimes.jsx", "JavaScript JSX", -2, 0, 0, 0, 0, 0, 0, 2, 0, 0
+"c:\Users\Σταύρος\Desktop\wrotit\src\MyLikes.jsx", "JavaScript", 0, 0, 0, 0, 0, -50, 0, -2, -5, -57
+"c:\Users\Σταύρος\Desktop\wrotit\src\MyPosts.jsx", "JavaScript", 0, 0, 0, 0, 0, -50, 0, -2, -5, -57
+"c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\About.jsx", "JavaScript JSX", 14, 0, 0, 0, 0, 0, 0, 0, 1, 15
+"c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\MetallicaCommunity.jsx", "JavaScript JSX", 50, 0, 0, 0, 0, 0, 0, 2, 6, 58
+"c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\Navbar.jsx", "JavaScript JSX", 72, 0, 0, 0, 0, 0, 0, 22, 18, 112
+"c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\Navbar.module.css", "PostCSS", 0, 54, 0, 0, 0, 0, 0, 0, 9, 63
+"c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\NavbarCommunities\Communities.jsx", "JavaScript JSX", 35, 0, 0, 0, 0, 0, 0, 1, 7, 43
+"c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\NavbarCommunities\SearchCommunities.jsx", "JavaScript JSX", 42, 0, 0, 0, 0, 0, 0, 6, 17, 65
+"c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\NavbarCommunities\SelectedCommunity.jsx", "JavaScript JSX", 40, 0, 0, 0, 0, 0, 0, 18, 7, 65
+"c:\Users\Σταύρος\Desktop\wrotit\src\Navbar.jsx", "JavaScript", 0, 0, 0, 0, 0, -54, 0, -21, -13, -88
+"c:\Users\Σταύρος\Desktop\wrotit\src\Navbar.module.css", "PostCSS", 0, -54, 0, 0, 0, 0, 0, 0, -9, -63
+"c:\Users\Σταύρος\Desktop\wrotit\src\NoComments.css", "PostCSS", 0, -13, 0, 0, 0, 0, 0, -1, -8, -22
+"c:\Users\Σταύρος\Desktop\wrotit\src\NoComments.jsx", "JavaScript", 0, 0, 0, 0, 0, -22, 0, 0, -7, -29
+"c:\Users\Σταύρος\Desktop\wrotit\src\Post Creation\CreatePost.jsx", "JavaScript JSX", 307, 0, 0, 0, 0, 0, 0, 3, 32, 342
+"c:\Users\Σταύρος\Desktop\wrotit\src\Post Creation\ImageDropzone.jsx", "JavaScript JSX", 93, 0, 0, 0, 0, 0, 0, 1, 12, 106
+"c:\Users\Σταύρος\Desktop\wrotit\src\Post Creation\ImageModal.jsx", "JavaScript JSX", 8, 0, 0, 0, 0, 0, 0, 0, 2, 10
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostCard.jsx", "JavaScript", 0, 0, 0, 0, 0, -101, 0, 0, -23, -124
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\CommentCard.jsx", "JavaScript JSX", 17, 0, 0, 0, 0, 0, 0, 0, 3, 20
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Comments.jsx", "JavaScript JSX", 12, 0, 0, 0, 0, 0, 0, 1, 5, 18
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\ImageCarousel.jsx", "JavaScript JSX", 67, 0, 0, 0, 0, 0, 0, 0, 7, 74
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Likes.css", "PostCSS", 0, 22, 0, 0, 0, 0, 0, 2, 4, 28
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Likes.jsx", "JavaScript JSX", 95, 0, 0, 0, 0, 0, 0, 7, 15, 117
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\NoComments.css", "PostCSS", 0, 13, 0, 0, 0, 0, 0, 1, 8, 22
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\NoComments.jsx", "JavaScript JSX", 22, 0, 0, 0, 0, 0, 0, 0, 7, 29
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\PostCard.jsx", "JavaScript JSX", 156, 0, 0, 0, 0, 0, 0, 0, 15, 171
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Posts.jsx", "JavaScript JSX", 21, 0, 0, 0, 0, 0, 0, 0, 2, 23
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\SelectedPostPage.jsx", "JavaScript JSX", 171, 0, 0, 0, 0, 0, 0, 9, 22, 202
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Share.jsx", "JavaScript JSX", 62, 0, 0, 0, 0, 0, 0, 3, 6, 71
+"c:\Users\Σταύρος\Desktop\wrotit\src\Posts.jsx", "JavaScript", 0, 0, 0, 0, 0, -21, 0, 0, -2, -23
+"c:\Users\Σταύρος\Desktop\wrotit\src\Searchbar.jsx", "JavaScript", 0, 0, 0, 0, 0, -32, 0, -3, -10, -45
+"c:\Users\Σταύρος\Desktop\wrotit\src\SelectedPostPage.jsx", "JavaScript", 0, 0, 0, 0, 0, -165, 0, -8, -18, -191
+"c:\Users\Σταύρος\Desktop\wrotit\src\ServersAndSchemas\CommunitySchema.js", "JavaScript", 0, 0, 0, 0, 0, -20, 0, 0, -4, -24
+"c:\Users\Σταύρος\Desktop\wrotit\src\ServersAndSchemas\CommunityServer.js", "JavaScript", 0, 0, 0, 0, 0, -45, 0, 0, -6, -51
+"c:\Users\Σταύρος\Desktop\wrotit\src\ServersAndSchemas\PostModel.js", "JavaScript", 0, 0, 0, 0, 0, -37, 0, -1, -5, -43
+"c:\Users\Σταύρος\Desktop\wrotit\src\ServersAndSchemas\PostServer.js", "JavaScript", 0, 0, 0, 0, 0, -116, 0, -4, -14, -134
+"c:\Users\Σταύρος\Desktop\wrotit\src\ServersAndSchemas\UserModel.js", "JavaScript", 0, 0, 0, 0, 0, -14, 0, -1, -3, -18
+"c:\Users\Σταύρος\Desktop\wrotit\src\ServersAndSchemas\UserServer.js", "JavaScript", 0, 0, 0, 0, 0, -96, 0, -16, -27, -139
+"c:\Users\Σταύρος\Desktop\wrotit\src\Share.jsx", "JavaScript", 0, 0, 0, 0, 0, -64, 0, -1, -6, -71
+"c:\Users\Σταύρος\Desktop\wrotit\src\Signup.jsx", "JavaScript", 0, 0, 0, 0, 0, -139, 0, -1, -13, -153
+"c:\Users\Σταύρος\Desktop\wrotit\src\Wrot.tsx", "TypeScript JSX", 0, 0, 0, -16, 0, 0, 0, 0, -2, -18
+"c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\CommunitySchema.js", "JavaScript JSX", 16, 0, 0, 0, 0, 0, 0, 4, 5, 25
+"c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\CommunityServer.js", "JavaScript JSX", 64, 0, 0, 0, 0, 0, 0, 1, 11, 76
+"c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\PostModel.js", "JavaScript JSX", 37, 0, 0, 0, 0, 0, 0, 1, 5, 43
+"c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\PostServer.js", "JavaScript JSX", 115, 0, 0, 0, 0, 0, 0, 5, 16, 136
+"c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\UserModel.js", "JavaScript JSX", 15, 0, 0, 0, 0, 0, 0, 1, 3, 19
+"c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\UserServer.js", "JavaScript JSX", 147, 0, 0, 0, 0, 0, 0, 22, 23, 192
+"c:\Users\Σταύρος\Desktop\wrotit\src\firebase\Firebase.ts", "TypeScript", 0, 0, 0, 0, 0, 0, -13, -5, -2, -20
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\imageDefault.svg", "XML", 0, 0, 4, 0, 0, 0, 0, 0, 0, 4
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\next.svg", "XML", 0, 0, 10, 0, 0, 0, 0, 1, 0, 11
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\previous.svg", "XML", 0, 0, 10, 0, 0, 0, 0, 1, 0, 11
+"c:\Users\Σταύρος\Desktop\wrotit\src\isLoggedIn.jsx", "JavaScript", 0, 0, 0, 0, 0, -5, 0, -1, -1, -7
+"Total", "-", 2528, 0, 24, 0, 136, -1621, -13, 77, 90, 1221

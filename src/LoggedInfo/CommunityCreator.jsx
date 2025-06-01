@@ -10,6 +10,7 @@ import DefaultImage from "../images/imageDefault.svg";
 import { FileInput } from "@mantine/core";
 import CommunityPreview from "./CommunityPreview";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export function CommunityCreator() {
   const initialState = { page: 1 };
@@ -19,9 +20,11 @@ export function CommunityCreator() {
   const [communityRules, setCommunityRules] = useState("");
   const [communityBannerImage, setCommunityBannerImage] = useState(null);
   const [communityIconImage, setCommunityIconImage] = useState(null);
-
+  const [createdCommunity,setCreatedCommunity] = useState(false);
   const [iconForCloudinary,setIconForCloudinary] = useState("");
   const [bannerForCloudinary,setBannerForCloudinary] = useState("");
+  const navigate = useNavigate();
+
   const ImageIcon = <img src={DefaultImage} size={18} stroke={1.5} />;
 
   function reducer(state, action) {
@@ -66,12 +69,20 @@ const uploadToCloudinary = async (file) => {
 
      })
      console.log("Created community:", response.data);
+     if(response.ok) {
+        setCreatedCommunity(true);
+        navigate(`/`)
+      
     }
+    }
+    
     catch (error) {
           console.log(error)
     }
   }
+  function succesfulCommunityCreation() {
 
+  }
   return (
     <div>
       <Grid>
@@ -245,7 +256,7 @@ const uploadToCloudinary = async (file) => {
                   ) : (
                     <Tooltip label="Please fill community name and community description to create your community!">
                     <Button disabled>
-                      Create Community!
+                      Create!
                     </Button>
                     </Tooltip>
                   );

@@ -3,10 +3,12 @@ import { Button, Textarea, Tabs } from "@mantine/core";
 import { useAtom } from "jotai";
 import { isLoggedInAtom, loggedUserAtom } from "../Header/isLoggedIn";
 import axios from "axios";
-
+import { Autocomplete } from "@mantine/core";
+import { ActionIcon } from "@mantine/core";
 import { Group, Text, rem } from "@mantine/core";
 import { IconUpload, IconPhoto, IconX } from "@tabler/icons-react";
 import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
+import { useClickOutside } from "@mantine/hooks";
 
 function CreatePost() {
   const [isCreatingPost, setIsCreatingPost] = useState(false);
@@ -20,23 +22,25 @@ function CreatePost() {
   const [content, setContent] = useState("");
   const [images, setImages] = useState([]);
   const [submittedPost, setSubmittedPost] = useState("");
-
+  const [communities, setCommunities] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useAtom(isLoggedInAtom);
   const [loggedUser, setLoggedUser] = useAtom(loggedUserAtom);
+  const [communityChoises, setCommunityChoises] = useState([]);
+  
 
   const [uploading, setUploading] = useState(false);
 
-  const [imageTabSelected,setImageTabSelected] = useState(false)
+  const [imageTabSelected, setImageTabSelected] = useState(false);
 
   function handleImageDrop(files) {
     console.log("Dropped Files:", files);
-    
+
     files.forEach((file) => {
       if (!(file instanceof File)) {
         console.error("Invalid file type detected:", file);
       }
     });
-  
+
     setImages((prev) => [...prev, ...files]);
   }
   function contentHandler(e) {
@@ -46,21 +50,6 @@ function CreatePost() {
   const handleCommunity = () => {
     setCommunityClicked(true);
   };
-
-  const handleCloseCommunityChooser = (event) => {
-    if (communityRef.current && !communityRef.current.contains(event.target)) {
-      setCommunityClicked(false);
-    }
-  };
-
-  useEffect(() => {
-    if (communityClicked && community === "") {
-      document.addEventListener("mousedown", handleCloseCommunityChooser);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleCloseCommunityChooser);
-    };
-  }, [communityClicked, community]);
 
   const postStyle = {
     width: "fitContent",
@@ -76,30 +65,37 @@ function CreatePost() {
     setIsCreatingPost(true);
   }
 
-  const handleCloseNewPost = (event) => {
-    if (
-      postCreationRef.current &&
-      !postCreationRef.current.contains(event.target)
-    ) {
-      setIsCreatingPost(false);
+  function handleCloseNewPost() {
+    setIsCreatingPost(false);
+  }
+
+  useEffect(() => {}, []);
+
+  async function communityChooserHandler() {
+    try {
+      const response = await axios.get("http://localhost:3003/communities");
+      setCommunities(response.data);
+    } catch (error) {
+      console.log(error);
     }
-  };
+  }
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleCloseNewPost);
-    return () => {
-      document.removeEventListener("mousedown", handleCloseNewPost);
-    };
-  }, []);
+    console.log(communities + "communities");
+    const totalCommunities = communities.map((community) => community.name);
+    console.log(totalCommunities);
+    setCommunityChoises(totalCommunities);
+  }, [communities, setCommunityChoises]);
+
   async function handleImageUpload() {
-    console.log(images)
+    console.log(images);
   }
 
   const uploadToCloudinary = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "wrottit"); // replace with your actual upload preset name
-  
+
     const res = await axios.post(
       "https://api.cloudinary.com/v1_1/ddakpw9jf/image/upload", // use your actual Cloudinary cloud name here
       formData
@@ -107,39 +103,38 @@ function CreatePost() {
     return res.data.secure_url; // this is what you want to store in MongoDB
   };
   async function submitPost() {
-  if (!title || !community || (!content && images.length === 0)) {
-    alert("Please fill in all required fields (title, community, and either content or an image).");
-    return;
-  }
-  
-
-  
-  try {
-    // Step 1: Upload all images to Cloudinary
-    const uploadedImageUrls = [];
-    for (const image of images) {
-      const url = await uploadToCloudinary(image);
-      uploadedImageUrls.push(url);
+    if (!title || !community || (!content && images.length === 0)) {
+      alert(
+        "Please fill in all required fields (title, community, and either content or an image)."
+      );
+      return;
     }
 
-  
-  
+    try {
+      // Step 1: Upload all images to Cloudinary
+      const uploadedImageUrls = [];
+      for (const image of images) {
+        const url = await uploadToCloudinary(image);
+        uploadedImageUrls.push(url);
+      }
 
-    const response = await axios.post("http://localhost:3002/posts", {
-      title: title,
-      community: community, 
-      uid: loggedUser._id,
-      uname: loggedUser.name,
-      content: content || "",
-      images: uploadedImageUrls
-    });
-    console.log("Created post:", response.data);
-  } catch (error) {
-    console.error("Post creation error:", error);
+      const response = await axios.post("http://localhost:3002/posts", {
+        title: title,
+        community: community,
+        uid: loggedUser._id,
+        uname: loggedUser.name,
+        content: content || "",
+        images: uploadedImageUrls,
+      });
+      console.log("Created post:", response.data);
+      if(response) {
+
+        window.location.reload();
+      }
+    } catch (error) {
+      console.error("Post creation error:", error);
+    }
   }
-  
-}
-  
 
   return (
     <>
@@ -147,7 +142,6 @@ function CreatePost() {
         if (isLoggedIn && isCreatingPost) {
           return (
             <div
-              ref={postCreationRef}
               style={{
                 maxWidth: "fitContent",
                 minWidth: "5em",
@@ -157,11 +151,34 @@ function CreatePost() {
                 padding: "1em",
               }}
             >
-              <div style={{ display: "flex", justifyContent: "flex-start" }}>
-                <h1>Create Post</h1>
+              <div
+                id="TitleAndCloseButton"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginBottom: "1em",
+                }}
+              >
+                <div style={{ flex: 1, textAlign: "center" }}>
+                  <h1 style={{ margin: 0 }}>Create Post</h1>
+                </div>
+                <div>
+                  <ActionIcon
+                    size={42}
+                    variant="default"
+                    aria-label="Close Post Creation"
+                    onClick={() => setIsCreatingPost(false)}
+                  >
+                    <IconX size={24} />
+                  </ActionIcon>
+                </div>
               </div>
 
-              <div style={{ display: "flex", flexDirection: "column" }}>
+              <div
+                id="PostInfo"
+                style={{ display: "flex", flexDirection: "column" }}
+              >
                 {communityClicked ? (
                   <input
                     className="Text-input"
@@ -179,7 +196,7 @@ function CreatePost() {
                       width: "15em",
                       height: "4em",
                       borderRadius: "0.5em",
-                      textAlign: "start"
+                      textAlign: "start",
                     }}
                     ref={communityRef}
                     onClick={handleCommunity}
@@ -187,6 +204,16 @@ function CreatePost() {
                     Choose Community
                   </Button>
                 )}
+                <Autocomplete
+                  onClick={communityChooserHandler}
+                  withinPortal={false} 
+                  placeholder="Choose community"
+                  data={communityChoises}
+                  // value={community}
+                  limit={3}
+                  onOptionSubmit={(community) => setCommunity(community)}
+                />
+
                 <input
                   className="Text-input"
                   placeholder="type title"
@@ -202,9 +229,10 @@ function CreatePost() {
 
                   <Tabs.Panel value="text">
                     <Textarea
-                      style={{ height: "10em" }}
+                      // style={{ height: "10em" }}
                       value={content}
                       onChange={contentHandler}
+                      minRows={15}
                     />
                   </Tabs.Panel>
 
@@ -217,7 +245,6 @@ function CreatePost() {
                         }
                         maxSize={5 * 1024 ** 2}
                         accept={IMAGE_MIME_TYPE}
-                        
                       >
                         <Group
                           justify="center"
@@ -273,7 +300,6 @@ function CreatePost() {
                           </div>
                         </Group>
                       </Dropzone>
-                      
                     </div>
                   </Tabs.Panel>
                 </Tabs>
@@ -285,8 +311,11 @@ function CreatePost() {
                     alignItems: "flexEnd",
                   }}
                 >
-                  {images.length > 0 ? <Button onClick={ submitPost}>Post</Button> : <Button disabled>Post</Button>}
-                  
+                  {community !== "" && images.length > 0 ? (
+                    <Button onClick={submitPost}>Post</Button>
+                  ) : (
+                    <Button disabled>Post</Button>
+                  )}
                 </div>
               </div>
             </div>

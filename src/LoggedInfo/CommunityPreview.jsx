@@ -1,16 +1,26 @@
 import { Card, Image, Text } from "@mantine/core";
 import NoBanner from "../images/NoBanner.png";
 import NoIcon from "../images/NoIcon.png";
+import { useNavigate } from "react-router-dom";
 
 export default function CommunityPreview({
   communityName,
   communityDescription,
   communityIconImage,
   communityBannerImage,
+  communityId
 }) {
+const navigate = useNavigate()
+
+function navigateToSelectedCommunity(communityId) {
+ console.log(communityId)
+    navigate(`/${communityId}/SelectedCommunity`)
+}
+
+
   return (
-    <Card
-      style={{ width: "25em", margin: "auto" }}
+    <Card onClick={(communityId) => navigateToSelectedCommunity(communityId)}
+      style={{ width: "25em", margin: "1em", padding: "1em"}}
       shadow="sm"
       padding="xl"
       component="a"
@@ -24,7 +34,8 @@ export default function CommunityPreview({
         )}
       </Card.Section>
       <div id="IconTitleAndDescription" style={{ display: "flex" }}>
-        <div style={{ margin: "auto", width: "4em" }}>
+        {communityId}
+        <div style={{ width: "4em" }}>
           <div
             id="Icon"
             style={{
@@ -32,8 +43,8 @@ export default function CommunityPreview({
               display: "flex",
               alignItems: "center",
               justifyContent: "start",
-              width: "5em",
-              height: "5em",
+              width: "4em",
+              height: "4em",
               borderRadius: "50%",
               background: "blue",
               overflow: "hidden", // Make sure image doesn't overflow the circle
