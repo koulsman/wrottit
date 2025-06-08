@@ -1,9 +1,9 @@
-export default function Posts({community, title, user, content, images}) {
+export default function Posts({communityName, title, user, content, images}) {
     return (
        
         <div>
             <p className="community">
-              {community}
+              {communityname}
             </p>
             <h1 className="title">
              {title}

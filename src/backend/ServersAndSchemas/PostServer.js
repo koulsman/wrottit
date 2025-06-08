@@ -42,7 +42,8 @@ app.post("/posts", upload.none(), async (req, res) => {
 
   const post = new Post({
     title: req.body.title,
-    community: req.body.community,
+    communityName: req.body.communityName,
+    communityId: req.body.communityId,
     uid: req.body.uid,
     uname: req.body.uname,
     content: req.body.content,

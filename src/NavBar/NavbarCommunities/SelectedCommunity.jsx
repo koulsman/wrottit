@@ -11,7 +11,7 @@ export default function SelectedCommunity() {
       // const [loggedUser] = useAtom(loggedUserAtom);
       const [communityPosts, setCommunityPosts] = useState([]);
 
-
+  //εδω θα φερω τα info για το community
       async function handleSelectedCommunity() {
         console.log(loggedUser)
         console.log(window.location.href)
@@ -23,10 +23,21 @@ export default function SelectedCommunity() {
           console.error("Error getting posts:", error);
         }
       }
+// εδω θα φερω ΄ολα τα post που ΄εχουν για community id το idd του community
+      async function hanldeSelectedCommunityPosts() {
+        try {
+          const response = await axios.get(`http://localhost:3002/posts/${community?._id}`);
+        }
+        catch(error) {
+          console.log(error)
+        }
+      }
     
       useEffect(() => {
         handleSelectedCommunity();
       }, []);
+
+      //episgw prepei na ferw ta rules
   return (
     <div>
     <Grid>

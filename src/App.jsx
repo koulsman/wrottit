@@ -205,7 +205,7 @@ function App() {
       <PostCard
         postid={post._id}
         key={index}
-        community={post.community}
+        communityName={post.communityName}
         username={post.uname}
         userid={post.uid}
         title={post.title}

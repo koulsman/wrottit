@@ -9,6 +9,7 @@ import { Group, Text, rem } from "@mantine/core";
 import { IconUpload, IconPhoto, IconX } from "@tabler/icons-react";
 import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
 import { useClickOutside } from "@mantine/hooks";
+import {Hourglass } from 'react-loader-spinner'
 
 function CreatePost() {
   const [isCreatingPost, setIsCreatingPost] = useState(false);
@@ -17,7 +18,8 @@ function CreatePost() {
   const [communityClicked, setCommunityClicked] = useState(false);
   const communityRef = useRef(null);
 
-  const [community, setCommunity] = useState("");
+  const [communityName, setCommunityName] = useState("");
+  const [communityId, setCommunityId] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [images, setImages] = useState([]);
@@ -26,7 +28,9 @@ function CreatePost() {
   const [isLoggedIn, setIsLoggedIn] = useAtom(isLoggedInAtom);
   const [loggedUser, setLoggedUser] = useAtom(loggedUserAtom);
   const [communityChoises, setCommunityChoises] = useState([]);
-  
+  const [chosenCommunity, setChosenCommunity] = useState("");
+
+  const [isSubmittingPost, setIsSubmittingPost] = useState(false);
 
   const [uploading, setUploading] = useState(false);
 
@@ -69,6 +73,20 @@ function CreatePost() {
     setIsCreatingPost(false);
   }
 
+  function communitySubmittedHandler(community) {
+    console.log(community);
+    const chosenCommunityNameAndId = communityChoises.find((element) =>
+      element[0].startsWith(community)
+    );
+    if (chosenCommunityNameAndId) {
+      setChosenCommunity(chosenCommunityNameAndId);
+      setCommunityName(chosenCommunityNameAndId[0]);
+      setCommunityId(chosenCommunityNameAndId[1]);
+    }
+
+    console.log(chosenCommunityNameAndId);
+  }
+
   useEffect(() => {}, []);
 
   async function communityChooserHandler() {
@@ -82,9 +100,15 @@ function CreatePost() {
 
   useEffect(() => {
     console.log(communities + "communities");
+    const communitiesFull = communities.map((community) => [
+      community.name,
+      community._id,
+    ]);
+    console.log(communitiesFull);
     const totalCommunities = communities.map((community) => community.name);
     console.log(totalCommunities);
-    setCommunityChoises(totalCommunities);
+    // setCommunityChoises(totalCommunities);
+    setCommunityChoises(communitiesFull);
   }, [communities, setCommunityChoises]);
 
   async function handleImageUpload() {
@@ -103,7 +127,7 @@ function CreatePost() {
     return res.data.secure_url; // this is what you want to store in MongoDB
   };
   async function submitPost() {
-    if (!title || !community || (!content && images.length === 0)) {
+    if (!title || !communityName || (!content && images.length === 0)) {
       alert(
         "Please fill in all required fields (title, community, and either content or an image)."
       );
@@ -120,15 +144,16 @@ function CreatePost() {
 
       const response = await axios.post("http://localhost:3002/posts", {
         title: title,
-        community: community,
+        communityName: communityName,
+        communityId: communityId,
         uid: loggedUser._id,
         uname: loggedUser.name,
         content: content || "",
         images: uploadedImageUrls,
       });
       console.log("Created post:", response.data);
-      if(response) {
-
+      setIsSubmittingPost(true)
+      if (response) {
         window.location.reload();
       }
     } catch (error) {
@@ -139,7 +164,7 @@ function CreatePost() {
   return (
     <>
       {(() => {
-        if (isLoggedIn && isCreatingPost) {
+        if (isLoggedIn && isCreatingPost && !isSubmittingPost) {
           return (
             <div
               style={{
@@ -185,8 +210,8 @@ function CreatePost() {
                     ref={communityRef}
                     style={{ marginBottom: "1em" }}
                     placeholder="type community"
-                    value={community}
-                    onChange={(e) => setCommunity(e.target.value)}
+                    value={communityName}
+                    onChange={(e) => setCommunityName(e.target.value)}
                   />
                 ) : (
                   <Button
@@ -205,13 +230,16 @@ function CreatePost() {
                   </Button>
                 )}
                 <Autocomplete
-                  onClick={communityChooserHandler}
-                  withinPortal={false} 
+                  onChange={communityChooserHandler}
+                  withinPortal={false}
                   placeholder="Choose community"
-                  data={communityChoises}
+                  data={communityChoises.map((community) => community[0])}
                   // value={community}
                   limit={3}
-                  onOptionSubmit={(community) => setCommunity(community)}
+                  // onOptionSubmit={(community) => setCommunity(community)}
+                  onOptionSubmit={(community) =>
+                    communitySubmittedHandler(community)
+                  }
                 />
 
                 <input
@@ -311,7 +339,7 @@ function CreatePost() {
                     alignItems: "flexEnd",
                   }}
                 >
-                  {community !== "" && images.length > 0 ? (
+                  {communityName !== "" && images.length > 0 ? (
                     <Button onClick={submitPost}>Post</Button>
                   ) : (
                     <Button disabled>Post</Button>
@@ -332,6 +360,18 @@ function CreatePost() {
           );
         } else if (!isLoggedIn) {
           return <div style={postStyle}>Login to post</div>;
+        } else if (isLoggedIn && isCreatingPost && isSubmittingPost) {
+          return (
+            <Hourglass
+              visible={true}
+              height="80"
+              width="80"
+              ariaLabel="hourglass-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              colors={["#306cce", "#72a1ed"]}
+            />
+          );
         }
       })()}
     </>

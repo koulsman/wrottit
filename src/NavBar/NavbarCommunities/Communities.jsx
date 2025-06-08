@@ -1,43 +1,67 @@
-import SearchCommunities from './SearchCommunities'
+import SearchCommunities from "./SearchCommunities";
 import CommunityPreview from "../../LoggedInfo/CommunityPreview";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { Grid } from "@mantine/core";
+import { Navbar } from "../Navbar";
 
 export default function Communities() {
-    const [communities,setCommunities] = useState([])
-    const navigate = useNavigate();
-    async function handleCommunities() {
-    
-    try {
-      const response = await axios.get("http://localhost:3003/communities");
-      console.log("Communities fetched:", response.data);
-      setCommunities(response.data);
-      console.group(communities)
-      communities.forEach((community) => {
-        console.log(community.iconImage)
-      })
-    } catch (error) {
-      console.error("Error getting posts:", error);
-    }
-  }
-
- 
-// communityName, communityDescription, communityIconImage, communityBannerImage
-
+  const [communities, setCommunities] = useState([]);
+  const [communitiesShown, setCommunitiesShown] = useState([]);
+  const [searchbarValue, setSearchbarValue] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
+    async function handleCommunities() {
+      try {
+        const response = await axios.get("http://localhost:3003/communities");
+        setCommunities(response.data);
+      } catch (error) {
+        console.error("Error getting communities:", error);
+      }
+    }
+
     handleCommunities();
   }, []);
-    return (
-        <div>
-            <h1>Browse or Search Communities</h1>
-            <SearchCommunities communities = {communities}/>
-            {communities.map((community,index) => {
-                return (<CommunityPreview  key={community._id} communityId = {community._id}  communityName={community.name} communityDescription={community.description}
-                     communityIconImage={community.iconImage} communityBannerImage={community.bannerImage} />)
-                    
-            })}
-        </div>
-    )
+
+  // function navigateToSelectedCommunityHandler(communityId) {
+  //     navigate(`/:${communityId}/SelectedCommunity`);
+  // }
+
+  // Determine which list to render
+  const displayedCommunities =
+    searchbarValue.trim() !== "" ? communitiesShown : communities;
+
+  return (
+    <div>
+      <Grid>
+        <Grid.Col span={3}>
+          <Navbar />
+        </Grid.Col>
+        <Grid.Col span={window.innerWidth < 720 ? "7" : "auto"}>
+          <h1>Browse or Search Communities</h1>
+          <SearchCommunities
+            communities={communities}
+            searchbarValue={searchbarValue}
+            setSearchbarValue={setSearchbarValue}
+            setCommunitiesShown={setCommunitiesShown}
+          />
+
+          {displayedCommunities.map((community) => (
+            <CommunityPreview 
+            // onClick={navigateToSelectedCommunityHandler(community._id)}
+              key={community._id}
+              communityId={community._id}
+              communityName={community.name}
+              communityDescription={community.description}
+              communityIconImage={community.iconImage}
+              communityBannerImage={community.bannerImage}
+            />
+          ))}
+        </Grid.Col>
+        <Grid.Col span={3} />
+      </Grid>
+    </div>
+  );
 }

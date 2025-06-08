@@ -24,7 +24,8 @@ import ImageCarousel from "./ImageCarousel";
 
 export default function PostCard({
   postid,
-  community,
+  communityName,
+  communityId,
   title,
   username,
   content,
@@ -68,6 +69,10 @@ export default function PostCard({
     "https://picsum.photos/400/300?3",
   ];
 
+  function imageClickHandler() {
+
+  }
+
 
   return (
     <>
@@ -87,7 +92,7 @@ export default function PostCard({
               }}
             >
               <Text fw={300}>
-                {community}&nbsp; &#183; &nbsp;{username}{" "}
+                {communityName}&nbsp; &#183; &nbsp;{username}{" "}
               </Text>
               <Text fw={200}></Text>
               <Text fw={500}>{title}</Text>
@@ -140,7 +145,9 @@ export default function PostCard({
           
          
             {Array.isArray(images) && images.length > 0 && (
-              <ImageCarousel  images={images} slidesInView={() => nextSlideHandler()}/>
+              <ImageCarousel  images={images} onClick={imageClickHandler}
+              // slidesInView={() => nextSlideHandler()}
+              />
             )}
         </Card.Section>
         <Card.Section inheritPadding mt="sm" pb="md">

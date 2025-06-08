@@ -7,14 +7,26 @@ export default function ImageCarousel({images}) {
   const [emblaRef] = useEmblaCarousel({ loop: true, align: "center" });
 
     function handleImageModal(e, index,image) {
-    e.preventDefault();
+    // e.preventDefault();
     console.log(index + "index");
     console.log(image)
+  }
+
+  function imageIndexHandler(image,index) {
+      console.log(image + index)
+  }
+
+  function previousSlideHandler() {
+    console.log(images + "im,ages")
+    // console.log(index)
+  }
+  function nextSlideHandler() {
+    console.log(images + "im,ages")
   }
     return (
         <>
         {Array.isArray(images) && images.length > 1 && <div style={{display:"flex", justifyContent: "flexEnd", width:"2em", height: "2em", overflow:"visible", margin: "auto"}}>
-            <img src={Previous} />
+            <img src={Previous} onClick={previousSlideHandler}/>
         </div>}
         <div
             style={{
@@ -37,6 +49,7 @@ export default function ImageCarousel({images}) {
                       }}
                     >
                       <img
+                      onLoad={(image,index) => imageIndexHandler(image,index)}
                         onClick={(image, index, e,images) =>
                           handleImageModal(image, index, e, images)
                         }

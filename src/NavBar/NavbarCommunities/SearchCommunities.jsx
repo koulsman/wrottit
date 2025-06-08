@@ -1,65 +1,35 @@
 import { Autocomplete, rem } from '@mantine/core';
 import { IconComponents } from '@tabler/icons-react';
-import { FloatingIndicator } from '@mantine/core';
-import { useState, useEffect } from 'react';
-import Community from '../../backend/ServersAndSchemas/CommunitySchema';
 
-
-export default function SearchCommunities({communities}) {
-  // const [searchbarRef] = useRef()
-  const [searchbarClicked,setSearchbarClicked] = useState(false)
-  const [searchbarValue,setSearchbarValue] = useState('')
-  
-  const [communitiesShown,setCommunitiesShown] = useState('')
-  function searchbarClickedHandler() {
-        console.log("greia souy" )
-        setSearchbarClicked(true)
-  }
-
-  function searchbarUnclickedHandler() {
-    setSearchbarClicked(false)
-  }
+export default function SearchCommunities({
+  communities,
+  searchbarValue,
+  setSearchbarValue,
+  setCommunitiesShown
+}) {
+  const icon = <IconComponents style={{ width: rem(16), height: rem(16) }} />;
 
   function searchHandler(value) {
-  setSearchbarValue(value)
-}
+    setSearchbarValue(value);
 
-useEffect(() => {
-   
-  console.log(searchbarValue)
-  const filtered = communities.map((community) => community.name)
-  .filter((communityName) => (
-    communityName.toLowerCase().startsWith(searchbarValue.toLowerCase()) ))
-      
-   setCommunitiesShown(filtered);
-  console.log(filtered)
- 
-    
+    const filtered = communities.filter((community) =>
+      community.name.toLowerCase().startsWith(value.toLowerCase())
+    );
 
-},[searchbarValue,setCommunitiesShown])
+    setCommunitiesShown(filtered);
+  }
 
-
-
-  
-  const icon = <IconComponents style={{ width: rem(6), height: rem(6) }} />;
   return (
-    <>
-    {/* <h1>{newArray}</h1> */}
-      <section style={{display: "flex",flexDirection: "column"}} >
-      {/* {searchbarClicked === true ?
-      <div>
-      <SearchbarIndicator/>
-      </div> : <br/>} */}
-      <Autocomplete onFocus={searchbarClickedHandler} value = {searchbarValue} onBlur={searchbarUnclickedHandler} onChange={searchHandler}
+    <section style={{ display: "flex", flexDirection: "column" }}>
+      <Autocomplete
+        value={searchbarValue}
+        onChange={searchHandler}
         mt="md"
-        data={['React', 'Angular', 'Vue']}
+        data={communities.map((c) => c.name)}
         rightSectionPointerEvents="none"
         rightSection={icon}
         placeholder="Search..."
       />
-      
-      </section>
-     
-    </>
+    </section>
   );
 }

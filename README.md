@@ -1,10 +1,11 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# WROTTIT
+# Welcome to Wrottit
+This project was created by me, Stauros Koulas, as a Reddit clone for the sole porpose of: let's waste blood,seat and tears trying to understand React by creating by myself a project that was made by hundreds of developers. After all, why not?
 
 ## Available Scripts
 
 In the project directory, you can run:
+![NoBanner](https://github.com/user-attachments/assets/34a8d1c4-320f-4998-92cb-7c46d2a57def)
 
 ### `npm start`
 

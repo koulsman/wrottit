@@ -10,7 +10,8 @@ import DefaultImage from "../images/imageDefault.svg";
 import { FileInput } from "@mantine/core";
 import CommunityPreview from "./CommunityPreview";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Blocks } from "react-loader-spinner";
 
 export function CommunityCreator() {
   const initialState = { page: 1 };
@@ -20,9 +21,10 @@ export function CommunityCreator() {
   const [communityRules, setCommunityRules] = useState("");
   const [communityBannerImage, setCommunityBannerImage] = useState(null);
   const [communityIconImage, setCommunityIconImage] = useState(null);
-  const [createdCommunity,setCreatedCommunity] = useState(false);
-  const [iconForCloudinary,setIconForCloudinary] = useState("");
-  const [bannerForCloudinary,setBannerForCloudinary] = useState("");
+  const [createdCommunity, setCreatedCommunity] = useState(false);
+  const [iconForCloudinary, setIconForCloudinary] = useState("");
+  const [bannerForCloudinary, setBannerForCloudinary] = useState("");
+  const [isPostingCommunity, setIsPostingCommunity] = useState(false);
   const navigate = useNavigate();
 
   const ImageIcon = <img src={DefaultImage} size={18} stroke={1.5} />;
@@ -38,58 +40,53 @@ export function CommunityCreator() {
     }
   }
 
-const uploadToCloudinary = async (file) => {
-  const formData = new FormData();
-  formData.append("file", file);
-  formData.append("upload_preset", "wrottit"); // replace with your actual upload preset name
+  const uploadToCloudinary = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "wrottit"); // replace with your actual upload preset name
 
-  const res = await axios.post(
-    "https://api.cloudinary.com/v1_1/ddakpw9jf/image/upload", // use your actual Cloudinary cloud name here
-    formData
-  );
-  return res.data.secure_url; // this is what you want to store in MongoDB
-};
+    const res = await axios.post(
+      "https://api.cloudinary.com/v1_1/ddakpw9jf/image/upload", // use your actual Cloudinary cloud name here
+      formData
+    );
+    return res.data.secure_url; // this is what you want to store in MongoDB
+  };
   async function communityCreatorHandler() {
     try {
       let bannerUrl = "";
       let iconUrl = "";
 
       if (communityBannerImage) {
-      bannerUrl = await uploadToCloudinary(bannerForCloudinary);
-    }
+        bannerUrl = await uploadToCloudinary(bannerForCloudinary);
+      }
 
-    if (communityIconImage) {
-      iconUrl = await uploadToCloudinary(iconForCloudinary);
-    }
-     const response = await axios.post("http://localhost:3003/communities", {
-      name: communityName,
-      description: communityDescription,
-      iconImage: iconUrl,
-      bannerImage: bannerUrl,
-
-     })
-     console.log("Created community:", response.data);
-     if(response.ok) {
+      if (communityIconImage) {
+        iconUrl = await uploadToCloudinary(iconForCloudinary);
+      }
+      const response = await axios.post("http://localhost:3003/communities", {
+        name: communityName,
+        description: communityDescription,
+        iconImage: iconUrl,
+        bannerImage: bannerUrl,
+      });
+      console.log("Created community:", response.data);
+      setIsPostingCommunity(true);
+      if (response.ok) {
         setCreatedCommunity(true);
-        navigate(`/`)
-      
-    }
-    }
-    
-    catch (error) {
-          console.log(error)
+        navigate(`/Communities`, { replace: true });
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
-  function succesfulCommunityCreation() {
-
-  }
+  function succesfulCommunityCreation() {}
   return (
     <div>
       <Grid>
         <Grid.Col span={3}>
           <Navbar />
         </Grid.Col>
-        <Grid.Col span = {window.innerWidth < 720 ?  "7": "auto"}>
+        <Grid.Col span={window.innerWidth < 720 ? "7" : "auto"}>
           <div>
             {state.page === 1 && (
               <div id="firstPage">
@@ -101,7 +98,6 @@ const uploadToCloudinary = async (file) => {
                 </p>
                 <div
                   style={{
-                    
                     display: "flex",
                     justifyContent: "center",
                     flexDirection: "column",
@@ -120,7 +116,11 @@ const uploadToCloudinary = async (file) => {
                     withAsterisk
                   />
                   <Textarea
-                    style={{ maxWidth: "20em", height: "14em", marginTop: "1em"}}
+                    style={{
+                      maxWidth: "20em",
+                      height: "14em",
+                      marginTop: "1em",
+                    }}
                     label="Community Description"
                     placeholder="example: This community is about Rock Music, where we share are favorite rock tracks and artists"
                     description="Add a description for your community"
@@ -145,7 +145,7 @@ const uploadToCloudinary = async (file) => {
                 </p>
 
                 <FileInput
-                  style={{width: "10em", margin: "auto"}}
+                  style={{ width: "10em", margin: "auto" }}
                   leftSection={
                     <img
                       src={DefaultImage}
@@ -160,13 +160,13 @@ const uploadToCloudinary = async (file) => {
                   onChange={(file) => {
                     if (file) {
                       setCommunityBannerImage(URL.createObjectURL(file));
-                      setBannerForCloudinary(file)
+                      setBannerForCloudinary(file);
                     }
                   }}
                 />
 
                 <FileInput
-                style={{width: "10em", margin: "auto"}}
+                  style={{ width: "10em", margin: "auto" }}
                   leftSection={
                     <img
                       src={DefaultImage}
@@ -250,15 +250,31 @@ const uploadToCloudinary = async (file) => {
                       <img src={NextCard} alt="Next" style={{ width: "3em" }} />
                     </Button>
                   );
-                } else {
+                } else if (state.page === 3 && !isPostingCommunity) {
                   return communityName && communityDescription ? (
-                    <Button onClick={(communityName,communityDescription) => communityCreatorHandler()}>Create Community!</Button>
+                    <Button
+                      onClick={(communityName, communityDescription) =>
+                        communityCreatorHandler()
+                      }
+                    >
+                      Create Community!
+                    </Button>
                   ) : (
                     <Tooltip label="Please fill community name and community description to create your community!">
-                    <Button disabled>
-                      Create!
-                    </Button>
+                      <Button disabled>Create!</Button>
                     </Tooltip>
+                  );
+                } else if (state.page === 3 && isPostingCommunity) {
+                  return (
+                    <Blocks
+  height="80"
+  width="80"
+  color="#4fa94d"
+  ariaLabel="blocks-loading"
+  wrapperStyle={{}}
+  wrapperClass="blocks-wrapper"
+  visible={true}
+  />
                   );
                 }
               })()}
