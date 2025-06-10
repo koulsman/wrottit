@@ -47,6 +47,7 @@ export default function ImageCarousel({images}) {
                         maxWidth: "100%",
                         padding: "0 10px",
                       }}
+                      
                     >
                       <img
                       onLoad={(image,index) => imageIndexHandler(image,index)}
