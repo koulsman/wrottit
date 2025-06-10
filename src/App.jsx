@@ -68,7 +68,6 @@ function App() {
       const response = await axios.get("http://localhost:3002/posts");
       console.log("Posts fetched:", response.data);
       setPosts(response.data);
-      
       setSortedPosts(response.data); // Keep a copy for sorting
       setIsFetching(false)
     } catch (error) {
