@@ -204,7 +204,8 @@ function CreatePost() {
                 id="PostInfo"
                 style={{ display: "flex", flexDirection: "column" }}
               >
-                {communityClicked ? (
+                {/* {communityClicked ? 
+                (
                   <input
                     className="Text-input"
                     ref={communityRef}
@@ -228,8 +229,12 @@ function CreatePost() {
                   >
                     Choose Community
                   </Button>
-                )}
+                )} */}
                 <Autocomplete
+                style={{margin: "auto", width: "30em", backgroundColor: "white", borderRadius: "0.5em",padding: "1em black",
+                  backgroundClip: "content-box",
+  boxShadow: "inset 0 0 0 10px black"
+                }}
                   onChange={communityChooserHandler}
                   withinPortal={false}
                   placeholder="Choose community"
@@ -245,6 +250,7 @@ function CreatePost() {
                 <input
                   className="Text-input"
                   placeholder="type title"
+                  style={{margin: "1em auto 1em auto", width: "30em"}}
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                 />
@@ -339,7 +345,7 @@ function CreatePost() {
                     alignItems: "flexEnd",
                   }}
                 >
-                  {communityName !== "" && images.length > 0 ? (
+                  {communityName !== "" && (images.length > 0  || content) ? (
                     <Button onClick={submitPost}>Post</Button>
                   ) : (
                     <Button disabled>Post</Button>

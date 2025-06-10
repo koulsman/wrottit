@@ -133,4 +133,14 @@ app.get('/posts/postsby/:uid', async (req, res) => {
   }
 });
 
+app.get('/posts/communityPosts/:communityId', async (req, res) => {
+  const { communityId } = req.params;
+  try {
+    const communityPosts = await Post.find({ communityId: String(communityId) });
+    res.json(communityPosts);
+  } catch (err) {
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 module.exports = app;

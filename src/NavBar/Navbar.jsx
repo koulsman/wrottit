@@ -86,7 +86,7 @@ export function Navbar() {
       top: "17em", paddingLeft: "0"};
   
   return (
-    
+    <>
     <nav className={classes.navbar} style={ isMobile? isMobileStyle  : DesktopStyle }>
       <div className={classes.navbarMain}>
         
@@ -109,14 +109,15 @@ export function Navbar() {
         <IconInfoCircle className={classes.linkIcon} stroke={1.5} />
         {!isMobile && <span>About Wrottit</span>}
       </a> 
-      <a href="#" className={classes.link} onClick={metallicaHandler}>
+      {/* <a href="#" className={classes.link} onClick={metallicaHandler}>
         <IconInfoCircle className={classes.linkIcon} stroke={1.5} />
         {!isMobile && <span>metallica</span>}
-      </a> 
+      </a>  */}
     </div>
     
       {/* window.location.reload(); */}
       
     </nav>
+    </>
   );
 }

@@ -36,8 +36,8 @@ import ChangeUserImage from "./ChangeUserImage";
 import Communities from "./NavBar/NavbarCommunities/Communities";
 import {CommunityCreator} from "./LoggedInfo/CommunityCreator";
 import GearSpinner from "../src/images/gear-spinner.svg"
-import MetallicaCommunity from './NavBar/MetallicaCommunity'
-import SelectedCommunity from "./NavBar/MetallicaCommunity";
+
+import SelectedCommunity from "./NavBar/NavbarCommunities/SelectedCommunity";
 
 function App() {
   const [isLoggedIn] = useAtom(isLoggedInAtom);
@@ -289,7 +289,7 @@ function App() {
             <Route path="/About" element={<About />} />
             <Route path="/Communities" element={<Communities />} />
             <Route path="/:id/CommunityCreator" element={<CommunityCreator />} />
-            <Route path="/MetallicaCommunity" element={<MetallicaCommunity />} />
+            {/* <Route path="/MetallicaCommunity" element={<MetallicaCommunity />} /> */}
             <Route path="/" element={<App />} />
             <Route path="/MainMenu" element={<App />} />
           </Routes>

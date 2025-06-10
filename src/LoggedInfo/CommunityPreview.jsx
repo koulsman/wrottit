@@ -18,60 +18,62 @@ function navigateToSelectedCommunity(communityId) {
 }
 
 
+ 
   return (
-    <Card onClick={(communityId) => navigateToSelectedCommunity(communityId)}
-      style={{ width: "25em", margin: "1em", padding: "1em"}}
+    <Card
+      onClick={() => navigateToSelectedCommunity(communityId)}
+      style={{
+        width: "25em",
+        margin: "1em auto",
+        padding: "1em",
+        cursor: "pointer",
+      }}
       shadow="sm"
       padding="xl"
-      component="a"
-      target="_blank"
     >
       <Card.Section>
-        {!communityBannerImage ? (
-          <Image src={NoBanner} h={160} alt="No way!" />
-        ) : (
-          <Image src={communityBannerImage} h={160} alt="No way!" />
-        )}
+        <Image
+          src={communityBannerImage || NoBanner}
+          height={160}
+          alt="Community banner"
+          fit="cover"
+        />
       </Card.Section>
-      <div id="IconTitleAndDescription" style={{ display: "flex" }}>
-        {communityId}
-        <div style={{ width: "4em" }}>
-          <div
-            id="Icon"
-            style={{
-              marginTop: "2em",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "start",
-              width: "4em",
-              height: "4em",
-              borderRadius: "50%",
-              background: "blue",
-              overflow: "hidden", // Make sure image doesn't overflow the circle
-            }}
-          >
-            {!communityIconImage ? (
-              <Image src={NoIcon} h={160} alt="No way!" />
-            ) : (
-              <Image
-                src={communityIconImage}
-                alt="Icon"
-                width="100%"
-                height="100%"
-                style={{
-                  objectFit: "cover",
-                  borderRadius: "50%",
-                }}
-              />
-            )}
-          </div>
+
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1em",
+          marginTop: "1em",
+        }}
+      >
+        {/* Icon */}
+        <div
+          style={{
+            width: "4em",
+            height: "4em",
+            borderRadius: "50%",
+            backgroundColor: "#ccc",
+            overflow: "hidden",
+            flexShrink: 0,
+          }}
+        >
+          <Image
+            src={communityIconImage || NoIcon}
+            alt="Community icon"
+            width="100%"
+            height="100%"
+            style={{ objectFit: "cover", borderRadius: "50%" }}
+          />
         </div>
-        <div style={{ width: "6em" }}>
-          <Text fw={500} size="lg" mt="md">
+
+        {/* Name + Description */}
+        <div style={{ flexGrow: 1 }}>
+          <Text fw={600} size="lg">
             {communityName}
           </Text>
-
-          <Text mt="xs" c="dimmed" size="sm">
+          <Text mt={4} c="dimmed" size="sm" lineClamp={3}>
             {communityDescription}
           </Text>
         </div>

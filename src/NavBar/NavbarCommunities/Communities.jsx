@@ -49,7 +49,7 @@ export default function Communities() {
           />
 
           {displayedCommunities.map((community) => (
-            <CommunityPreview 
+            <CommunityPreview style={{width: "5em"}}
             // onClick={navigateToSelectedCommunityHandler(community._id)}
               key={community._id}
               communityId={community._id}

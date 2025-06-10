@@ -7,7 +7,15 @@ import axios from "axios";
 export default function ImageDropzone({ props }) {
   const [images, setImages] = useState([]);
   const [uploading, setUploading] = useState(false);
+ 
 
+  const VIDEO_MIME_TYPE = [
+  "video/mp4",
+  "video/webm",
+  "video/ogg",
+  "video/quicktime",
+  "video/x-msvideo",
+];
   function handleImageDrop(files) {
     console.log("Dropped Files:", files);
     
@@ -32,7 +40,7 @@ export default function ImageDropzone({ props }) {
     formData.append("date", new Date().toISOString());
   
     images.forEach((file) => {
-      formData.append("images[]", file); // ✅ Use "images[]" if backend expects an array
+      formData.append("images[]", file); 
     });
   
     // Debug FormData
@@ -56,8 +64,8 @@ export default function ImageDropzone({ props }) {
       <Dropzone
         onDrop={handleImageDrop}
         onReject={(files) => console.log("Rejected files:", files)}
-        maxSize={5 * 1024 ** 2}
-        accept={IMAGE_MIME_TYPE}
+        maxSize={100 * 1024 ** 2}
+        accept={[...IMAGE_MIME_TYPE, ...VIDEO_MIME_TYPE]}
         {...props}
       >
         <Group justify="center" gap="xl" mih={220} style={{ pointerEvents: "none" }}>
