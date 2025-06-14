@@ -1,45 +1,67 @@
 import { Autocomplete, rem } from '@mantine/core';
 import { IconComponents } from '@tabler/icons-react';
-import { FloatingIndicator } from '@mantine/core';
-import { useState, useEffect } from 'react';
+import {useState, useEffect, useRef} from "react"
+import { Pill, Button } from '@mantine/core';
+import search from '../images/search.svg'
 
+export default function Searchbar()
+ {
+  const pillRef = useRef()
 
-export default function SearchBar() {
-  // const [searchbarRef] = useRef()
-  const [searchbarClicked,setSearchbarClicked] = useState(false)
+  const [searchbarValue,setSearchbarValue] = useState("");
+  const [clicked,setClicked] = useState(false)
   
-  function searchbarClickedHandler() {
-        console.log("greia souy" )
-        setSearchbarClicked(true)
+  const {communityPillRef} = useRef({})
+  const searchbarRef = useRef()
+  function autocompleteHandler() {
+     setClicked(true)
   }
+  function searchHandler() {
+    // setSearchbarValue(value);
+    console.log("search")
+    // const filtered = communities.filter((community) =>
+    //   community.name.toLowerCase().startsWith(value.toLowerCase())
+    // );
 
-  function searchbarUnclickedHandler() {
-    setSearchbarClicked(false)
+    // setCommunitiesShown(filtered);
   }
+   
+  function handleCloseSearch(event) {
+     if (searchbarRef.current && !searchbarRef.current.contains(event.target)) {
+      setClicked(false);
+    }
+  }
+   useEffect(() => {
+    document.addEventListener("mousedown", handleCloseSearch);
+    return () => {
+      document.removeEventListener("mousedown", handleCloseSearch);
+    };
+  }, []);
 
-useEffect(() => {
-  
-},[searchbarClicked,searchbarClickedHandler,searchbarUnclickedHandler])
-
-  
-  const icon = <IconComponents style={{ width: rem(6), height: rem(6) }} />;
   return (
-    <>
-      <section style={{display: "flex",flexDirection: "column"}} >
-      {/* {searchbarClicked === true ?
-      <div>
-      <SearchbarIndicator/>
-      </div> : <br/>} */}
-      <Autocomplete onFocus={searchbarClickedHandler} onBlur={searchbarUnclickedHandler}
+    <section >
+      <div className="searchbarAndButton" style={{ display: "flex" }}>
+        
+      <Autocomplete onClick={() => autocompleteHandler()}
+        ref={searchbarRef}
+        value={searchbarValue}
+        onChange={(searchbarValue) => setSearchbarValue(searchbarValue)}
         mt="md"
-        data={['React', 'Angular', 'Vue']}
+        // data={communities.map((c) => c.name)}
         rightSectionPointerEvents="none"
-        rightSection={icon}
+      
         placeholder="Search..."
       />
       
-      </section>
-     
-    </>
+        <Button style={{marginTop: "1.1em"}} onClick={searchHandler}>
+          <img src={search} style={{width: "3em", height: "2em"}}/>
+        </Button>
+        </div>
+       
+        {clicked && <>
+        <Pill ref={pillRef}>communities</Pill>
+        <Pill>posts</Pill></>}
+        
+    </section>
   );
 }

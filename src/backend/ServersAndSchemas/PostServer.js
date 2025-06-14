@@ -15,6 +15,7 @@ const uri = 'mongodb+srv://stevekoulas:asfalisa1@wrotit.mxylu.mongodb.net/users_
 const cloudinary_url = 'cloudinary://238832425628676:q2qEiXD1AnxixxgdHhvvqoBRRcA@ddakpw9jf';
 app.use(cors({
   origin: 'https://wrottit-yovc.onrender.com',
+  //  origin: 'http://localhost:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));

@@ -13,7 +13,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Blocks } from "react-loader-spinner";
 
-export function CommunityCreator() {
+export default function CommunityCreator() {
   const initialState = { page: 1 };
   const [state, dispatch] = useReducer(reducer, initialState);
   const [communityName, setCommunityName] = useState("");

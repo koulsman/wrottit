@@ -152,7 +152,7 @@ export default function PostCard({
         </Card.Section>
         <Card.Section inheritPadding mt="sm" pb="md">
           <SimpleGrid cols={3}>
-            <Text mt="m" fw={500} size="l" style={{ textAlign: "left" }}>
+            <Text mt="m" fw={500} size="l" style={{ textAlign: "left", width: "20em" }}>
               {content}
             </Text>
           </SimpleGrid>

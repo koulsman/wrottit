@@ -34,7 +34,7 @@ import MyDatetimes from "./MyDatetimes";
 import About from "./NavBar/About";
 import ChangeUserImage from "./ChangeUserImage";
 import Communities from "./NavBar/NavbarCommunities/Communities";
-import {CommunityCreator} from "./LoggedInfo/CommunityCreator";
+import CommunityCreator from "./LoggedInfo/CommunityCreator";
 import GearSpinner from "../src/images/gear-spinner.svg"
 
 import SelectedCommunity from "./NavBar/NavbarCommunities/SelectedCommunity";
