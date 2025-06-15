@@ -136,7 +136,7 @@
 .searchBar {
     display: flex;
     align-items: center;
-    margin: 0 1em 1em 1em;
+    margin: 0 0 1em 1em;
     justify-content: center;
 }
 

@@ -38,6 +38,7 @@ import CommunityCreator from "./LoggedInfo/CommunityCreator";
 import GearSpinner from "../src/images/gear-spinner.svg"
 
 import SelectedCommunity from "./NavBar/NavbarCommunities/SelectedCommunity";
+import SearchedTermInSearchbar from "./SearchTermInSearchbar";
 
 function App() {
   const [isLoggedIn] = useAtom(isLoggedInAtom);
@@ -115,7 +116,7 @@ function App() {
             <Grid.Col
               span="auto"
               style={{
-                margin: "1em",
+                margin: "1em 0 1em 1em",
                 display: "flex",
                 width: "2em",
                 height: "4em",
@@ -281,6 +282,7 @@ function App() {
                 </Grid>
               }
             ></Route>
+            <Route path="/SearchedTermInSearchbar/:searchIn/:searchedTerm" element={<SearchedTermInSearchbar />} />
             <Route path="/post/:id" element={<PostPage />} />
             <Route path="/:id/myLikes" element={<MyLikes />} />
             <Route path="/:communityid/SelectedCommunity" element={<SelectedCommunity />} />
