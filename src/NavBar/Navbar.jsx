@@ -15,7 +15,7 @@ import {
   IconInfoCircle,
   IconLayoutGrid
 } from '@tabler/icons-react';
-
+import linkedinLogo from "../images/linkedin.svg"
 import homeLogo from "../images/home.svg"
 import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './Navbar.module.css';
@@ -58,7 +58,7 @@ export function Navbar() {
   function communityHandler() {
     navigate('/Communities')
   }
-  function metallicaHandler() {
+  function linkedinHandler() {
     navigate('/MetallicaCommunity')
   }
 
@@ -108,6 +108,10 @@ export function Navbar() {
       <a href="#" className={classes.link} onClick={aboutHandler}>
         <IconInfoCircle className={classes.linkIcon} stroke={1.5} />
         {!isMobile && <span>About Wrottit</span>}
+      </a> 
+      <a href="https://www.linkedin.com/in/stauros-koulas-a708aa10a/" className={classes.link}>
+        <img src={linkedinLogo} style={{width: "1.5em", marginRight: "1em"}}  />
+        {!isMobile && <span>LinkedIn</span>}
       </a> 
       {/* <a href="#" className={classes.link} onClick={metallicaHandler}>
         <IconInfoCircle className={classes.linkIcon} stroke={1.5} />

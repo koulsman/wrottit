@@ -97,7 +97,7 @@ export default function Searchbar() {
               marginRight: '0.5em',
             }}
           >
-            only Communities
+            Only Communities
           </Pill>
           <Pill
             ref={postsPillRef}
@@ -108,7 +108,7 @@ export default function Searchbar() {
               cursor: 'pointer',
             }}
           >
-            only Posts
+            Only Posts
           </Pill>
         </>
       )}
