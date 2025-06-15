@@ -6,12 +6,16 @@ import search from '../images/search.svg'
 
 export default function Searchbar()
  {
-  const pillRef = useRef()
+  
 
   const [searchbarValue,setSearchbarValue] = useState("");
   const [clicked,setClicked] = useState(false)
   
-  const {communityPillRef} = useRef({})
+  const {communitiesPillRef} = useRef(null)
+  const {postsPillRef} = useRef(null)
+  const [communitiesPillSelected,setCommunitiesPillSelected] = useState(false)
+  const [postsPillSelected,setPostsPillSelected] = useState(false)
+
   const searchbarRef = useRef()
   function autocompleteHandler() {
      setClicked(true)
@@ -31,6 +35,21 @@ export default function Searchbar()
       setClicked(false);
     }
   }
+
+  function handleSearchCommunities() {
+    setCommunitiesPillSelected(!communitiesPillSelected)
+    if (postsPillSelected === true) {
+      setPostsPillSelected(false)
+    }
+  }
+
+  function handleSearchPosts() {
+    setPostsPillSelected(!postsPillSelected)
+    if (communitiesPillSelected === true) {
+      setCommunitiesPillSelected(false)
+    }
+  }
+
    useEffect(() => {
     document.addEventListener("mousedown", handleCloseSearch);
     return () => {
@@ -38,18 +57,32 @@ export default function Searchbar()
     };
   }, []);
 
+  useEffect(() => {
+
+  },[communitiesPillSelected,postsPillSelected])
+
+   const leftSection = communitiesPillSelected ? (
+    <Pill ref={communitiesPillRef} style={{ background: 'green' }}>
+      C/
+    </Pill>
+  ) : postsPillSelected ? (
+    <Pill ref={postsPillRef} style={{ background: 'green' }}>
+      P/
+    </Pill>
+  ) : null;
+
   return (
-    <section >
+    <section ref={searchbarRef}>
       <div className="searchbarAndButton" style={{ display: "flex" }}>
         
       <Autocomplete onClick={() => autocompleteHandler()}
-        ref={searchbarRef}
+        
         value={searchbarValue}
         onChange={(searchbarValue) => setSearchbarValue(searchbarValue)}
         mt="md"
         // data={communities.map((c) => c.name)}
         rightSectionPointerEvents="none"
-      
+        leftSection = {leftSection}
         placeholder="Search..."
       />
       
@@ -59,8 +92,8 @@ export default function Searchbar()
         </div>
        
         {clicked && <>
-        <Pill ref={pillRef}>communities</Pill>
-        <Pill>posts</Pill></>}
+        <Pill ref={communitiesPillRef} onClick={handleSearchCommunities} style={communitiesPillSelected ? {background: "green" } : {background: "black"}}>only Communities</Pill>
+        <Pill ref={postsPillRef} onClick={handleSearchPosts} style={postsPillSelected ? {background: "green"} : {background: "black"}}>only Posts</Pill></>}
         
     </section>
   );

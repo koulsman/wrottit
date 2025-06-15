@@ -66,8 +66,8 @@ function App() {
     setIsFetching(true)
     try {
       // https://wrottit-yovc.onrender.com/
-      const response = await axios.get("https://wrottit-yovc.onrender.com/posts");
-      // const response = await axios.get("http://localhost:3002/posts");
+      // const response = await axios.get("https://wrottit-yovc.onrender.com/posts");
+      const response = await axios.get("http://localhost:3002/posts");
       console.log("Posts fetched:", response.data);
       setPosts(response.data);
       setSortedPosts(response.data); // Keep a copy for sorting
