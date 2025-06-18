@@ -14,7 +14,9 @@ export default function MyLikes() {
       async function handlePosts() {
         console.log(loggedUser)
         try {
-          const response = await axios.get(`http://localhost:3002/posts/postsby/${loggedUser?._id}`);
+          // const response = await axios.get(`http://localhost:3002/posts/postsby/${loggedUser?._id}`);
+          const response = await axios.get(`http://wrottit-servers.onrender.com/posts/postsby/${loggedUser?._id}`);
+          
           console.log("Posts fetched:", response.data); // Debugging για τα δεδομένα
           setPosts(response.data);
         } catch (error) {

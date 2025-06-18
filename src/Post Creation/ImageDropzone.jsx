@@ -50,7 +50,9 @@ export default function ImageDropzone({ props }) {
   
     try {
       setUploading(true);
-      const response = await axios.post("http://localhost:3002/posts", formData);
+      // const response = await axios.post("http://localhost:3002/posts", formData);
+      const response = await axios.post("http://wrottit-servers.onrender.com/posts", formData);
+       
       console.log("Response:", response.data);
     } catch (error) {
       console.error("Error uploading images:", error);

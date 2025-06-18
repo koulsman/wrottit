@@ -63,7 +63,10 @@ export default function CommunityCreator() {
       if (communityIconImage) {
         iconUrl = await uploadToCloudinary(iconForCloudinary);
       }
-      const response = await axios.post("http://localhost:3003/communities", {
+      // const response = await axios.post("http://localhost:3003/communities", 
+        const response = await axios.post("http:// wrottit-servers.onrender.com/communities", 
+       
+        {
         name: communityName,
         description: communityDescription,
         iconImage: iconUrl,

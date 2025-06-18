@@ -14,8 +14,9 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import Copy from "../images/copy.svg";
 
 export default function Share({ postid }) {
-  const urlForCopy = `http://localhost:3000/post/${postid}`;
-
+  // const urlForCopy = `http://localhost:3000/post/${postid}`;
+  const urlForCopy = `http://wrottit-servers.onrender.com/post/${postid}`;
+ 
   return (
     <Popover width={200} position="bottom" withArrow shadow="md">
       <Popover.Target>

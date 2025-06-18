@@ -65,7 +65,9 @@ export default function LoggedInfo({name,uid, status}) {
     async function handlePosts() {
       console.log("!!!!!!!!!!!!!!UID:", uid);
       try {
-        const response = await axios.get(`http://localhost:3002/posts/${uid}`);
+        // const response = await axios.get(`http://localhost:3002/posts/${uid}`);
+        const response = await axios.get(`http://wrottit-servers.onrender.com/posts/${uid}`);
+       
         console.log("Posts fetched:", response.data); // Debugging για τα δεδομένα
         setPosts(response.data);
       } catch (error) {

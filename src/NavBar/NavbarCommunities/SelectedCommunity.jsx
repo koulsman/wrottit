@@ -25,7 +25,9 @@ export default function SelectedCommunity() {
   async function handleCommunity() {
     try {
       const response = await axios.get(
-        `http://localhost:3002/communities/${communityid}`
+        // `http://localhost:3002/communities/${communityid}`
+        `http://wrottit-servers.onrender.com/communities/${communityid}`
+        
       );
       console.log("Community Info fetched:", response.data); // Debugging για τα δεδομένα
     
@@ -38,7 +40,9 @@ export default function SelectedCommunity() {
   async function handlePosts() {
     try {
       const response = await axios.get(
-        `http://localhost:3002/posts/communityPosts/${communityid}`
+        
+        `http://wrottit-servers.onrender.com/posts/communityPosts/${communityid}`
+        // `http://localhost:3002/posts/communityPosts/${communityid}`
       );
       console.log(response.data);
       setCommunityPosts(response.data);

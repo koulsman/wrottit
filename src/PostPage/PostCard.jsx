@@ -178,7 +178,10 @@ export default function PostCard({
       <ImageModal
         opened={opened}
         onClose={close}
-        image={`http://localhost:3000/${imageSelected.replace(/\\/g, "/")}`}
+        // image={`http://localhost:3000/${imageSelected.replace(/\\/g, "/")}`}
+        image={`http:// wrottit-servers.onrender.com/${imageSelected.replace(/\\/g, "/")}`}
+       
+
       />
     </>
   );
