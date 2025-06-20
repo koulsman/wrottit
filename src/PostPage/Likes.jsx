@@ -26,8 +26,7 @@ export default function Likes({votes,postid}) {
                 setPostDisliked(false);
                //update likes
                 try {
-                    // const response = await axios.post(`http://localhost:3002/${postid}/upvotes`, {
-                         const response = await axios.post(`http://wrottit-servers.onrender.com/${postid}/upvotes`, {
+                    const response = await axios.post(`http://localhost:3002/${postid}/upvotes`, {
                         likes,
                     });
                     const newLikes = response.data;
@@ -51,9 +50,7 @@ export default function Likes({votes,postid}) {
             setPostLiked(false);
 
                  try {
-                    // const response = await axios.post(`http://localhost:3002/${postid}/upvotes`, {
-                        const response = await axios.post(`http://wrottit-servers.onrender.com/${postid}/upvotes`, {
-                        
+                    const response = await axios.post(`http://localhost:3002/${postid}/upvotes`, {
                         likes,
                     });
                     const newLikes = response.data;
@@ -74,9 +71,7 @@ export default function Likes({votes,postid}) {
             setPostLiked(false);
             setPostDisliked(true);
             try {
-                // const response = await axios.post(`http://localhost:3002/${postid}/upvotes`, {
-                    const response = await axios.post(`http://wrottit-servers.onrender.com/${postid}/upvotes`, {
-                    
+                const response = await axios.post(`http://localhost:3002/${postid}/upvotes`, {
                     likes,
                 });
                 const newLikes = response.data;

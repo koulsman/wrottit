@@ -41,6 +41,7 @@
     "cors": "^2.8.5",
     "crypto-browserify": "^3.12.1",
     "dayjs": "^1.11.13",
+    "dotenv": "^16.5.0",
     "embla-carousel-react": "^8.6.0",
     "express": "^4.21.2",
     "firebase": "^10.9.0",
@@ -76,21 +77,20 @@
     "web-vitals": "^2.1.4"
   },
   "scripts_commented": {
-  "start": "serve -s build -l ${PORT}",
-  "build": "react-scripts build",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject"
-},
-
-"scripts": {
-  "start": "react-scripts start",
-  "start:dev": "cross-env HOST=0.0.0.0 PORT=3000 react-scripts start",
-  "build": "react-scripts build",
-  "serve": "serve -s build -l $PORT",
-  "start:prod": "npm run build && npm run serve",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject"
-},
+    "start": "serve -s build -l ${PORT}",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "start:dev": "cross-env HOST=0.0.0.0 PORT=3000 react-scripts start",
+    "build": "react-scripts build",
+    "serve": "serve -s build -l $PORT",
+    "start:prod": "npm run build && npm run serve",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",

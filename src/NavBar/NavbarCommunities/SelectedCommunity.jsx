@@ -10,39 +10,39 @@ import axios from "axios";
 // import { post } from "../../backend/ServersAndSchemas/PostServer";
 import { useParams } from "react-router-dom";
 import CommunityPreview from "../../LoggedInfo/CommunityPreview";
+import CommunityInfo from "../../LoggedInfo/CommunityInfo";
 
 export default function SelectedCommunity() {
   // const [isLoggedIn] = useAtom(isLoggedInAtom);
   // const [loggedUser] = useAtom(loggedUserAtom);
   const [communityPosts, setCommunityPosts] = useState([]);
-  const [community, setCommunity] = useState([]);
+  const [community, setCommunity] = useState(null);
   const { communityid } = useParams();
 
   useEffect(() => {
     console.log(communityid + "id");
   }, [communityid]);
-  //εδω θα φερω τα info για το community
   async function handleCommunity() {
     try {
+      console.log("🔍 Fetching community from port 3003, id=", communityid);
       const response = await axios.get(
-        // `http://localhost:3002/communities/${communityid}`
-        `http://wrottit-servers.onrender.com/communities/${communityid}`
-        
+        `http://localhost:3003/communities/${communityid}`
       );
-      console.log("Community Info fetched:", response.data); // Debugging για τα δεδομένα
-    
-      setCommunity(response.data[0]);
+      console.log("✅ Response.data:", response.data);
+      setCommunity(response.data);
     } catch (error) {
-      console.error("Error getting posts:", error);
+      console.error("🔥 Error getting community:", error);
     }
   }
-  // εδω θα φερω ΄ολα τα post που ΄εχουν για community id το idd του community
+
+  // και ρόφησε κι αυτό:
+  useEffect(() => {
+    console.log("🔁 community state changed:", community);
+  }, [community]);
   async function handlePosts() {
     try {
       const response = await axios.get(
-        
-        `http://wrottit-servers.onrender.com/posts/communityPosts/${communityid}`
-        // `http://localhost:3002/posts/communityPosts/${communityid}`
+        `http://localhost:3002/posts/communityPosts/${communityid}`
       );
       console.log(response.data);
       setCommunityPosts(response.data);
@@ -64,15 +64,15 @@ export default function SelectedCommunity() {
           <Navbar />
         </Grid.Col>
         <Grid.Col span={window.innerWidth < 720 ? "7" : "auto"}>
-          {community  && (
-            <CommunityPreview
-              style={{ width: "5em" }}
-              
+          {community && (
+            <CommunityInfo
               communityId={community._id}
               communityName={community.communityName}
               communityDescription={community.description}
               communityIconImage={community.iconImage}
               communityBannerImage={community.bannerImage}
+              communityFlags={community.flags}
+              communityRules={community.rules}
             />
           )}
 
@@ -112,6 +112,7 @@ export default function SelectedCommunity() {
         // </div>
       ))} */}
         </Grid.Col>
+        <Grid.Col span={"auto"} />
       </Grid>
     </div>
   );

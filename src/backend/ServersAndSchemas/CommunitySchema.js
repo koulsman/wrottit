@@ -13,7 +13,8 @@ const communitySchema = new Schema({
     rules: {type: String, required: false},
     iconImage: { type: Array, required: false },
     bannerImage: { type: Array, required: false }, 
-    members: {type: Number, default: 1}
+    members: {type: Number, default: 1},
+    flags: {type: Array, required: false}
 
 }, { 
     collection: 'communities' // Specify the collection name explicitly

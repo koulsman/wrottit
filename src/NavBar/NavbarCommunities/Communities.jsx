@@ -15,8 +15,7 @@ export default function Communities() {
   useEffect(() => {
     async function handleCommunities() {
       try {
-        const response = await axios.get("https://wrottit-servers.onrender.com/communities");
-        // const response = await axios.get("http://localhost:3003/communities");
+        const response = await axios.get("http://localhost:3003/communities");
         setCommunities(response.data);
       } catch (error) {
         console.error("Error getting communities:", error);

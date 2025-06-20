@@ -40,7 +40,8 @@ app.post('/communities', async (req, res) => {
       // moderators: req.body.moderators,
       iconImage: req.body.iconImage,
       bannerImage: req.body.bannerImage, 
-      members: req.body.members
+      members: req.body.members,
+      flags: req.body.flags
     });
   
     try {

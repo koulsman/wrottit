@@ -12,6 +12,7 @@ import CommunityPreview from "./CommunityPreview";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Blocks } from "react-loader-spinner";
+import FlagPills from "./FlagPills";
 
 export default function CommunityCreator() {
   const initialState = { page: 1 };
@@ -25,7 +26,10 @@ export default function CommunityCreator() {
   const [iconForCloudinary, setIconForCloudinary] = useState("");
   const [bannerForCloudinary, setBannerForCloudinary] = useState("");
   const [isPostingCommunity, setIsPostingCommunity] = useState(false);
+  const [rules,setRules] = useState("")
   const navigate = useNavigate();
+         // labels που έχεις επιλέξει
+  const [flags, setFlags] = useState([]); 
 
   const ImageIcon = <img src={DefaultImage} size={18} stroke={1.5} />;
 
@@ -63,14 +67,13 @@ export default function CommunityCreator() {
       if (communityIconImage) {
         iconUrl = await uploadToCloudinary(iconForCloudinary);
       }
-      // const response = await axios.post("http://localhost:3003/communities", 
-        const response = await axios.post("http:// wrottit-servers.onrender.com/communities", 
-       
-        {
+      const response = await axios.post("http://localhost:3003/communities", {
         name: communityName,
         description: communityDescription,
         iconImage: iconUrl,
         bannerImage: bannerUrl,
+        rules: communityRules,
+        flags: flags
       });
       console.log("Created community:", response.data);
       setIsPostingCommunity(true);
@@ -226,6 +229,11 @@ export default function CommunityCreator() {
                 />
               </div>
             )}
+            {state.page === 4 && (
+              <div id="FourthPage">
+                <FlagPills flags={flags} setFlags={setFlags}/>
+              </div>
+            )}
             <div
               id="Navigation"
               style={{
@@ -247,13 +255,13 @@ export default function CommunityCreator() {
               </Button>
 
               {(() => {
-                if (state.page !== 3) {
+                if (state.page !== 4) {
                   return (
                     <Button onClick={() => dispatch({ type: "increment" })}>
                       <img src={NextCard} alt="Next" style={{ width: "3em" }} />
                     </Button>
                   );
-                } else if (state.page === 3 && !isPostingCommunity) {
+                } else if (state.page === 4 && !isPostingCommunity) {
                   return communityName && communityDescription ? (
                     <Button
                       onClick={(communityName, communityDescription) =>
@@ -262,22 +270,23 @@ export default function CommunityCreator() {
                     >
                       Create Community!
                     </Button>
+                    
                   ) : (
                     <Tooltip label="Please fill community name and community description to create your community!">
                       <Button disabled>Create!</Button>
                     </Tooltip>
                   );
-                } else if (state.page === 3 && isPostingCommunity) {
+                } else if (state.page === 4 && isPostingCommunity) {
                   return (
                     <Blocks
-  height="80"
-  width="80"
-  color="#4fa94d"
-  ariaLabel="blocks-loading"
-  wrapperStyle={{}}
-  wrapperClass="blocks-wrapper"
-  visible={true}
-  />
+                      height="80"
+                      width="80"
+                      color="#4fa94d"
+                      ariaLabel="blocks-loading"
+                      wrapperStyle={{}}
+                      wrapperClass="blocks-wrapper"
+                      visible={true}
+                    />
                   );
                 }
               })()}

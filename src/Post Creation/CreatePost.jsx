@@ -91,9 +91,7 @@ function CreatePost() {
 
   async function communityChooserHandler() {
     try {
-      // const response = await axios.get("http://localhost:3003/communities");
-      const response = await axios.get("http://wrottit-servers.onrender.com/communities");
-      
+      const response = await axios.get("http://localhost:3003/communities");
       setCommunities(response.data);
     } catch (error) {
       console.log(error);
@@ -144,10 +142,7 @@ function CreatePost() {
         uploadedImageUrls.push(url);
       }
 
-      // const response = await axios.post("http://localhost:3002/posts", 
-        const response = await axios.post("http:// wrottit-servers.onrender.com:3002/posts",
-       
-        {
+      const response = await axios.post("http://localhost:3002/posts", {
         title: title,
         communityName: communityName,
         communityId: communityId,

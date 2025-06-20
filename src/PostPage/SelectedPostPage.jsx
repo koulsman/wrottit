@@ -47,9 +47,7 @@ function SelectedPostPage() {
     async function fetchPost() {
       setIsFetching(true)
       try {
-        // const response = await axios.get(`http://localhost:3002/posts/${id}`);
-        const response = await axios.get(`http://wrottit-servers.onrender.com/posts/${id}`);
-        
+        const response = await axios.get(`http://localhost:3002/posts/${id}`);
         setPost(response.data);
         console.log(response.data)
         setReturnedComments(response.data.comments || []); // Set comments array or empty array if undefined
@@ -76,9 +74,7 @@ function SelectedPostPage() {
     console.log(post)
     try {
       const response = await axios.post(
-        // `http://localhost:3002/posts/${id}/comments`,
-        `http://wrottit-servers.onrender.com/posts/${id}/comments`,
-        
+        `http://localhost:3002/posts/${id}/comments`,
         { uid, uname, comment } // ✅ Send as an object
       );
       
@@ -94,9 +90,7 @@ function SelectedPostPage() {
       console.error("Error submitting comment:", error);
     }
     try {
-      // const response = await axios.post(`http://localhost:3001/users/${uid}/commented`, {id})
-      const response = await axios.post(`http://wrottit-servers.onrender.com/users/${uid}/commented`, {id})
-      
+      const response = await axios.post(`http://localhost:3001/users/${uid}/commented`, {id})
       console.log(response + "done")
     }
     catch(error) {
