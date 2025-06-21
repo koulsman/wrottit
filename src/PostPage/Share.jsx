@@ -20,7 +20,7 @@ export default function Share({ postid }) {
   return (
     <Popover width={200} position="bottom" withArrow shadow="md">
       <Popover.Target>
-        <div className="postInteractionContainer">
+        <div className="postInteractionContainer" style={{background: "purple"}}> 
           <img src={share} className="vectors" alt="share icon" />
         </div>
       </Popover.Target>

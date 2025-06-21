@@ -31,36 +31,18 @@ export default function LoggedInfo({name,uid, status}) {
     //     console.log(err)
     //   }
     // }
-    function handleMyDatetimes() {
-      navigate('/MyDatetimes')
-    }
-    function handleMyLikes() {
-        // Navigate()
-        console.log(loggedUser)
-        console.log(loggedUser?._id)
-        navigate(`/${loggedUser?._id}/MyLikes`)
-    }
-
-    function handleMyPosts() {
-          navigate(`/${loggedUser?._id}/MyPosts`)
-    }
-    function handleMyComments() {
-        navigate(`/${loggedUser?._id}/MyComments`)
-    }
-
-    function handleSavedPosts() {
-      navigate(`/${loggedUser?._id}/SavedPosts`)
-  }
-
-  function changeUserImage() {
-    navigate(`/${loggedUser?._id}/ChangeUserImage`)
-  }
-
-  function communityCreatorHandler() {
-    navigate(`/${loggedUser?._id}/CommunityCreator`)
-  }
+      const go = (path) => {
+    navigate(path);
+    close();                     
+  };
 
 
+  const handleMyLikes     = () => go(`/${loggedUser._id}/MyLikes`);
+  const handleMyPosts     = () => go(`/${loggedUser._id}/MyPosts`);
+  const handleMyComments  = () => go(`/${loggedUser._id}/MyComments`);
+  const handleSavedPosts  = () => go(`/${loggedUser._id}/SavedPosts`);
+  const changeUserImage   = () => go(`/${loggedUser._id}/ChangeUserImage`);
+  const communityCreator  = () => go(`/${loggedUser._id}/CommunityCreator`);
   
     async function handlePosts() {
       console.log("!!!!!!!!!!!!!!UID:", uid);
@@ -101,7 +83,7 @@ export default function LoggedInfo({name,uid, status}) {
                 {/* <NavLink label="my datetimes" onClick={handleMyDatetimes}></NavLink>
                 <NavLink label="my datetimes" onClick={handleSavedPosts}></NavLink> */}
                 <NavLink label="Change User Image" onClick={changeUserImage}></NavLink>
-                <NavLink label="Community Creator" onClick={communityCreatorHandler}></NavLink>
+                <NavLink label="Community Creator" onClick={communityCreator}></NavLink>
                 <Divider my="md" />
                 <Button onClick={handleLogOut}>Logout</Button>
                 

@@ -9,7 +9,7 @@ export default function Comments({commentsCounter}) {
    
    
     return (
-        <div className='postInteractionContainer'>
+        <div className='postInteractionContainer' style={{background: "purple", color: "white"}}>
             <img src={Chat} className="vectors" alt="Comments Icon" />
             <div className="likesCounter">{commentsCounter}</div>
         </div>

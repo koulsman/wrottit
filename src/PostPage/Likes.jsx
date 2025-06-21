@@ -85,7 +85,7 @@ export default function Likes({votes,postid}) {
 
     return (
         <div>
-            <div className="postInteractionContainer">
+            <div className="postInteractionContainer" style={{background: "purple", color: "white"}}>
                 <img
                     src={Like}
                     style={{
@@ -98,7 +98,7 @@ export default function Likes({votes,postid}) {
                     onMouseOver={() => setHovered({ ...hovered, like: true,dislike: false })}
                     onMouseOut={() => setHovered({ ...hovered, like: false,dislike: false })}
                 />
-                <div className="likesCounter">{likes}</div>
+                <div className="likesCounter" >{likes}</div>
                 <img
                     src={Dislike}
                     style={{
