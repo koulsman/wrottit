@@ -22,6 +22,7 @@ import Unsaved from "../images/unsavedpost.svg";
 import { Carousel } from "@mantine/carousel";
 import ImageCarousel from "./ImageCarousel";
 import {Pill} from "@mantine/core";
+import NewWindow from 'react-new-window'
 
 export default function PostCard({
   postid,
@@ -80,7 +81,7 @@ export default function PostCard({
   ];
 
   function imageClickHandler() {
-
+    window.open("", "", "width=600,height=400,left=200,top=200")
   }
 
 
@@ -163,7 +164,7 @@ export default function PostCard({
           
          
             {Array.isArray(images) && images.length > 0 && (
-              <ImageCarousel  images={images} onClick={imageClickHandler}
+              <ImageCarousel images={images} onClick={imageClickHandler}
               // slidesInView={() => nextSlideHandler()}
               />
             )}

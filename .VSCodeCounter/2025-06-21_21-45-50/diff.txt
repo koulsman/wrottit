@@ -1,0 +1,49 @@
+Date : 2025-06-21 21:45:50
+Directory : c:\Users\Σταύρος\Desktop\wrotit
+Total : 12 files,  58 codes, 2 comments, 10 blanks, all 70 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| JavaScript JSX |          8 |         44 |          2 |         10 |         56 |
+| PostCSS        |          1 |          8 |          0 |          1 |          9 |
+| JSON           |          2 |          5 |          0 |          0 |          5 |
+| TypeScript JSX |          1 |          1 |          0 |         -1 |          0 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                               | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                  |         12 |         58 |          2 |         10 |         70 |
+| . (Files)                                                                          |          2 |          5 |          0 |          0 |          5 |
+| src                                                                                |         10 |         53 |          2 |         10 |         65 |
+| src (Files)                                                                        |          1 |          1 |          0 |         -1 |          0 |
+| src\Header                                                                         |          1 |          0 |          0 |          1 |          1 |
+| src\LoggedInfo                                                                     |          2 |         11 |         -1 |         -5 |          5 |
+| src\NavBar                                                                         |          1 |          0 |          0 |          4 |          4 |
+| src\NavBar\NavbarCommunities                                                       |          1 |          0 |          0 |          4 |          4 |
+| src\PostPage                                                                       |          3 |         -3 |          3 |          9 |          9 |
+| src\backend                                                                        |          2 |         44 |          0 |          2 |         46 |
+| src\backend\ServersAndSchemas                                                      |          2 |         44 |          0 |          2 |         46 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                           | language       | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| c:\Users\Σταύρος\Desktop\wrotit\package-lock.json                                  | JSON           |          4 |          0 |          0 |          4 |
+| c:\Users\Σταύρος\Desktop\wrotit\package.json                                       | JSON           |          1 |          0 |          0 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Header\Searchbar.jsx                           | JavaScript JSX |          0 |          0 |          1 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\CommunityInfo.jsx                   | JavaScript JSX |         24 |          0 |         -1 |         23 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\LoggedInfo.jsx                      | JavaScript JSX |        -13 |         -1 |         -4 |        -18 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\NavbarCommunities\SelectedCommunity.jsx | JavaScript JSX |          0 |          0 |          4 |          4 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\ImageCarousel.jsx                     | JavaScript JSX |        -22 |          3 |          1 |        -18 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Post.module.css                       | PostCSS        |          8 |          0 |          1 |          9 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\PostCard.jsx                          | JavaScript JSX |         11 |          0 |          7 |         18 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\UserModel.js         | JavaScript JSX |          2 |          0 |          0 |          2 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\UserServer.js        | JavaScript JSX |         42 |          0 |          2 |         44 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\index.tsx                                      | TypeScript JSX |          1 |          0 |         -1 |          0 |
+| Total                                                                              |                |         58 |          2 |         10 |         70 |
++------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+

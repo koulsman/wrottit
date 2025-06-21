@@ -77,7 +77,7 @@ export default function CommunityCreator() {
       });
       console.log("Created community:", response.data);
       setIsPostingCommunity(true);
-      if (response.ok) {
+      if (response) {
         setCreatedCommunity(true);
         navigate(`/Communities`, { replace: true });
       }
