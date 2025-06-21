@@ -1,9 +1,9 @@
 // import { isLoggedInAtom, loggedUserAtom } from "../Header/isLoggedIn";
-import { Grid } from "@mantine/core";
+import { Grid,Button } from "@mantine/core";
 // import  Navbar  from "../NavBar/Navbar";
 import { Navbar } from "../Navbar";
 import { useAtom } from "jotai";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 // import PostCard from "../PostPage/PostCard";
 import PostCard from "../../PostPage/PostCard";
 import axios from "axios";
@@ -18,6 +18,7 @@ export default function SelectedCommunity() {
   const [communityPosts, setCommunityPosts] = useState([]);
   const [community, setCommunity] = useState(null);
   const { communityid } = useParams();
+  
 
   useEffect(() => {
     console.log(communityid + "id");
@@ -56,6 +57,8 @@ export default function SelectedCommunity() {
     handlePosts();
   }, [communityid]);
 
+  
+
   //episgw prepei na ferw ta rules
   return (
     <div>
@@ -64,6 +67,7 @@ export default function SelectedCommunity() {
           <Navbar />
         </Grid.Col>
         <Grid.Col span={window.innerWidth < 720 ? "7" : "auto"}>
+          
           {community && (
             <CommunityInfo
               communityId={community._id}

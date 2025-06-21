@@ -20,7 +20,7 @@ export default function SearchCommunities({
   }
 
   return (
-    <section style={{ display: "flex", flexDirection: "column" }}>
+    <section style={{ display: "flex", flexDirection: "column", margin: "1em" }}>
       <Autocomplete
         value={searchbarValue}
         onChange={searchHandler}

@@ -1,29 +1,33 @@
 import { Card, Image, Text } from "@mantine/core";
 import NoBanner from "../images/NoBanner.png";
 import NoIcon from "../images/NoIcon.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useParams } from "react";
 
 export default function CommunityPreview({
   communityName,
   communityDescription,
   communityIconImage,
   communityBannerImage,
-  communityId
+  communityId,
 }) {
-const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation(); 
+  
+  const previewWidth = location.pathname.includes("CommunityCreator")
+    ? "25em"
+    : "15em";
 
-function navigateToSelectedCommunity(communityId) {
- console.log(communityId)
-    navigate(`/${communityId}/SelectedCommunity`)
-}
+  function navigateToSelectedCommunity(communityId) {
+    console.log(communityId);
+    navigate(`/${communityId}/SelectedCommunity`);
+  }
 
-
- 
   return (
     <Card
       onClick={() => navigateToSelectedCommunity(communityId)}
       style={{
-        width: "25em",
+        width: previewWidth,
         margin: "1em auto",
         padding: "1em",
         cursor: "pointer",
@@ -48,7 +52,6 @@ function navigateToSelectedCommunity(communityId) {
           marginTop: "1em",
         }}
       >
-        {/* Icon */}
         <div
           style={{
             width: "4em",
@@ -68,7 +71,6 @@ function navigateToSelectedCommunity(communityId) {
           />
         </div>
 
-        {/* Name + Description */}
         <div style={{ flexGrow: 1 }}>
           <Text fw={600} size="lg">
             {communityName}

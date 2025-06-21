@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@mantine/carousel": "^7.17.7",
+    "@mantine/carousel": "^7.17.8",
     "@mantine/charts": "^7.17.7",
     "@mantine/code-highlight": "^7.17.7",
     "@mantine/core": "^7.17.7",
@@ -42,7 +42,8 @@
     "crypto-browserify": "^3.12.1",
     "dayjs": "^1.11.13",
     "dotenv": "^16.5.0",
-    "embla-carousel-react": "^8.6.0",
+    "embla-carousel": "^8.5.2",
+    "embla-carousel-react": "^8.5.2",
     "express": "^4.21.2",
     "firebase": "^10.9.0",
     "gridfs-stream": "^1.1.1",

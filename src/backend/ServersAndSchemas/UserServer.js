@@ -101,6 +101,44 @@ app.post('/users/:uid/posts', async (req,res) => {
     res.status(500).send({ message: 'Internal server error' });
   }
 })
+app.post('/users/:uid/joined', async (req,res) => {
+  const { uid } = req.params;
+  const { id } = req.body;
+
+  try {
+    const user = await User.findByIdAndUpdate(
+      uid,
+      { $push: { joined: { id } } }, // Push the new comment into the array
+      { new: true } // Return the updated document
+    );
+    if (!user) {
+      return res.status(404).send({ message: 'user not found' });
+    }
+    res.status(200).send(user); // Send updated post
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: 'Internal server error' });
+  }
+})
+app.post('/users/:uid/saved', async (req,res) => {
+  const { uid } = req.params;
+  const { id } = req.body;
+
+  try {
+    const user = await User.findByIdAndUpdate(
+      uid,
+      { $push: { saved: { id } } }, // Push the new comment into the array
+      { new: true } // Return the updated document
+    );
+    if (!user) {
+      return res.status(404).send({ message: 'user not found' });
+    }
+    res.status(200).send(user); // Send updated post
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: 'Internal server error' });
+  }
+})
 async function getUser(req, res, next) {
   let user;
   try {
@@ -117,6 +155,12 @@ async function getUser(req, res, next) {
 }
 
 app.get('/users/:id', getUser, (req, res) => {
+  res.json(res.user);
+})
+app.get('/users/:id/joined', getUser, (req, res) => {
+  res.json(res.user);
+});
+app.get('/users/:id/saved', getUser, (req, res) => {
   res.json(res.user);
 });
 app.get('/users/:name', getUser, (req, res) => {

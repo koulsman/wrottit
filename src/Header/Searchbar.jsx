@@ -26,7 +26,7 @@ export default function Searchbar() {
     () => (
       <Pill
         key={pillLabel}
-        style={{ background: 'green' }}
+        style={{ background: 'purple' }}
       >
         {pillLabel}
       </Pill>
@@ -73,6 +73,7 @@ export default function Searchbar() {
           onClick={autocompleteHandler}
           value={searchbarValue}
           onChange={setSearchbarValue}
+          
           mt="md"
           placeholder="Search..."
           leftSection={leftSection}
@@ -91,7 +92,7 @@ export default function Searchbar() {
             ref={communitiesPillRef}
             onClick={handleSearchCommunities}
             style={{
-              background: communitiesPillSelected ? 'green' : 'black',
+              background: communitiesPillSelected ? 'purple' : 'black',
               color: 'white',
               cursor: 'pointer',
               marginRight: '0.5em',
@@ -103,7 +104,7 @@ export default function Searchbar() {
             ref={postsPillRef}
             onClick={handleSearchPosts}
             style={{
-              background: postsPillSelected ? 'green' : 'black',
+              background: postsPillSelected ? 'purple' : 'black',
               color: 'white',
               cursor: 'pointer',
             }}

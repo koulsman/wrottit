@@ -8,7 +8,9 @@ const userSchema = new mongoose.Schema({
   userImage: {type: String, required: false},
   liked: {type: Array,required: false },
   commented: {type: Array, required: false},
-  posts: {type: Array, required: false}
+  posts: {type: Array, required: false},
+  communitiesJoined: {type: Array, required: false},
+  saved: {type: Array, required: false},
 }, { 
   collection: 'users' // Specify the collection name explicitly
 });

@@ -40,7 +40,7 @@ export default function Communities() {
           <Navbar />
         </Grid.Col>
         <Grid.Col span={window.innerWidth < 720 ? "7" : "auto"}>
-          <h1>Browse or Search Communities</h1>
+          <h1 style={{margin: "0.5em"}}>Browse or Search Communities</h1>
           <SearchCommunities
             communities={communities}
             searchbarValue={searchbarValue}
@@ -49,7 +49,7 @@ export default function Communities() {
           />
 
           {displayedCommunities.map((community) => (
-            <CommunityPreview style={{width: "5em"}}
+            <CommunityPreview style={{width: "5em!important"}}
             // onClick={navigateToSelectedCommunityHandler(community._id)}
               key={community._id}
               communityId={community._id}

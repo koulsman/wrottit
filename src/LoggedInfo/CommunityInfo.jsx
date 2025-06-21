@@ -1,10 +1,10 @@
-import { Card, Image, Text, Pill, Group } from "@mantine/core";
+import { Card, Image, Text, Pill, Group, Button } from "@mantine/core";
 import NoBanner from "../images/NoBanner.png";
 import NoIcon from "../images/NoIcon.png";
 import { useNavigate } from "react-router-dom";
 import { Tabs } from '@mantine/core';
 import { IconPhoto, IconTextGrammar, IconFlag } from '@tabler/icons-react';
-
+import { useRef } from "react";
 export default function CommunityInfo({
   communityName,
   communityDescription,
@@ -13,9 +13,16 @@ export default function CommunityInfo({
   communityRules,
   communityId,communityFlags
 }) {
-
+const joinButtonRef = useRef(null)
 console.log(communityFlags + "communityFlags")
- 
+ function joinCommunityHandler() {
+     console.log("press to join")
+     if (joinButtonRef.current) {
+       joinButtonRef.current.style.background = "purple";
+       joinButtonRef.current.style.color = "white";
+       joinButtonRef.current.innerText = "Joined";
+     }
+   }
   return (
     <>
     <Card
@@ -77,6 +84,12 @@ console.log(communityFlags + "communityFlags")
         </div>
       </div>
     </Card>
+    <div id="Join" style={{margin: "1em"}} >
+            <Button  ref= {joinButtonRef} onClick={joinCommunityHandler}>
+                  Join
+                </Button>
+    </div>
+    
      <Tabs color="grape" variant="pills" radius="lg" defaultValue="gallery">
       <Tabs.List>
         {/* <Tabs.Tab value="gallery" leftSection={<IconPhoto size={12} />}>
@@ -89,14 +102,24 @@ console.log(communityFlags + "communityFlags")
           Community Flags
         </Tabs.Tab>
       </Tabs.List>
+      
 
       {/* <Tabs.Panel value="gallery">
         Gallery tab content
       </Tabs.Panel> */}
 
-      <Tabs.Panel value="Rules">
-       {communityRules}
-      </Tabs.Panel>
+        <Tabs.Panel value="Rules" pt="md">
+          {communityRules
+            ? communityRules
+                .split(/\r?\n/)               
+                .filter((r) => r.trim() !== "")
+                .map((rule, i) => (
+                  <Text key={i} mb="xs">
+                    {i + 1}. {rule}
+                  </Text>
+                ))
+            : <Text italic>No rules set for this community.</Text>}
+        </Tabs.Panel>
 
       <Tabs.Panel value="Flags">
   {communityFlags?.length ? (

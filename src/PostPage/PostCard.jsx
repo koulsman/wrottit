@@ -141,7 +141,7 @@ export default function PostCard({
           </Group>
         </Card.Section>
 
-        <Card.Section  style={{ display: "flex" }} mt="sm" onClick={handlePostImages}>
+        <Card.Section  style={{display: "flex", justifyContent: "center",margin: "1em auto"}} mt="sm" onClick={handlePostImages}>
           
          
             {Array.isArray(images) && images.length > 0 && (

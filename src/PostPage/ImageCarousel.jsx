@@ -1,90 +1,71 @@
 import useEmblaCarousel from "embla-carousel-react";
-import Next from "../images/next.svg"
-import Previous from "../images/previous.svg"
+import Next from "../images/next.svg";
+import Previous from "../images/previous.svg";
+import { Carousel } from '@mantine/carousel';
+import classes from './Post.module.css';
 
-
-export default function ImageCarousel({images}) {
+export default function ImageCarousel({ images }) {
   const [emblaRef] = useEmblaCarousel({ loop: true, align: "center" });
 
-    function handleImageModal(e, index,image) {
+  function handleImageModal(e, index, image) {
     // e.preventDefault();
     console.log(index + "index");
-    console.log(image)
+    console.log(image);
   }
 
-  function imageIndexHandler(image,index) {
-      console.log(image + index)
+  function imageIndexHandler(image, index) {
+    console.log(image + index);
   }
 
-  function previousSlideHandler() {
-    console.log(images + "im,ages")
-    // console.log(index)
-  }
-  function nextSlideHandler() {
-    console.log(images + "im,ages")
-  }
-    return (
-        <>
-        {Array.isArray(images) && images.length > 1 && <div style={{display:"flex", justifyContent: "flexEnd", width:"2em", height: "2em", overflow:"visible", margin: "auto"}}>
-            <img src={Previous} onClick={previousSlideHandler}/>
-        </div>}
-        <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+  return (
+    <>
+     
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+     {Array.isArray(images) && images.length > 1  ?
+           <Carousel withIndicators height={300} classNames={classes}>
+            {images.map((image, index) => (
             
-              <div style={{ overflow: "hidden",display: "flex" }} ref={emblaRef}>
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                  {images.map((image, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        flex: "0 0 auto",
-                        width: "100%",
-                        maxWidth: "100%",
-                        padding: "0 10px",
-                      }}
-                      
-                    >
-                      <img
-                      onLoad={(image,index) => imageIndexHandler(image,index)}
-                        onClick={(image, index, e,images) =>
-                          handleImageModal(image, index, e, images)
-                        }
-                        key={index}
-                        src={image}
-                        alt={`Slide ${index + 1}`}
-                        style={{
-                          width: "100%",
-                          height: "400px",
-                          objectFit: "cover",
-                        }}
-                      />
-                    </div>
-                  ))}
+               <Carousel.Slide>
+                <img
+                  onLoad={(image, index) => imageIndexHandler(image, index)}
+                  onClick={(image, index, e, images) =>
+                    handleImageModal(image, index, e, images)
+                  }
+                  key={index}
+                  src={image}
+                  alt={`Slide ${index + 1}`}
+                  style={{
+                    width: "100%",
+                    height: "400px",
+                    objectFit: "cover",
+                  }}
+                />
+              </Carousel.Slide>
+            ))}
+            </Carousel>
+         
+      : <img
+                  // onLoad={(image, index) => imageIndexHandler(image, index)}
+                  // onClick={(image, index, e, images) =>
+                  //   handleImageModal(image, index, e, images)
+                  // }
+                  
+                  src={images[0]}
+                 
+                  style={{
+                    width: "100%",
+                    height: "400px",
+                    objectFit: "cover",
+                  }}
+                />}
                 </div>
-              </div>
-        
-          </div>
-          
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "flexEnd",
-                width: "2em",
-                height: "2em",
-                overflow: "visible",
-                margin: "auto",
-              }}
-            >
-              {Array.isArray(images) && images.length > 1 && <div style={{display:"flex", justifyContent: "flexEnd", width:"2em", height: "2em", overflow:"visible", margin: "auto"}}>
-            <img src={Next} />
-        </div>}
-            </div>
       
-        </>
-    )
+    </>
+  );
 }
