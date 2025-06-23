@@ -11,7 +11,7 @@ import {
 import { IconDots, IconEye, IconFileZip, IconTrash } from "@tabler/icons-react";
 import ImageModal from "../Post Creation/ImageModal";
 import { useDisclosure } from "@mantine/hooks";
-import { useState, useRef } from "react";
+import { useState, useRef, usePortal } from "react";
 import Likes from "./Likes";
 import Comments from "./Comments";
 import Share from "./Share";
@@ -21,8 +21,9 @@ import Saved from "../images/savedpost.svg";
 import Unsaved from "../images/unsavedpost.svg";
 import { Carousel } from "@mantine/carousel";
 import ImageCarousel from "./ImageCarousel";
-import {Pill} from "@mantine/core";
-import NewWindow from 'react-new-window'
+import { Pill } from "@mantine/core";
+
+import { createPortal } from "react-dom";
 
 export default function PostCard({
   postid,
@@ -35,23 +36,19 @@ export default function PostCard({
   upvotes,
   comments,
 }) {
-   
   const [opened, { open, close }] = useDisclosure(false);
   const [imageSelected, setImageSelected] = useState("");
   const navigate = useNavigate("");
   const [savedPost, setSavedPost] = useState(false);
- 
-  const communityRef = useRef()
+  
+
+  const communityRef = useRef();
   console.log(typeof comments);
   const commentsCounter = Array.isArray(comments) ? comments.length : 0;
-  
-  function showCommunityHandler() {
 
-  }
+  function showCommunityHandler() {}
 
-  function navigateToCommunityHandler() {
-
-  }
+  function navigateToCommunityHandler() {}
   async function saveHandler() {
     setSavedPost(!savedPost);
   }
@@ -66,12 +63,10 @@ export default function PostCard({
     navigate(`/post/${postid}`);
   };
 
-  function handlePostImages(event) {
-    event.stopPropagation()
-  }
+  
 
   function nextSlideHandler() {
-    console.log("next slide")
+    console.log("next slide");
   }
 
   const demoimages = [
@@ -79,11 +74,6 @@ export default function PostCard({
     "https://picsum.photos/400/300?2",
     "https://picsum.photos/400/300?3",
   ];
-
-  function imageClickHandler() {
-    window.open("", "", "width=600,height=400,left=200,top=200")
-  }
-
 
   return (
     <>
@@ -102,17 +92,19 @@ export default function PostCard({
                 flexDirection: "column",
               }}
             >
-              <div style={{display: "flex",padding: 0, margin: 0}} >
-              
-              <Text fw={300} ref={communityRef} onMouseOver={() => showCommunityHandler()} onClick={() => navigateToCommunityHandler()}>
-                {communityName}
-              </Text>
-              
-              <Text>
-              &nbsp; &#183; &nbsp;{username}{" "}
-              </Text>
+              <div style={{ display: "flex", padding: 0, margin: 0 }}>
+                <Text
+                  fw={300}
+                  ref={communityRef}
+                  onMouseOver={() => showCommunityHandler()}
+                  onClick={() => navigateToCommunityHandler()}
+                >
+                  {communityName}
+                </Text>
+
+                <Text>&nbsp; &#183; &nbsp;{username} </Text>
               </div>
-              
+
               <Text fw={200}></Text>
               <Text fw={500}>{title}</Text>
             </div>
@@ -160,18 +152,31 @@ export default function PostCard({
           </Group>
         </Card.Section>
 
-        <Card.Section  style={{display: "flex", justifyContent: "center",margin: "1em auto"}} mt="sm" onClick={handlePostImages}>
+        <Card.Section
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            margin: "1em auto",
+          }}
+          mt="sm"
           
-         
-            {Array.isArray(images) && images.length > 0 && (
-              <ImageCarousel images={images} onClick={imageClickHandler}
+        >
+          {Array.isArray(images) && images.length > 0 && (
+            <ImageCarousel
+              images={images}
               // slidesInView={() => nextSlideHandler()}
-              />
-            )}
+            />
+          )}
         </Card.Section>
+        
         <Card.Section inheritPadding mt="sm" pb="md">
           <SimpleGrid cols={3}>
-            <Text mt="m" fw={500} size="l" style={{ textAlign: "left", width: "20em" }}>
+            <Text
+              mt="m"
+              fw={500}
+              size="l"
+              style={{ textAlign: "left", width: "20em" }}
+            >
               {content}
             </Text>
           </SimpleGrid>

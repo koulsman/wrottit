@@ -19,7 +19,7 @@ export default function Searchbar() {
   const pillLabel = useMemo(() => {
     if (communitiesPillSelected) return 'C:';
     if (postsPillSelected) return 'P:';
-    return 'A:';
+     return 'P:';
   }, [communitiesPillSelected, postsPillSelected]);
 
   const leftSection = useMemo(

@@ -1,16 +1,18 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Next from "../images/next.svg";
 import Previous from "../images/previous.svg";
-import { Carousel } from '@mantine/carousel';
-import classes from './Post.module.css';
+import { Carousel } from "@mantine/carousel";
+import classes from "./Post.module.css";
+import NewWindow from "react-new-window";
+import { useState, useRef } from "react";
 
-export default function ImageCarousel({ images }) {
-  const [emblaRef] = useEmblaCarousel({ loop: true, align: "center" });
+export default function ImageCarousel({ images, allowPopup = true }) {
+  const [imageCarouselWindow, setImageCarouselWindow] = useState(false);
+  
 
-  function handleImageModal(e, index, image) {
-    // e.preventDefault();
-    console.log(index + "index");
-    console.log(image);
+  function openImageCarousel(event) {
+    event.stopPropagation();
+    setImageCarouselWindow(true);
   }
 
   function imageIndexHandler(image, index) {
@@ -19,7 +21,6 @@ export default function ImageCarousel({ images }) {
 
   return (
     <>
-     
       <div
         style={{
           display: "flex",
@@ -27,45 +28,49 @@ export default function ImageCarousel({ images }) {
           alignItems: "center",
         }}
       >
-     {Array.isArray(images) && images.length > 1  ?
-           <Carousel withIndicators height={300} classNames={classes}>
+        {Array.isArray(images) && images.length > 1 ? (
+          <Carousel withIndicators  classNames={classes}>
             {images.map((image, index) => (
-            
-               <Carousel.Slide>
+              <Carousel.Slide>
                 <img
                   onLoad={(image, index) => imageIndexHandler(image, index)}
-                  onClick={(image, index, e, images) =>
-                    handleImageModal(image, index, e, images)
-                  }
+                  onClick={allowPopup ? openImageCarousel : undefined}
+                  onUnload={() => setImageCarouselWindow(false)}
                   key={index}
                   src={image}
                   alt={`Slide ${index + 1}`}
                   style={{
                     width: "100%",
-                    height: "400px",
+                    height: "100%",
                     objectFit: "cover",
                   }}
                 />
               </Carousel.Slide>
             ))}
-            </Carousel>
-         
-      : <img
-                  // onLoad={(image, index) => imageIndexHandler(image, index)}
-                  // onClick={(image, index, e, images) =>
-                  //   handleImageModal(image, index, e, images)
-                  // }
-                  
-                  src={images[0]}
-                 
-                  style={{
-                    width: "100%",
-                    height: "400px",
-                    objectFit: "cover",
-                  }}
-                />}
-                </div>
-      
+          </Carousel>
+        ) : (
+          <img
+            onLoad={(image, index) => imageIndexHandler(image, index)}
+            onClick={allowPopup ? openImageCarousel : undefined}
+            onUnload={() => setImageCarouselWindow(false)}
+            src={images[0]}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        )}
+      </div>
+      {imageCarouselWindow && (
+        <NewWindow
+          title="Image Carousel"
+          features={{ innerWidth: 2400, innerHeight: 1366 }}
+          onUnload={() => setImageCarouselWindow(false)}
+        >
+          <ImageCarousel images={images} allowPopup={false} />
+        </NewWindow>
+      )}
     </>
   );
 }
