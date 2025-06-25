@@ -10,12 +10,16 @@ const port = 3003; // Update port to avoid conflict with frontend
 
 const uri = 'mongodb+srv://stevekoulas:asfalisa1@wrotit.mxylu.mongodb.net/users_db?retryWrites=true&w=majority&appName=wrotit&ssl=true';
 
-app.use(cors({
-  origin: 'http://localhost:3000', // Διεύθυνση του frontend
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Επιτρεπόμενες μέθοδοι
-  credentials: true
-}));
+const allowedOrigins = [
+  'http://localhost:3000', // local frontend
+  'https://wrottit-yovc.onrender.com' // deployed frontend
+];
 
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
 app.use(bodyParser.json());
 
 mongoose.connect(uri)

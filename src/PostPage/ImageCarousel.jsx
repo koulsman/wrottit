@@ -67,6 +67,7 @@ export default function ImageCarousel({ images, allowPopup = true }) {
           title="Image Carousel"
           features={{ innerWidth: 2400, innerHeight: 1366 }}
           onUnload={() => setImageCarouselWindow(false)}
+          onLoad={(image, index) => imageIndexHandler(image, index)}
         >
           <ImageCarousel images={images} allowPopup={false} />
         </NewWindow>

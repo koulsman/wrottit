@@ -11,7 +11,16 @@ const port = 3001; // Update port to avoid conflict with frontend
 const uri = 'mongodb+srv://stevekoulas:asfalisa1@wrotit.mxylu.mongodb.net/users_db?retryWrites=true&w=majority&appName=wrotit&ssl=true';
 
 // Use CORS to allow requests from frontend
-app.use(cors());
+const allowedOrigins = [
+  'http://localhost:3000', // local frontend
+  'https://wrottit-yovc.onrender.com' // deployed frontend
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
 
 // Use body parser to parse JSON request bodies
 app.use(bodyParser.json());

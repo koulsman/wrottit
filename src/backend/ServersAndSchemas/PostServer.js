@@ -13,11 +13,15 @@ app.use(express.urlencoded({ extended: true }));
 
 const uri = 'mongodb+srv://stevekoulas:asfalisa1@wrotit.mxylu.mongodb.net/users_db?retryWrites=true&w=majority&appName=wrotit&ssl=true';
 const cloudinary_url = 'cloudinary://238832425628676:q2qEiXD1AnxixxgdHhvvqoBRRcA@ddakpw9jf';
+const allowedOrigins = [
+  'http://localhost:3000', // local frontend
+  'https://wrottit-yovc.onrender.com' // deployed frontend
+];
+
 app.use(cors({
-  // origin: 'https://wrottit-yovc.onrender.com',
-   origin: 'http://localhost:3000',
+  origin: allowedOrigins,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
+  credentials: true,
 }));
 
 app.use(bodyParser.json());

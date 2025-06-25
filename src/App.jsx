@@ -40,6 +40,7 @@ import GearSpinner from "../src/images/gear-spinner.svg"
 import SelectedCommunity from "./NavBar/NavbarCommunities/SelectedCommunity";
 import SearchedTermInSearchbar from "./SearchTermInSearchbar";
 
+
 function App() {
   const [isLoggedIn] = useAtom(isLoggedInAtom);
   const [loggedUser] = useAtom(loggedUserAtom);
