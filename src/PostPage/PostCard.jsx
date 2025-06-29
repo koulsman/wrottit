@@ -17,12 +17,12 @@ import Comments from "./Comments";
 import Share from "./Share";
 import { useNavigate } from "react-router-dom";
 import { connectFirestoreEmulator } from "firebase/firestore";
-import Saved from "../images/savedpost.svg";
-import Unsaved from "../images/unsavedpost.svg";
+
 import { Carousel } from "@mantine/carousel";
 import ImageCarousel from "./ImageCarousel";
 import { Pill } from "@mantine/core";
-
+import SavedPostSVG from "../images/savedpost.svg"
+import UnsavedPostSVG from "../images/unsavedpost.svg"
 import { createPortal } from "react-dom";
 
 export default function PostCard({
@@ -40,7 +40,7 @@ export default function PostCard({
   const [imageSelected, setImageSelected] = useState("");
   const navigate = useNavigate("");
   const [savedPost, setSavedPost] = useState(false);
-  
+  const [communityHovered, setCommunityHovered] = useState(false);
 
   const communityRef = useRef();
   console.log(typeof comments);
@@ -62,8 +62,6 @@ export default function PostCard({
   const handleClick = () => {
     navigate(`/post/${postid}`);
   };
-
-  
 
   function nextSlideHandler() {
     console.log("next slide");
@@ -93,62 +91,48 @@ export default function PostCard({
               }}
             >
               <div style={{ display: "flex", padding: 0, margin: 0 }}>
-                <Text
-                  fw={300}
+                <Pill
+                  fw={700}
                   ref={communityRef}
-                  onMouseOver={() => showCommunityHandler()}
+                  style={{
+                    marginTop: "0.2em",
+                    ...(communityHovered && {
+                      background: "purple",
+                      color: "white",
+                    }),
+                  }}
+                  onMouseOver={() => setCommunityHovered(true)}
+                  onMouseLeave={() => {
+                    communityHovered === true && setCommunityHovered(false);
+                  }}
                   onClick={() => navigateToCommunityHandler()}
                 >
                   {communityName}
-                </Text>
+                </Pill>
 
-                <Text>&nbsp; &#183; &nbsp;{username} </Text>
+                <Text>&nbsp; &#183; &nbsp; {username} </Text>
               </div>
-
               <Text fw={200}></Text>
-              <Text fw={500}>{title}</Text>
+              <Text fw={500}> &nbsp; {title}</Text>
             </div>
-            <Menu withinPortal position="bottom-end" shadow="sm">
-              <Menu.Target>
-                <ActionIcon variant="subtle" color="gray">
-                  <IconDots style={{ width: rem(16), height: rem(16) }} />
-                </ActionIcon>
-              </Menu.Target>
-
-              <Menu.Dropdown>
-                <Menu.Item
-                  leftSection={
-                    <IconFileZip style={{ width: rem(14), height: rem(14) }} />
-                  }
-                >
-                  Download zip
-                </Menu.Item>
-                <Menu.Item
-                  leftSection={
-                    <img
-                      src={savedPost ? Saved : Unsaved}
-                      alt="Save Icon"
-                      style={{
-                        width: "1.5em",
-                        height: "1.5em",
-                        color: "white",
-                      }}
-                    />
-                  }
-                  onClick={saveHandler}
-                >
-                  Save
-                </Menu.Item>
-                <Menu.Item
-                  leftSection={
-                    <IconTrash style={{ width: rem(14), height: rem(14) }} />
-                  }
-                  color="red"
-                >
-                  Delete all
-                </Menu.Item>
-              </Menu.Dropdown>
-            </Menu>
+            <div withinPortal position="bottom-end" shadow="sm">
+              <div style={{background: "purple", borderRadius: "0.5"}}>
+                  <img onClick={saveHandler}
+                    src={savedPost ? SavedPostSVG : UnsavedPostSVG}
+                    alt="Save Icon"
+                    style={{
+                     
+                      width: "1.5em",
+                      height: "1.5em",
+                     
+    cursor: "pointer",
+   
+                    
+                    }}
+                  />
+                
+              </div>
+            </div>
           </Group>
         </Card.Section>
 
@@ -159,7 +143,6 @@ export default function PostCard({
             margin: "1em auto",
           }}
           mt="sm"
-          
         >
           {Array.isArray(images) && images.length > 0 && (
             <ImageCarousel
@@ -168,7 +151,7 @@ export default function PostCard({
             />
           )}
         </Card.Section>
-        
+
         <Card.Section inheritPadding mt="sm" pb="md">
           <SimpleGrid cols={3}>
             <Text

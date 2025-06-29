@@ -41,7 +41,10 @@ export default function Searchbar() {
     console.log('search');
     console.log('searchbarValue:', searchbarValue);
     console.log('Search in:', pillLabel);
-    navigate(`/SearchedTermInSearchbar/${pillLabel}/${searchbarValue}`)
+    if(searchbarValue) {
+      navigate(`/SearchedTermInSearchbar/${pillLabel}/${searchbarValue}`)
+    }
+    
   };
 
   const handleCloseSearch = (event) => {
@@ -82,7 +85,7 @@ export default function Searchbar() {
         />
 
         <Button style={{ marginTop: '1.1em'}} onClick={searchHandler}>
-          <img src={search} alt="search" style={{ width: '3em', height: '2em' }} />
+          <img src={search} alt="search" style={{ width: '3em', height: '2em', background : '#1e1e59'}} />
         </Button>
       </div>
 
