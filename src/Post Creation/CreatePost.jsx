@@ -92,7 +92,7 @@ function CreatePost() {
 
   async function communityChooserHandler() {
     try {
-      const response = await axios.get("http://localhost:3003/communities");
+      const response = await axios.get(`${config.COMMUNITIES_API}/communities`);
       setCommunities(response.data);
     } catch (error) {
       console.log(error);
@@ -143,7 +143,7 @@ function CreatePost() {
         uploadedImageUrls.push(url);
       }
 
-      const response = await axios.post("http://localhost:3002/posts", {
+      const response = await axios.post(`${config.POSTS_API}/posts`, {
         title: title,
         communityName: communityName,
         communityId: communityId,

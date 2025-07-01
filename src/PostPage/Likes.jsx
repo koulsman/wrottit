@@ -27,7 +27,7 @@ export default function Likes({votes,postid}) {
                 setPostDisliked(false);
                //update likes
                 try {
-                    const response = await axios.post(`http://localhost:3002/${postid}/upvotes`, {
+                    const response = await axios.post(`${config.POSTS_API}/${postid}/upvotes`, {
                         likes,
                     });
                     const newLikes = response.data;
@@ -51,7 +51,7 @@ export default function Likes({votes,postid}) {
             setPostLiked(false);
 
                  try {
-                    const response = await axios.post(`http://localhost:3002/${postid}/upvotes`, {
+                    const response = await axios.post(`${config.POSTS_API}/${postid}/upvotes`, {
                         likes,
                     });
                     const newLikes = response.data;

@@ -28,7 +28,7 @@ export default function SelectedCommunity() {
     try {
       console.log("🔍 Fetching community from port 3003, id=", communityid);
       const response = await axios.get(
-        `http://localhost:3003/communities/${communityid}`
+        `${config.COMMUNITIES_API}/communities/${communityid}`
       );
       console.log("✅ Response.data:", response.data);
       setCommunity(response.data);
@@ -44,7 +44,7 @@ export default function SelectedCommunity() {
   async function handlePosts() {
     try {
       const response = await axios.get(
-        `http://localhost:3002/posts/communityPosts/${communityid}`
+        `${config.POSTS_API}/posts/communityPosts/${communityid}`
       );
       console.log(response.data);
       setCommunityPosts(response.data);

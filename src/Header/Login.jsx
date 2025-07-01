@@ -21,7 +21,7 @@ export function Login() {
 
   async function handleLogin() {
     try {
-      const response = await axios.post("http://localhost:3001/users/login", 
+      const response = await axios.post(`${config.POSTS_API}/users/login`, 
         
         {
         email,

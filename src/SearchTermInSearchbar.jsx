@@ -28,7 +28,7 @@ export default function SearchedTermInSearchbar() {
   }
   async function searchInCommunities() {
     try {
-      const response = await axios.get("http://localhost:3003/communities");
+      const response = await axios.get(`${config.COMMUNITIES_API}/communities`);
       setResults(response.data);
       console.log(response);
     } catch (error) {

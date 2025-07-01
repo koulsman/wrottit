@@ -47,7 +47,7 @@ function SelectedPostPage() {
     async function fetchPost() {
       setIsFetching(true)
       try {
-        const response = await axios.get(`http://localhost:3002/posts/${id}`);
+        const response = await axios.get(`${config.POSTS_API}/posts/${id}`);
         setPost(response.data);
         console.log(response.data)
         setReturnedComments(response.data.comments || []); // Set comments array or empty array if undefined
@@ -74,7 +74,7 @@ function SelectedPostPage() {
     console.log(post)
     try {
       const response = await axios.post(
-        `http://localhost:3002/posts/${id}/comments`,
+        `${config.POSTS_API}/posts/${id}/comments`,
         { uid, uname, comment } // ✅ Send as an object
       );
       
@@ -90,7 +90,7 @@ function SelectedPostPage() {
       console.error("Error submitting comment:", error);
     }
     try {
-      const response = await axios.post(`http://localhost:3001/users/${uid}/commented`, {id})
+      const response = await axios.post(`${config.USERS_API}/users/${uid}/commented`, {id})
       console.log(response + "done")
     }
     catch(error) {
