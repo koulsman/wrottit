@@ -1,13 +1,17 @@
-const isDev = process.env.NODE_ENV === 'development';
+const isProduction = process.env.NODE_ENV === "production";
 
-export const USERS_API = isDev
-  ? process.env.REACT_APP_USERS_API_DEV
-  : `${process.env.REACT_APP_API_BASE_PROD}/users`;
+const config = {
+  USERS_API: isProduction
+    ? `${process.env.REACT_APP_API_BASE_PROD}/users`
+    : process.env.REACT_APP_USERS_API_DEV,
 
-export const POSTS_API = isDev
-  ? process.env.REACT_APP_POSTS_API_DEV
-  : `${process.env.REACT_APP_API_BASE_PROD}/posts`;
+  POSTS_API: isProduction
+    ? `${process.env.REACT_APP_API_BASE_PROD}/posts`
+    : process.env.REACT_APP_POSTS_API_DEV,
 
-export const COMMUNITIES_API = isDev
-  ? process.env.REACT_APP_COMMUNITIES_API_DEV
-  : `${process.env.REACT_APP_API_BASE_PROD}/communities`;
+  COMMUNITIES_API: isProduction
+    ? `${process.env.REACT_APP_API_BASE_PROD}/communities`
+    : process.env.REACT_APP_COMMUNITIES_API_DEV,
+};
+
+export default config;

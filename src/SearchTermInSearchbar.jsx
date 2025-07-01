@@ -5,6 +5,8 @@ import { Navbar } from "./NavBar/Navbar";
 import SearchCommunities from "./NavBar/NavbarCommunities/SearchCommunities";
 import PostCard from "./PostPage/PostCard";
 import CommunityPreview from "./LoggedInfo/CommunityPreview";
+import config from "./config";
+
 export default function SearchedTermInSearchbar() {
   const [nativeSelectValue, setNativeSelectValue] = useState("All time");
   const [searchedWord, setSearchedWord] = useState("");
@@ -17,7 +19,7 @@ export default function SearchedTermInSearchbar() {
 
   async function searchInPosts() {
     try {
-      const response = await axios.get("http://localhost:3002/posts");
+      const response = await axios.get(`${config.POSTS_API}/posts`);
       setResults(response.data);
       console.log(response.data);
     } catch (error) {
@@ -35,6 +37,9 @@ export default function SearchedTermInSearchbar() {
   }
 
   useEffect(() => {}, [results]);
+  useEffect(() => {
+    handleSearchedTerm()
+  },[])
 
   function handleSearchedTerm() {
     console.log(window.location.href);
@@ -115,7 +120,7 @@ export default function SearchedTermInSearchbar() {
       </div>
       </Grid.Col>
       <Grid.Col span={3} >
-            <div>aaaaaaaaaaaaa</div>
+           
         </Grid.Col>
       </Grid>
     </>

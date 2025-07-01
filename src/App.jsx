@@ -36,7 +36,7 @@ import ChangeUserImage from "./ChangeUserImage";
 import Communities from "./NavBar/NavbarCommunities/Communities";
 import CommunityCreator from "./LoggedInfo/CommunityCreator";
 import GearSpinner from "../src/images/gear-spinner.svg"
-
+import config from "./config";
 import SelectedCommunity from "./NavBar/NavbarCommunities/SelectedCommunity";
 import SearchedTermInSearchbar from "./SearchTermInSearchbar";
 
@@ -69,7 +69,7 @@ function App() {
     try {
       // https://wrottit-yovc.onrender.com/
       // const response = await axios.get(""https://wrottit-servers.onrender.com/communities"");
-      const response = await axios.get("http://localhost:3002/posts");
+      const response = await axios.get(`${config.POSTS_API}/posts`);
       console.log("Posts fetched:", response.data);
       setPosts(response.data);
       setSortedPosts(response.data); // Keep a copy for sorting

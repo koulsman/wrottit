@@ -10,6 +10,7 @@ import LoggedInfo from "../LoggedInfo/LoggedInfo";
 import { isLoggedInAtom, loggedUserAtom } from "./isLoggedIn";
 import { useAtom } from "jotai";
 import bcrypt from "bcryptjs";
+import config from "../config";
 
 export function Login() {
   const [opened, { open, close }] = useDisclosure(false);

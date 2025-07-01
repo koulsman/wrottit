@@ -5,6 +5,8 @@ import { useAtom } from "jotai";
 import { useState, useEffect } from "react";
 import PostCard from "../PostPage/PostCard";
 import axios from "axios";
+import config from "../config";
+
 export default function MyPosts() {
       const [isLoggedIn] = useAtom(isLoggedInAtom);
       const [loggedUser] = useAtom(loggedUserAtom);

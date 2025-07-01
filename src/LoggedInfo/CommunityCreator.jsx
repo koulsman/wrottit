@@ -13,6 +13,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Blocks } from "react-loader-spinner";
 import FlagPills from "./FlagPills";
+import config from "../config";
 
 export default function CommunityCreator() {
   const initialState = { page: 1 };

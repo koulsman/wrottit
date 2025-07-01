@@ -3,6 +3,7 @@ import { IconUpload, IconPhoto, IconX } from "@tabler/icons-react";
 import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
 import { useState } from "react";
 import axios from "axios";
+import config from "../config";
 
 export default function ImageDropzone({ props }) {
   const [images, setImages] = useState([]);

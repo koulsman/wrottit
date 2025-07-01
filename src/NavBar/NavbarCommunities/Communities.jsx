@@ -5,6 +5,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Grid } from "@mantine/core";
 import { Navbar } from "../Navbar";
+import config from "../../config";
+
 
 export default function Communities() {
   const [communities, setCommunities] = useState([]);

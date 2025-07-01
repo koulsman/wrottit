@@ -17,7 +17,6 @@ import {
   Tooltip,
   Divider,
 } from "@mantine/core";
-
 import {
   IconSettings,
   IconSearch,
@@ -31,6 +30,7 @@ import { isLoggedInAtom, loggedUserAtom } from "../Header/isLoggedIn";
 import { Navbar } from "../NavBar/Navbar";
 import NoComments from "./NoComments";
 import GearSpinner from "../images/gear-spinner.svg"
+import config from "../config";
 
 function SelectedPostPage() {
   const { id } = useParams();

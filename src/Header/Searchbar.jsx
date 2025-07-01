@@ -68,6 +68,10 @@ export default function Searchbar() {
     return () => document.removeEventListener('mousedown', handleCloseSearch);
   }, []);
 
+  useEffect(() => {
+
+  },[searchbarRef,pillLabel])
+
  
   return (
     <section ref={searchbarRef}>

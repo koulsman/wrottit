@@ -9,6 +9,7 @@ import { ColorSwatch, Indicator, Divider} from '@mantine/core';
 // import { Navigate } from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import myDatetimes from "../MyDatetimes";
+import config from "../config";
 
 
 export default function LoggedInfo({name,uid, status}) {

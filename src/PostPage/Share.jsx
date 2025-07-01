@@ -12,6 +12,7 @@ import FacebookIcon from "../images/facebook-icon.svg";
 import TwitterIcon from "../images/twitter-icon.svg";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Copy from "../images/copy.svg";
+import config from "../config";
 
 export default function Share({ postid }) {
   // const urlForCopy = `http://localhost:3000/post/${postid}`;

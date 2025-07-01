@@ -11,6 +11,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import CommunityPreview from "../../LoggedInfo/CommunityPreview";
 import CommunityInfo from "../../LoggedInfo/CommunityInfo";
+import config from "../../config";
 
 export default function SelectedCommunity() {
   // const [isLoggedIn] = useAtom(isLoggedInAtom);

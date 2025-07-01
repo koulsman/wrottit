@@ -5,6 +5,7 @@ import './Likes.css';
 import { isLoggedInAtom, loggedUserAtom } from '../Header/isLoggedIn';
 import { useAtom } from 'jotai';
 import axios from 'axios'
+import config from "../config";
 
 
 export default function Likes({votes,postid}) {

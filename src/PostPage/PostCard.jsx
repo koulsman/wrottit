@@ -24,6 +24,7 @@ import { Pill } from "@mantine/core";
 import SavedPostSVG from "../images/savedpost.svg"
 import UnsavedPostSVG from "../images/unsavedpost.svg"
 import { createPortal } from "react-dom";
+import config from "../config";
 
 export default function PostCard({
   postid,
@@ -49,7 +50,8 @@ export default function PostCard({
   function showCommunityHandler() {}
 
   function navigateToCommunityHandler() {}
-  async function saveHandler() {
+  async function saveHandler(event) {
+    event.stopPropagation();
     setSavedPost(!savedPost);
   }
 

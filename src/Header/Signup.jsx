@@ -15,6 +15,7 @@ import limeUserImage from "../images/UserImage/lime.svg"
 import orangeUserImage from "../images/UserImage/orange.svg"
 import pinkUserImage from "../images/UserImage/pink.svg"
 import spiralUserImage from "../images/UserImage/spiral.svg"
+import config from "../config";
 
 export function Signup() {
   const [opened, { open, close }] = useDisclosure(false);

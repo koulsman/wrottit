@@ -10,6 +10,7 @@ import { IconUpload, IconPhoto, IconX } from "@tabler/icons-react";
 import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
 import { useClickOutside } from "@mantine/hooks";
 import {Hourglass } from 'react-loader-spinner'
+import config from "../config";
 
 function CreatePost() {
   const [isCreatingPost, setIsCreatingPost] = useState(false);
@@ -169,7 +170,11 @@ function CreatePost() {
             <div
               style={{
                 maxWidth: "fitContent",
-                minWidth: "5em",
+                width: "100%",
+                minWidth: "15em",
+                maxWidth: "40em",
+                height: "100%",
+                minHeight: "5em",
                 maxHeight: "45em",
                 border: "0.1em solid #4dabf7",
                 borderRadius: "0.5em",
@@ -231,7 +236,7 @@ function CreatePost() {
                   </Button>
                 )} */}
                 <Autocomplete
-                style={{margin: "auto", width: "30em", backgroundColor: "white", borderRadius: "0.5em",padding: "1em black",
+                style={{margin: "auto", width: "100%",minWidth: "10em",maxWidth: "30em", backgroundColor: "white", borderRadius: "0.5em",padding: "1em black",
                   backgroundClip: "content-box",
   boxShadow: "inset 0 0 0 10px black"
                 }}
@@ -250,7 +255,7 @@ function CreatePost() {
                 <input
                   className="Text-input"
                   placeholder="type title"
-                  style={{margin: "1em auto 1em auto", width: "30em"}}
+                  style={{margin: "1em auto 1em auto", width: "100%",minWidth: "10em",maxWidth: "30em"}}
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                 />
@@ -272,12 +277,13 @@ function CreatePost() {
 
                   <Tabs.Panel value="images">
                     <div>
-                      <Dropzone
+                      <Dropzone style={{height: "100%", minHeight: "5em", maxHeight: "30em"}}
                         onDrop={handleImageDrop}
                         onReject={(files) =>
                           console.log("Rejected files:", files)
                         }
                         maxSize={5 * 1024 ** 2}
+                        
                         accept={IMAGE_MIME_TYPE}
                       >
                         <Group
