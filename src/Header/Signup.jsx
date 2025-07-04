@@ -42,7 +42,7 @@ export function Signup() {
     
   
     try {
-      const response = await axios.post(`${config.USERS_API}/users`, {
+      const response = await axios.post(`${config.USERS_API}`, {
         name,
         email,
         

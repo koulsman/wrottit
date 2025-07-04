@@ -19,7 +19,7 @@ export default function SearchedTermInSearchbar() {
 
   async function searchInPosts() {
     try {
-      const response = await axios.get(`${config.POSTS_API}/posts`);
+      const response = await axios.get(`${config.POSTS_API}`);
       setResults(response.data);
       console.log(response.data);
     } catch (error) {
@@ -28,7 +28,7 @@ export default function SearchedTermInSearchbar() {
   }
   async function searchInCommunities() {
     try {
-      const response = await axios.get(`${config.COMMUNITIES_API}/communities`);
+      const response = await axios.get(`${config.COMMUNITIES_API}`);
       setResults(response.data);
       console.log(response);
     } catch (error) {
