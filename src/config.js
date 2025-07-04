@@ -6,7 +6,7 @@ const config = {
     : process.env.REACT_APP_USERS_API_DEV,
 
   POSTS_API: isProduction
-    ? `${process.env.REACT_APP_API_BASE_PROD}/posts`
+    ? `${process.env.REACT_APP_API_BASE_PROD}/PostServer`
     : process.env.REACT_APP_POSTS_API_DEV,
 
   COMMUNITIES_API: isProduction

@@ -69,7 +69,7 @@ function App() {
     try {
       // https://wrottit-yovc.onrender.com/
       // const response = await axios.get(""https://wrottit-servers.onrender.com/communities"");
-      const response = await axios.get(`${config.POSTS_API}`);
+      const response = await axios.get(`${config.POSTS_API}/posts`);
       console.log("Posts fetched:", response.data);
       setPosts(response.data);
       setSortedPosts(response.data); // Keep a copy for sorting
