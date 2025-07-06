@@ -17,24 +17,28 @@ export function Login() {
   const [opened, { open, close }] = useDisclosure(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+    const [buttonState,setButtonState] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useAtom(isLoggedInAtom);
   const [loggedUser, setLoggedUser] = useAtom(loggedUserAtom);
   const [checked, setChecked] = useState(false);
-   function DefaultUser(checked) {
-    if(checked) {
-
-    
-      setChecked(checked);
-      setEmail("johndoe@gmail.com")
-      setPassword("johnnybegood")
-      }
-      // else {
-      // setChecked(false);
-      // setEmail("")
-      // setPassword("")
-      // }
-   }
+   function switchHandler(switchState) {
+    setChecked(switchState);
+    console.log(switchState); // Καταγραφή του τρέχοντος state
+  }
+   
   
+  useEffect(() => {
+    if (checked) {
+      // setName('john doe');
+      setEmail('johndoe@gmail.com');
+      setPassword('johndoe');
+    } else {
+      // setName('');
+      setEmail('');
+      setPassword('');
+      setButtonState(true);
+    }
+  }, [checked]); // Ενημερώνει τα πεδία μόνο όταν αλλάζει το checked
   async function handleLogin() {
     try {
       const response = await axios.post(`${config.USERS_API}/users/login`, {
@@ -82,7 +86,7 @@ export function Login() {
           onMouseOver={{}}
             checked={checked}
             label="Slide if you are a tester or reqruiter for default user"
-            onChange={(event) => DefaultUser(event.currentTarget.checked)}
+            onChange={(event) => switchHandler(event.currentTarget.checked)}
           />
           </Tooltip>
         </div>
