@@ -8,7 +8,7 @@ export default function Searchbar() {
   const [clicked, setClicked] = useState(false);
   const [communitiesPillSelected, setCommunitiesPillSelected] = useState(false);
   const [postsPillSelected, setPostsPillSelected] = useState(true);
-
+  const buttonClicked = useRef(false)
   const searchbarRef = useRef(null);
   const communitiesPillRef = useRef(null);
   const postsPillRef = useRef(null);
@@ -41,10 +41,11 @@ export default function Searchbar() {
     console.log('search');
     console.log('searchbarValue:', searchbarValue);
     console.log('Search in:', pillLabel);
-    if(searchbarValue) {
+    buttonClicked.current = true;
+    if(searchbarValue && buttonClicked.current === true) {
       navigate(`/SearchedTermInSearchbar/${pillLabel}/${searchbarValue}`)
     }
-    
+    buttonClicked.current = false
   };
 
   const handleCloseSearch = (event) => {
@@ -72,7 +73,9 @@ export default function Searchbar() {
 
   },[searchbarRef,pillLabel])
 
- 
+  useEffect(() => {
+    searchHandler()
+  },[buttonClicked]) 
   return (
     <section ref={searchbarRef}>
       <div className="searchbarAndButton" style={{ display: 'flex' }}>
@@ -88,7 +91,7 @@ export default function Searchbar() {
           // data={communities.map((c) => c.name)}
         />
 
-        <Button style={{ marginTop: '1.1em'}} onClick={searchHandler}>
+        <Button style={{ marginTop: '1.1em'}} ref={buttonClicked} onClick={searchHandler}>
           <img src={search} alt="search" style={{ width: '3em', height: '2em', background : '#1e1e59'}} />
         </Button>
       </div>

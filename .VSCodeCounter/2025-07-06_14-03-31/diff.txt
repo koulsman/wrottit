@@ -1,0 +1,65 @@
+Date : 2025-07-06 14:03:31
+Directory : c:\Users\Σταύρος\Desktop\wrotit
+Total : 26 files,  348 codes, 53 comments, 7 blanks, all 408 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| JavaScript JSX |         22 |        305 |         53 |          6 |        364 |
+| XML            |          1 |         26 |          1 |          1 |         28 |
+| JSON           |          2 |         14 |          0 |          0 |         14 |
+| Properties     |          1 |          3 |         -1 |          0 |          2 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                               | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                  |         26 |        348 |         53 |          7 |        408 |
+| . (Files)                                                                          |          3 |         17 |         -1 |          0 |         16 |
+| src                                                                                |         23 |        331 |         54 |          7 |        392 |
+| src (Files)                                                                        |          3 |        198 |         46 |          5 |        249 |
+| src\Header                                                                         |          3 |         35 |         13 |          2 |         50 |
+| src\LoggedInfo                                                                     |          4 |          4 |          0 |          3 |          7 |
+| src\NavBar                                                                         |          2 |          2 |          0 |          1 |          3 |
+| src\NavBar\NavbarCommunities                                                       |          2 |          2 |          0 |          1 |          3 |
+| src\Post Creation                                                                  |          2 |          6 |          0 |          1 |          7 |
+| src\PostPage                                                                       |          5 |         15 |         -5 |        -11 |         -1 |
+| src\backend                                                                        |          3 |         45 |         -1 |          5 |         49 |
+| src\backend\ServersAndSchemas                                                      |          3 |         45 |         -1 |          5 |         49 |
+| src\images                                                                         |          1 |         26 |          1 |          1 |         28 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                           | language       | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| c:\Users\Σταύρος\Desktop\wrotit\.env                                               | Properties     |          3 |         -1 |          0 |          2 |
+| c:\Users\Σταύρος\Desktop\wrotit\package-lock.json                                  | JSON           |         13 |          0 |          0 |         13 |
+| c:\Users\Σταύρος\Desktop\wrotit\package.json                                       | JSON           |          1 |          0 |          0 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\App.jsx                                        | JavaScript JSX |         85 |         38 |         -7 |        116 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Header\Login.jsx                               | JavaScript JSX |         23 |         13 |          2 |         38 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Header\Searchbar.jsx                           | JavaScript JSX |         10 |          0 |          0 |         10 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Header\Signup.jsx                              | JavaScript JSX |          2 |          0 |          0 |          2 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\CommunityCreator.jsx                | JavaScript JSX |          1 |          0 |          0 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\LoggedInfo.jsx                      | JavaScript JSX |          1 |          0 |          0 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\MyLikes.jsx                         | JavaScript JSX |          1 |          0 |          2 |          3 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\MyPosts.jsx                         | JavaScript JSX |          1 |          0 |          1 |          2 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\NavbarCommunities\Communities.jsx       | JavaScript JSX |          1 |          0 |          1 |          2 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\NavbarCommunities\SelectedCommunity.jsx | JavaScript JSX |          1 |          0 |          0 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Post Creation\CreatePost.jsx                   | JavaScript JSX |          5 |          0 |          1 |          6 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\Post Creation\ImageDropzone.jsx                | JavaScript JSX |          1 |          0 |          0 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\ImageCarousel.jsx                     | JavaScript JSX |         16 |         -5 |         -5 |          6 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Likes.jsx                             | JavaScript JSX |          1 |          0 |          0 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\PostCard.jsx                          | JavaScript JSX |         -4 |          0 |         -5 |         -9 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\SelectedPostPage.jsx                  | JavaScript JSX |          1 |          0 |         -1 |          0 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Share.jsx                             | JavaScript JSX |          1 |          0 |          0 |          1 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\SearchTermInSearchbar.jsx                      | JavaScript JSX |        100 |          8 |          8 |        116 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\CommunityServer.js   | JavaScript JSX |         16 |          0 |          1 |         17 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\PostServer.js        | JavaScript JSX |         21 |         -1 |          3 |         23 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\UserServer.js        | JavaScript JSX |          8 |          0 |          1 |          9 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\config.js                                      | JavaScript JSX |         13 |          0 |          4 |         17 |
+| c:\Users\Σταύρος\Desktop\wrotit\src\images\speech.svg                              | XML            |         26 |          1 |          1 |         28 |
+| Total                                                                              |                |        348 |         53 |          7 |        408 |
++------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+

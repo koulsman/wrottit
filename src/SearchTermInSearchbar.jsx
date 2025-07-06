@@ -6,17 +6,19 @@ import SearchCommunities from "./NavBar/NavbarCommunities/SearchCommunities";
 import PostCard from "./PostPage/PostCard";
 import CommunityPreview from "./LoggedInfo/CommunityPreview";
 import config from "./config";
-
+import { IconReload } from "@tabler/icons-react";
+import { useLocation } from "react-router-dom";
 export default function SearchedTermInSearchbar() {
   const [nativeSelectValue, setNativeSelectValue] = useState("All time");
   const [searchedWord, setSearchedWord] = useState("");
   const communitySearchRef = useRef(false);
   const postSearchRef = useRef(false);
   const [selectedPill, setSelectedPill] = useState("");
-
+  const location = useLocation()
+  const {pathname} = useLocation();
   const [results, setResults] = useState([]);
   //    const searchedWordRef = useRef("")
-
+const searchUrl = pathname;
   async function searchInPosts(searchedWord) {
     try {
       const response = await axios.get(`${config.POSTS_API}/posts/searchedPosts/${searchedWord}`);
@@ -38,14 +40,16 @@ export default function SearchedTermInSearchbar() {
 
   useEffect(() => {}, [results]);
   useEffect(() => {
+    
     handleSearchedTerm()
-  },[])
+  },[searchUrl])
 
   function handleSearchedTerm() {
-    console.log(window.location.href);
-    const searchUrl = window.location.href;
-    console.log(searchUrl);
-    const temporarySearchedWord = searchUrl.trim().split("/").pop();
+    console.log(pathname + "PATHNAME")
+    
+    
+   
+    const temporarySearchedWord = pathname.trim().split("/").pop();
     setSearchedWord(temporarySearchedWord)
    
     // searchedWordRef.current = searchUrl.split("");
@@ -70,7 +74,7 @@ export default function SearchedTermInSearchbar() {
 
   useEffect(() => {
     handleSearchedTerm();
-  }, []);
+  }, [window.location.href]);
   return (
     <>
      <Grid>

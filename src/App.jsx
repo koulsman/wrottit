@@ -139,7 +139,9 @@ function App() {
           <div className="header-parent">
             <NavLink to="/">
               <img src={wrottit} className="App-logo" alt="logo" />
+             
             </NavLink>
+             <Wrot />
 
             {/* <SearchDemo /> */}
           </div>
