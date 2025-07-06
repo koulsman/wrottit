@@ -28,11 +28,11 @@ export function Login() {
       setEmail("johndoe@gmail.com")
       setPassword("johnnybegood")
       }
-      else {
-      setChecked(false);
-      setEmail("")
-      setPassword("")
-      }
+      // else {
+      // setChecked(false);
+      // setEmail("")
+      // setPassword("")
+      // }
    }
   
   async function handleLogin() {
