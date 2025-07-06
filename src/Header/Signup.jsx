@@ -42,7 +42,7 @@ export function Signup() {
     
   
     try {
-      const response = await axios.post(`${config.USERS_API}`, {
+      const response = await axios.post(`${config.USERS_API}/users`, {
         name,
         email,
         
@@ -84,7 +84,7 @@ export function Signup() {
       <Modal opened={opened} onClose={close}>
         <h1>Sign Up</h1>
         <Flex direction="row" align="center">
-          <Checkbox
+          <Checkbox style={{marginRight: "1em"}}
             checked={checked}
             onChange={(e) => setChecked(e.currentTarget.checked)}
           />
@@ -137,6 +137,7 @@ export function Signup() {
                 style={{
                   pointerEvents: credentialCompleted ? "auto" : "none",
                   opacity: credentialCompleted ? 1 : 0.4,
+                  margin: "auto"
                 }}
               >
                 Sign Up

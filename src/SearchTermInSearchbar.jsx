@@ -17,18 +17,18 @@ export default function SearchedTermInSearchbar() {
   const [results, setResults] = useState([]);
   //    const searchedWordRef = useRef("")
 
-  async function searchInPosts() {
+  async function searchInPosts(searchedWord) {
     try {
-      const response = await axios.get(`${config.POSTS_API}`);
+      const response = await axios.get(`${config.POSTS_API}/posts/searchedPosts/${searchedWord}`);
       setResults(response.data);
       console.log(response.data);
     } catch (error) {
       console.log(error);
     }
   }
-  async function searchInCommunities() {
+  async function searchInCommunities(searchedWord) {
     try {
-      const response = await axios.get(`${config.COMMUNITIES_API}`);
+      const response = await axios.get(`${config.COMMUNITIES_API}/communities/searchedCommunities/${searchedWord}`);
       setResults(response.data);
       console.log(response);
     } catch (error) {
@@ -45,6 +45,9 @@ export default function SearchedTermInSearchbar() {
     console.log(window.location.href);
     const searchUrl = window.location.href;
     console.log(searchUrl);
+    const temporarySearchedWord = searchUrl.trim().split("/").pop();
+    setSearchedWord(temporarySearchedWord)
+   
     // searchedWordRef.current = searchUrl.split("");
     if (searchUrl.includes("P:")) {
       console.log("searched in posts");
@@ -53,7 +56,7 @@ export default function SearchedTermInSearchbar() {
       communitySearchRef.current = false;
       setSelectedPill("Posts");
       console.log("postSearchRef == " + postSearchRef.current);
-      searchInPosts();
+      searchInPosts(temporarySearchedWord);
     } else if (searchUrl.includes("C:")) {
       console.log("searchged in communities");
       communitySearchRef.current = true;
@@ -61,7 +64,7 @@ export default function SearchedTermInSearchbar() {
       postSearchRef.current = false;
       setSelectedPill("Communities");
       console.log("communitySearchRef == " + communitySearchRef.current);
-      searchInCommunities();
+      searchInCommunities(temporarySearchedWord);
     }
   }
 

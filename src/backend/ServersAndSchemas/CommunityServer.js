@@ -78,3 +78,16 @@ app.post('/communities', async (req, res) => {
   }
 });
 
+app.get('/communities/searchedCommunities/:term', async (req,res) => {
+   const {term} = req.params;
+   try {
+     const communitiesMatched = await Community.find({
+      name: {$regex: term, $options: 'i'} 
+     })
+     res.json(communitiesMatched)
+   }
+   catch {
+       res.status(500).json({ message: err.message });
+   }
+})
+

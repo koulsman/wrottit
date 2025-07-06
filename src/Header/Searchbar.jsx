@@ -7,7 +7,7 @@ export default function Searchbar() {
   const [searchbarValue, setSearchbarValue] = useState('');
   const [clicked, setClicked] = useState(false);
   const [communitiesPillSelected, setCommunitiesPillSelected] = useState(false);
-  const [postsPillSelected, setPostsPillSelected] = useState(false);
+  const [postsPillSelected, setPostsPillSelected] = useState(true);
 
   const searchbarRef = useRef(null);
   const communitiesPillRef = useRef(null);
