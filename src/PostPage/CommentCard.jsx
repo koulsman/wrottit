@@ -2,7 +2,7 @@ import { Card, Group, Text, Section } from '@mantine/core';
 
 export default function CommentCard({ comment, username, date }) {
 
-  console.log(date + "date" + comment )
+  console.log(date + "date" + comment + username )
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder style={{ flexDirection: 'column' }}>
       <Card.Section withBorder inheritPadding py="xs">

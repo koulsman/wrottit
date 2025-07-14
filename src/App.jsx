@@ -91,7 +91,21 @@ function App() {
       );
     }
   }
-
+  
+useEffect(() => {
+  const uid = localStorage.getItem("userId"); // ή cookie, ή session
+  if (uid) {
+    axios.get(`${config.USERS_API}/users/${uid}`)
+      .then((res) => {
+        loggedUser.push(res.data); // ή update το jotai atom σου
+        isLoggedIn.push(true);
+        console.oog("LOGGED USER", loggedUser)
+      })
+      .catch(err => {
+        console.error("Failed to fetch user:", err);
+      });
+  }
+}, []);
   async function handlePosts() {
     setIsFetching(true);
     try {
@@ -324,6 +338,7 @@ function App() {
                             images={post.images}
                             comments={post.comments}
                             upvotes={post.upvotes}
+                            savedBy={post.savedBy}
                           />
                         ))}
                       </div>

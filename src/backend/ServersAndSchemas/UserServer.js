@@ -136,7 +136,7 @@ app.post('/users/:uid/saved', async (req,res) => {
   try {
     const user = await User.findByIdAndUpdate(
       uid,
-      { $push: { saved: { id } } }, // Push the new comment into the array
+      { $addToSet: { saved: { id } } }, // Push the new comment into the array
       { new: true } // Return the updated document
     );
     if (!user) {
@@ -148,6 +148,20 @@ app.post('/users/:uid/saved', async (req,res) => {
     res.status(500).send({ message: 'Internal server error' });
   }
 })
+
+app.delete('/users/:uid/saved/:postid', async (req, res) => {
+  const { uid, postid } = req.params;
+  try {
+    const user = await User.findByIdAndUpdate(
+      uid,
+      { $pull: { saved: { id: postid } } },
+      { new: true }
+    );
+    res.json(user.saved);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to delete saved post' });
+  }
+});
 async function getUser(req, res, next) {
   let user;
   try {
@@ -183,6 +197,17 @@ app.get('/users/:password', getUser, (req, res) => {
 });
 app.get('/users/:userImage', getUser, (req, res) => {
   res.json(res.user);
+});
+app.get('/users/:uid/commented', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.uid); // Find user by ID
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' }); // Error if not found
+    }
+    res.json(user.commented); // Return only the "commented" array from that user
+  } catch (err) {
+    res.status(500).json({ message: err.message }); // Error handling
+  }
 });
 app.post('/users/login', async (req, res) => {
   const { email, password } = req.body;
@@ -241,4 +266,6 @@ app.post('/users/liked',async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 })
+
+
 module.exports = app;

@@ -49,6 +49,7 @@ export function Login() {
       setLoggedUser(userInfo);
       setIsLoggedIn(true);
       alert("Login successful!");
+      localStorage.setItem("userId", loggedUser._id);
     } catch (error) {
       console.error("Error logging in:", error);
       alert("Error logging in. Please check your credentials and try again.");

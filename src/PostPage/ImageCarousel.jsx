@@ -40,9 +40,9 @@ export default function ImageCarousel({ images, allowPopup = true }) {
                   src={image}
                   alt={`Slide ${index + 1}`}
                   style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
+                    width: "50%",
+                    height: "50%",
+                    objectFit: "fill",
                   }}
                 />
               </Carousel.Slide>

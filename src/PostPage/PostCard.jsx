@@ -11,20 +11,22 @@ import {
 import { IconDots, IconEye, IconFileZip, IconTrash } from "@tabler/icons-react";
 import ImageModal from "../Post Creation/ImageModal";
 import { useDisclosure } from "@mantine/hooks";
-import { useState, useRef, usePortal } from "react";
+import { useState, useRef, usePortal, useEffect } from "react";
 import Likes from "./Likes";
 import Comments from "./Comments";
 import Share from "./Share";
 import { useNavigate } from "react-router-dom";
 import { connectFirestoreEmulator } from "firebase/firestore";
-
+import SavePost from "./SavePost";
 import { Carousel } from "@mantine/carousel";
 import ImageCarousel from "./ImageCarousel";
 import { Pill } from "@mantine/core";
-import SavedPostSVG from "../images/savedpost.svg"
-import UnsavedPostSVG from "../images/unsavedpost.svg"
+import SavedPostSVG from "../images/saved.svg"
+import { loggedUserAtom } from "../Header/isLoggedIn";
+import {atom, useAtom} from 'jotai'
 import { createPortal } from "react-dom";
 import config from "../config";
+import axios from "axios";
 
 export default function PostCard({
   postid,
@@ -36,24 +38,26 @@ export default function PostCard({
   images,
   upvotes,
   comments,
+  savedBy
 }) {
   const [opened, { open, close }] = useDisclosure(false);
   const [imageSelected, setImageSelected] = useState("");
   const navigate = useNavigate("");
   const [savedPost, setSavedPost] = useState(false);
   const [communityHovered, setCommunityHovered] = useState(false);
-
+  const [loggedUser] = useAtom(loggedUserAtom)
   const communityRef = useRef();
-  console.log(typeof comments);
+  const [savedPostsByUser,setSavedPostsByUser] = useState([])
+   console.log(typeof comments);
   const commentsCounter = Array.isArray(comments) ? comments.length : 0;
 
+  console.log("logged User", loggedUser)
   function showCommunityHandler() {}
 
   function navigateToCommunityHandler() {}
-  async function saveHandler(event) {
-    event.stopPropagation();
-    setSavedPost(!savedPost);
-  }
+ 
+  
+  
 
   function handleImageModal(image) {
     setImageSelected(image);
@@ -117,23 +121,8 @@ export default function PostCard({
               <Text fw={200}></Text>
               <Text fw={500}> &nbsp; {title}</Text>
             </div>
-            <div withinPortal position="bottom-end" shadow="sm">
-              <div style={{background: "purple", borderRadius: "0.5"}}>
-                  <img onClick={saveHandler}
-                    src={savedPost ? SavedPostSVG : UnsavedPostSVG}
-                    alt="Save Icon"
-                    style={{
-                     
-                      width: "1.5em",
-                      height: "1.5em",
-                     
-    cursor: "pointer",
-   
-                    
-                    }}
-                  />
-                
-              </div>
+            <div withinPortal position="bottom-end" shadow="sm" onClick={(event) => event.stopPropagation()}>
+             <SavePost postid = {postid}/>
             </div>
           </Group>
         </Card.Section>

@@ -83,6 +83,7 @@ function SelectedPostPage() {
         ...prevComments,
         response.data.newComment,
       ]);
+      
       // setComment(""); // Clear input field
 
 
