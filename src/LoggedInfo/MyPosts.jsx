@@ -30,7 +30,7 @@ export default function MyPosts() {
   return (
     <div>
     <Grid>
-      <Grid.Col span="auto">
+      <Grid.Col span="3">
                 <Navbar style={{position: "sticky"}} />
               </Grid.Col>
        <Grid.Col span="auto">
@@ -51,7 +51,8 @@ export default function MyPosts() {
         // </div>
       ))}
         </Grid.Col>       
-      
+     < Grid.Col span={"3"}>  
+     </Grid.Col> 
     </Grid>
     </div>
   );

@@ -2,7 +2,7 @@ import { Autocomplete, Pill, Button } from '@mantine/core';
 import { useState, useEffect, useRef, useMemo } from 'react';
 import search from '../images/search.svg';
 import {useNavigate} from 'react-router-dom';
-
+import { ThemeIcon } from '@mantine/core';
 export default function Searchbar() {
   const [searchbarValue, setSearchbarValue] = useState('');
   const [clicked, setClicked] = useState(false);
@@ -90,10 +90,11 @@ export default function Searchbar() {
           rightSectionPointerEvents="none"
           // data={communities.map((c) => c.name)}
         />
-
-        <Button style={{ marginTop: '1.1em'}} ref={buttonClicked} onClick={searchHandler}>
-          <img src={search} alt="search" style={{ width: '3em', height: '2em', background : '#1e1e59'}} />
-        </Button>
+ <ThemeIcon size="lg" style={{ marginTop: '1em'}}>
+        {/* <Button style={{ marginTop: '1.1em'}} ref={buttonClicked} onClick={searchHandler}> */}
+          <img src={search} alt="search" style={{ width: '1.5em', height: '1.5em'}} />
+        {/* </Button> */}
+        </ThemeIcon>
       </div>
 
       {clicked && (

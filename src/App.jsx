@@ -42,6 +42,7 @@ import SearchedTermInSearchbar from "./SearchTermInSearchbar";
 import speech from "./images/speech.svg";
 import WrotRobot from "./images/wrot-logo-Photoroom.png-Photoroom.png";
 import wrot from "./images/wrot-logo-Photoroom.png-Photoroom.png";
+import MySavedPosts from "./LoggedInfo/MySavedPosts";
 
 function App() {
   const [isLoggedIn] = useAtom(isLoggedInAtom);
@@ -416,6 +417,7 @@ useEffect(() => {
             />
             <Route path="/:id/myPosts" element={<MyPosts />} />
             <Route path="/:id/myComments" element={<MyComments />} />
+            <Route path="/:id/mySavedPosts" element={<MySavedPosts />} />
             <Route path="/:id/ChangeUserImage" element={<ChangeUserImage />} />
             <Route path="/myDatetimes" element={<MyDatetimes />} />
             <Route path="/About" element={<About />} />

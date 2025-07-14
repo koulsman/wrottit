@@ -41,7 +41,7 @@ export default function LoggedInfo({name,uid, status}) {
   const handleMyLikes     = () => go(`/${loggedUser._id}/MyLikes`);
   const handleMyPosts     = () => go(`/${loggedUser._id}/MyPosts`);
   const handleMyComments  = () => go(`/${loggedUser._id}/MyComments`);
-  const handleSavedPosts  = () => go(`/${loggedUser._id}/SavedPosts`);
+  const handleMySavedPosts  = () => go(`/${loggedUser._id}/mySavedPosts`);
   const changeUserImage   = () => go(`/${loggedUser._id}/ChangeUserImage`);
   const communityCreator  = () => go(`/${loggedUser._id}/CommunityCreator`);
   
@@ -81,6 +81,7 @@ export default function LoggedInfo({name,uid, status}) {
                 <NavLink label="My Likes" onClick={handleMyLikes}></NavLink>
                 <NavLink label="My Posts" onClick={handleMyPosts}></NavLink>
                 <NavLink label="My Comments" onClick={handleMyComments}></NavLink>
+                <NavLink label="My Saved Posts" onClick={handleMySavedPosts}></NavLink>
                 {/* <NavLink label="my datetimes" onClick={handleMyDatetimes}></NavLink>
                 <NavLink label="my datetimes" onClick={handleSavedPosts}></NavLink> */}
                 <NavLink label="Change User Image" onClick={changeUserImage}></NavLink>
