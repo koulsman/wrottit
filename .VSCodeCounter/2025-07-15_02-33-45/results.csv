@@ -1,0 +1,109 @@
+"filename", "language", "JSON with Comments", "JavaScript JSX", "TypeScript", "JSON", "PostCSS", "TypeScript JSX", "XML", "Markdown", "HTML", "Properties", "comment", "blank", "total"
+"c:\Users\Σταύρος\Desktop\wrotit\.env", "Properties", 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 2, 1, 7
+"c:\Users\Σταύρος\Desktop\wrotit\README.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 20, 48
+"c:\Users\Σταύρος\Desktop\wrotit\craco.config.js", "JavaScript JSX", 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17
+"c:\Users\Σταύρος\Desktop\wrotit\package-lock.json", "JSON", 0, 0, 0, 19956, 0, 0, 0, 0, 0, 0, 0, 1, 19957
+"c:\Users\Σταύρος\Desktop\wrotit\package.json", "JSON", 0, 0, 0, 123, 0, 0, 0, 0, 0, 0, 0, 1, 124
+"c:\Users\Σταύρος\Desktop\wrotit\postcss.config.js", "JavaScript JSX", 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14
+"c:\Users\Σταύρος\Desktop\wrotit\public\index.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 23, 1, 44
+"c:\Users\Σταύρος\Desktop\wrotit\public\manifest.json", "JSON", 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 1, 26
+"c:\Users\Σταύρος\Desktop\wrotit\src\App.css", "PostCSS", 0, 0, 0, 0, 115, 0, 0, 0, 0, 0, 4, 29, 148
+"c:\Users\Σταύρος\Desktop\wrotit\src\App.jsx", "JavaScript JSX", 0, 356, 0, 0, 0, 0, 0, 0, 0, 0, 65, 19, 440
+"c:\Users\Σταύρος\Desktop\wrotit\src\App.test.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 2, 10
+"c:\Users\Σταύρος\Desktop\wrotit\src\ChangeUserImage.jsx", "JavaScript JSX", 0, 51, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 55
+"c:\Users\Σταύρος\Desktop\wrotit\src\DatePicker.jsx", "JavaScript JSX", 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 22
+"c:\Users\Σταύρος\Desktop\wrotit\src\Demo.module.css", "PostCSS", 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 4, 24
+"c:\Users\Σταύρος\Desktop\wrotit\src\Header\Login.jsx", "JavaScript JSX", 0, 116, 0, 0, 0, 0, 0, 0, 0, 0, 16, 7, 139
+"c:\Users\Σταύρος\Desktop\wrotit\src\Header\Searchbar.jsx", "JavaScript JSX", 0, 110, 0, 0, 0, 0, 0, 0, 0, 0, 3, 17, 130
+"c:\Users\Σταύρος\Desktop\wrotit\src\Header\Signup.jsx", "JavaScript JSX", 0, 141, 0, 0, 0, 0, 0, 0, 0, 0, 1, 13, 155
+"c:\Users\Σταύρος\Desktop\wrotit\src\Header\Wrot.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 2, 18
+"c:\Users\Σταύρος\Desktop\wrotit\src\Header\isLoggedIn.jsx", "JavaScript JSX", 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 7
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\CommunityCreator.jsx", "JavaScript JSX", 0, 287, 0, 0, 0, 0, 0, 0, 0, 0, 1, 14, 302
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\CommunityInfo.jsx", "JavaScript JSX", 0, 131, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 147
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\CommunityPreview.jsx", "JavaScript JSX", 0, 79, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 86
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\FlagPills.jsx", "JavaScript JSX", 0, 151, 0, 0, 0, 0, 0, 0, 0, 0, 5, 16, 172
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\LoggedInfo.jsx", "JavaScript JSX", 0, 77, 0, 0, 0, 0, 0, 0, 0, 0, 16, 16, 109
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\MyComments.jsx", "JavaScript JSX", 0, 59, 0, 0, 0, 0, 0, 0, 0, 0, 5, 19, 83
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\MyLikes.jsx", "JavaScript JSX", 0, 51, 0, 0, 0, 0, 0, 0, 0, 0, 2, 7, 60
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\MyPosts.jsx", "JavaScript JSX", 0, 53, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5, 60
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\MySavedPosts.jsx", "JavaScript JSX", 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 69
+"c:\Users\Σταύρος\Desktop\wrotit\src\MyDatetimes.jsx", "JavaScript JSX", 0, 46, 0, 0, 0, 0, 0, 0, 0, 0, 5, 12, 63
+"c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\About.jsx", "JavaScript JSX", 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15
+"c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\Navbar.jsx", "JavaScript JSX", 0, 82, 0, 0, 0, 0, 0, 0, 0, 0, 26, 19, 127
+"c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\Navbar.module.css", "PostCSS", 0, 0, 0, 0, 54, 0, 0, 0, 0, 0, 0, 9, 63
+"c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\NavbarCommunities\Communities.jsx", "JavaScript JSX", 0, 56, 0, 0, 0, 0, 0, 0, 0, 0, 5, 9, 70
+"c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\NavbarCommunities\SearchCommunities.jsx", "JavaScript JSX", 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 36
+"c:\Users\Σταύρος\Desktop\wrotit\src\NavBar\NavbarCommunities\SelectedCommunity.jsx", "JavaScript JSX", 0, 90, 0, 0, 0, 0, 0, 0, 0, 0, 24, 11, 125
+"c:\Users\Σταύρος\Desktop\wrotit\src\Post Creation\CreatePost.jsx", "JavaScript JSX", 0, 329, 0, 0, 0, 0, 0, 0, 0, 0, 31, 34, 394
+"c:\Users\Σταύρος\Desktop\wrotit\src\Post Creation\ImageDropzone.jsx", "JavaScript JSX", 0, 101, 0, 0, 0, 0, 0, 0, 0, 0, 1, 13, 115
+"c:\Users\Σταύρος\Desktop\wrotit\src\Post Creation\ImageModal.jsx", "JavaScript JSX", 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 10
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\CommentCard.jsx", "JavaScript JSX", 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 20
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Comments.jsx", "JavaScript JSX", 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5, 18
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\ImageCarousel.jsx", "JavaScript JSX", 0, 72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 78
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Likes.css", "PostCSS", 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 2, 4, 28
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Likes.jsx", "JavaScript JSX", 0, 96, 0, 0, 0, 0, 0, 0, 0, 0, 7, 15, 118
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\NoComments.css", "PostCSS", 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 1, 8, 22
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\NoComments.jsx", "JavaScript JSX", 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 29
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Post.module.css", "PostCSS", 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1, 9
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\PostCard.jsx", "JavaScript JSX", 0, 166, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 184
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Posts.jsx", "JavaScript JSX", 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 23
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\SavePost.jsx", "JavaScript JSX", 0, 74, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 86
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\SelectedImage.jsx", "JavaScript JSX", 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\SelectedPostPage.jsx", "JavaScript JSX", 0, 172, 0, 0, 0, 0, 0, 0, 0, 0, 9, 22, 203
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\Share.jsx", "JavaScript JSX", 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 73
+"c:\Users\Σταύρος\Desktop\wrotit\src\SearchDemo.jsx", "JavaScript JSX", 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 3, 6, 45
+"c:\Users\Σταύρος\Desktop\wrotit\src\SearchTermInSearchbar.jsx", "JavaScript JSX", 0, 118, 0, 0, 0, 0, 0, 0, 0, 0, 8, 10, 136
+"c:\Users\Σταύρος\Desktop\wrotit\src\TextEditor.jsx", "JavaScript JSX", 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 59
+"c:\Users\Σταύρος\Desktop\wrotit\src\WordsModel.js", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\WordsServer.js", "JavaScript JSX", 0, 113, 0, 0, 0, 0, 0, 0, 0, 0, 6, 30, 149
+"c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\CommunitySchema.js", "JavaScript JSX", 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 4, 5, 26
+"c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\CommunityServer.js", "JavaScript JSX", 0, 81, 0, 0, 0, 0, 0, 0, 0, 0, 1, 12, 94
+"c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\PostModel.js", "JavaScript JSX", 0, 38, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5, 44
+"c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\PostServer.js", "JavaScript JSX", 0, 146, 0, 0, 0, 0, 0, 0, 0, 0, 5, 20, 171
+"c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\UserModel.js", "JavaScript JSX", 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 21
+"c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\UserServer.js", "JavaScript JSX", 0, 221, 0, 0, 0, 0, 0, 0, 0, 0, 22, 29, 272
+"c:\Users\Σταύρος\Desktop\wrotit\src\config.js", "JavaScript JSX", 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 17
+"c:\Users\Σταύρος\Desktop\wrotit\src\declaration.d.ts", "TypeScript", 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\Asset 1.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\UserImage\black.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\UserImage\blue.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\UserImage\burgundy.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\UserImage\lime.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\UserImage\orange.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\UserImage\pink.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\UserImage\spiral.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\chat.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\checked.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\communities.svg", "XML", 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 9
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\copy.svg", "XML", 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 1, 0, 30
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\dislike.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\facebook-icon.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\gear-spinner.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\google-icon.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\home.svg", "XML", 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 1, 0, 14
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\imageDefault.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\light-switch-off-svgrepo-com.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\light-switch-on-svgrepo-com.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\like.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\linkedin.svg", "XML", 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 1, 1, 24
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\next.svg", "XML", 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 1, 0, 11
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\no-comments.svg", "XML", 0, 0, 0, 0, 0, 0, 250, 0, 0, 0, 1, 1, 252
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\previous.svg", "XML", 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 1, 0, 11
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\saved.svg", "XML", 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 1, 0, 16
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\savedpost.svg", "XML", 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\search.svg", "XML", 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 1, 0, 13
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\share.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\speech.svg", "XML", 0, 0, 0, 0, 0, 0, 26, 0, 0, 0, 1, 1, 28
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\top.svg", "XML", 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\twitter-icon.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\unchecked.svg", "XML", 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 4
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\unsavedpost.svg", "XML", 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 6
+"c:\Users\Σταύρος\Desktop\wrotit\src\index.css", "PostCSS", 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 2, 14
+"c:\Users\Σταύρος\Desktop\wrotit\src\index.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 31, 0, 0, 0, 0, 4, 10, 45
+"c:\Users\Σταύρος\Desktop\wrotit\src\react-app-env.d.ts", "TypeScript", 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 1, 1, 6
+"c:\Users\Σταύρος\Desktop\wrotit\src\reportWebVitals.ts", "TypeScript", 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 3, 16
+"c:\Users\Σταύρος\Desktop\wrotit\src\setupTests.ts", "TypeScript", 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 4, 1, 6
+"c:\Users\Σταύρος\Desktop\wrotit\src\timeseries.json", "JSON", 0, 0, 0, 1730, 0, 0, 0, 0, 0, 0, 0, 0, 1730
+"c:\Users\Σταύρος\Desktop\wrotit\tsconfig.json", "JSON with Comments", 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 27
+"c:\Users\Σταύρος\Desktop\wrotit\types\png.d.ts", "TypeScript", 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"Total", "-", 26, 4111, 23, 21834, 244, 55, 457, 28, 20, 4, 343, 596, 27741

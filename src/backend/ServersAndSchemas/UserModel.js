@@ -15,6 +15,7 @@ const userSchema = new mongoose.Schema({
   collection: 'users' // Specify the collection name explicitly
 });
 
+
 const User = mongoose.model('User', userSchema);
 console.log("database:users_db, collection:users")
 module.exports = User;

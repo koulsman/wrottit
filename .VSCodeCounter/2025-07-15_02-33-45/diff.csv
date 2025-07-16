@@ -1,0 +1,15 @@
+"filename", "language", "JavaScript JSX", "XML", "comment", "blank", "total"
+"c:\Users\Σταύρος\Desktop\wrotit\src\App.jsx", "JavaScript JSX", 17, 0, 0, 0, 17
+"c:\Users\Σταύρος\Desktop\wrotit\src\Header\Login.jsx", "JavaScript JSX", 4, 0, 2, -1, 5
+"c:\Users\Σταύρος\Desktop\wrotit\src\Header\Searchbar.jsx", "JavaScript JSX", 1, 0, 2, -2, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\LoggedInfo.jsx", "JavaScript JSX", 1, 0, 0, 0, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\MyComments.jsx", "JavaScript JSX", 54, 0, 5, 18, 77
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\MyPosts.jsx", "JavaScript JSX", 2, 0, 0, -1, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\LoggedInfo\MySavedPosts.jsx", "JavaScript JSX", 64, 0, 1, 4, 69
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\PostCard.jsx", "JavaScript JSX", -7, 0, 0, -4, -11
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\SavePost.jsx", "JavaScript JSX", 74, 0, 0, 12, 86
+"c:\Users\Σταύρος\Desktop\wrotit\src\PostPage\SelectedPostPage.jsx", "JavaScript JSX", 0, 0, 0, 1, 1
+"c:\Users\Σταύρος\Desktop\wrotit\src\SearchTermInSearchbar.jsx", "JavaScript JSX", 3, 0, 0, 1, 4
+"c:\Users\Σταύρος\Desktop\wrotit\src\backend\ServersAndSchemas\UserServer.js", "JavaScript JSX", 24, 0, 0, 3, 27
+"c:\Users\Σταύρος\Desktop\wrotit\src\images\saved.svg", "XML", 0, 15, 1, 0, 16
+"Total", "-", 237, 15, 11, 31, 294
