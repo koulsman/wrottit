@@ -259,7 +259,7 @@ useEffect(() => {
                         </Menu.Dropdown>
                       </Menu>
                     </div>
-                    {isFetching && (
+                    {/* {isFetching && (
                       <div>
                         {" "}
                         <img
@@ -280,7 +280,7 @@ useEffect(() => {
                           }}
                         />
                       </div>
-                    )}
+                    )} */}
                     {/* <div
                       style={{ position: "relative", display: "inline-block" }}
                     >
