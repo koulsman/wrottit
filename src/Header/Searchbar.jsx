@@ -90,7 +90,11 @@ export default function Searchbar() {
           rightSectionPointerEvents="none"
           // data={communities.map((c) => c.name)}
         />
- <ThemeIcon size="lg" style={{ marginTop: '1em'}}>
+ <ThemeIcon
+  size="lg"
+  style={{ marginTop: '1em', cursor: 'pointer' }}
+  onClick={searchHandler}
+>
         {/* <Button style={{ marginTop: '1.1em'}} ref={buttonClicked} onClick={searchHandler}> */}
           <img src={search} alt="search" style={{ width: '1.5em', height: '1.5em'}} />
         {/* </Button> */}
