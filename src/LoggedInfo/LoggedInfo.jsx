@@ -75,19 +75,22 @@ export default function LoggedInfo({name,uid, status}) {
                 status:
                 {isLoggedIn === true ? <div style={{display: "flex"}}>active 
                   
-                <ColorSwatch color="#00FF00" style={{display: "flex", alignItems: "flex-end", width: "0.5em",marginRight: "1em"}}/> </div> : <div>status inactive</div>}
+                <ColorSwatch color="#00FF00" style={{display: "flex", alignItems: "flex-end", width: "0.5em",marginLeft: "1em"}}/> </div> : <div>status inactive</div>}
                 
                 <Divider my="md" />
-                <NavLink label="My Likes" onClick={handleMyLikes}></NavLink>
+                {/* <NavLink label="My Likes" onClick={handleMyLikes}></NavLink> */}
                 <NavLink label="My Posts" onClick={handleMyPosts}></NavLink>
                 <NavLink label="My Comments" onClick={handleMyComments}></NavLink>
                 <NavLink label="My Saved Posts" onClick={handleMySavedPosts}></NavLink>
                 {/* <NavLink label="my datetimes" onClick={handleMyDatetimes}></NavLink>
                 <NavLink label="my datetimes" onClick={handleSavedPosts}></NavLink> */}
-                <NavLink label="Change User Image" onClick={changeUserImage}></NavLink>
+                {/* <NavLink label="Change User Image" onClick={changeUserImage}></NavLink> */}
                 <NavLink label="Community Creator" onClick={communityCreator}></NavLink>
                 <Divider my="md" />
-                <Button onClick={handleLogOut}>Logout</Button>
+                <div style= {{display: "flex", justifyContent: "flex-end", flexDirection: "flex-end", alignItems: "flex-end", transform: 'translateY(220px)'}}>
+                    <Button onClick={handleLogOut}>Logout</Button>
+                </div>
+                
                 
           </Drawer>
           <Tooltip label="Open Profile">

@@ -29,7 +29,7 @@ import { useAtom } from "jotai";
 import { isLoggedInAtom, loggedUserAtom } from "../Header/isLoggedIn";
 import { Navbar } from "../NavBar/Navbar";
 import NoComments from "./NoComments";
-import GearSpinner from "../images/gear-spinner.svg"
+import GearSpinner from "../images/gear-spinner.svg";
 import config from "../config";
 
 function SelectedPostPage() {
@@ -40,24 +40,24 @@ function SelectedPostPage() {
   const [returnedComments, setReturnedComments] = useState([]);
   const [commentsDirection, setCommentsDirection] = useState("column");
   const [isLoggedIn, setIsLoggedIn] = useAtom(isLoggedInAtom);
-  const [commentsNumber,setCommentsNumber] = useState(0);
-  const [isFetching,setIsFetching] = useState(false)
+  const [commentsNumber, setCommentsNumber] = useState(0);
+  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
     async function fetchPost() {
-      setIsFetching(true)
+      setIsFetching(true);
       try {
         const response = await axios.get(`${config.POSTS_API}/posts/${id}`);
         setPost(response.data);
-        console.log(response.data)
+        console.log(response.data);
         setReturnedComments(response.data.comments || []); // Set comments array or empty array if undefined
-        console.log(JSON.stringify(response.data.comments) + "comments")
-        setIsFetching(false)
+        console.log(JSON.stringify(response.data.comments) + "comments");
+        setIsFetching(false);
       } catch (error) {
         console.error("Error fetching post:", error);
       }
-      console.log(id + "id of post")
-    console.log(post)
+      console.log(id + "id of post");
+      console.log(post);
     }
 
     fetchPost();
@@ -67,35 +67,35 @@ function SelectedPostPage() {
   // }
   async function submitComment() {
     const uname = loggedUser.name;
-    console.log(uname)
+    console.log(uname);
     const uid = loggedUser._id;
-    console.log(comment)
-    console.log(id + "id of post")
-    console.log(post)
+    console.log(comment);
+    console.log(id + "id of post");
+    console.log(post);
     try {
       const response = await axios.post(
         `${config.POSTS_API}/posts/${id}/comments`,
         { uid, uname, comment } // ✅ Send as an object
       );
-      
+
       // Update local comments state with the new data
       setReturnedComments((prevComments) => [
         ...prevComments,
         response.data.newComment,
       ]);
-      
+
       // setComment(""); // Clear input field
-
-
     } catch (error) {
       console.error("Error submitting comment:", error);
     }
     try {
-      const response = await axios.post(`${config.USERS_API}/users/${uid}/commented`, {id})
-      console.log(response + "done")
-    }
-    catch(error) {
-      console.log(error)
+      const response = await axios.post(
+        `${config.USERS_API}/users/${uid}/commented`,
+        { id }
+      );
+      console.log(response + "done");
+    } catch (error) {
+      console.log(error);
     }
     window.location.reload();
   }
@@ -103,9 +103,9 @@ function SelectedPostPage() {
   return (
     <div>
       <Grid>
-        <Grid.Col span= "auto" >
-                            <Navbar style={{position: "sticky"}} />
-                          </Grid.Col>
+        <Grid.Col span="3">
+          <Navbar style={{ position: "sticky" }} />
+        </Grid.Col>
         <Grid.Col span="auto">
           {post ? (
             <PostCard
@@ -123,35 +123,30 @@ function SelectedPostPage() {
             <p>Loading post...</p>
           )}
           <Divider my="md" />
-      
-          
-            <Grid.Col span={9}>
-              <TextInput
-                radius="xl"
-                placeholder="Add a comment"
-                value={comment}
-                onChange={(event) => setComment(event.currentTarget.value)}
-              />
-            </Grid.Col>
-            <Grid.Col span="auto">
-              {isLoggedIn ? (
-                <Button onClick={submitComment}>Post comment</Button>
-              ) : (
-                <Tooltip label="Login to post comments!">
-                  <Button disabled>Post comment</Button>
-                </Tooltip>
-              )}
 
-              
-            </Grid.Col>
          
+            <TextInput
+              radius="xl"
+              placeholder="Add a comment"
+              value={comment}
+              onChange={(event) => setComment(event.currentTarget.value)}
+            />
           
-            <Grid.Col span="auto">
-            {returnedComments.length > 0 &&
-            <Menu shadow="md" width={200}>
-           
+         
+            {isLoggedIn ? (
+              <Button onClick={submitComment}>Post comment</Button>
+            ) : (
+              <Tooltip label="Login to post comments!">
+                <Button disabled>Post comment</Button>
+              </Tooltip>
+            )}
+          
+
+          <Divider style={{marginTop: "1em"}}/>
+            {returnedComments.length > 0 && (
+              <Menu shadow="md" width={200}>
                 <Menu.Target>
-                  <Button>Sort By</Button>
+                  <Button style={{marginTop:"1em"}}>Sort By</Button>
                 </Menu.Target>
 
                 <Menu.Dropdown>
@@ -164,36 +159,41 @@ function SelectedPostPage() {
                   >
                     Newest
                   </Menu.Item>
-                  
                 </Menu.Dropdown>
               </Menu>
-            }
-            </Grid.Col>
+            )}
           
 
           <div style={{ display: "flex", flexDirection: commentsDirection }}>
-            {isFetching  &&  <img src={GearSpinner} style={{height: "10em", width: "10em", margin: "auto"}}></img>}
-           {returnedComments.length > 0 ? 
-           returnedComments.map(
-            (returnedComment, index) =>
-              returnedComment && (
-                //  <Card shadow="sm" padding="lg" radius="md" withBorder key={index} style={{flexDirection: 'column'}}>
-                //     {returnedComment.comment} (User: {returnedComment.uname})
-                //   </Card>
+            {isFetching && (
+              <img
+                src={GearSpinner}
+                style={{ height: "10em", width: "10em", margin: "auto" }}
+              ></img>
+            )}
+            {returnedComments.length > 0 ? (
+              returnedComments.map(
+                (returnedComment, index) =>
+                  returnedComment && (
+                    //  <Card shadow="sm" padding="lg" radius="md" withBorder key={index} style={{flexDirection: 'column'}}>
+                    //     {returnedComment.comment} (User: {returnedComment.uname})
+                    //   </Card>
 
-                <CommentCard
-                  username={returnedComment.uname}
-                  comment={returnedComment?.comment}
-                  date={returnedComment?.date}
-                  style={{ flexDirection: "column" }}
-                />
+                    <CommentCard
+                      username={returnedComment.uname}
+                      comment={returnedComment?.comment}
+                      date={returnedComment?.date}
+                      style={{ flexDirection: "column" }}
+                    />
+                  )
               )
-          )
-           :<NoComments /> }
-             {/* <button onClick={(returnedComments) => returnedCommentsHandler(returnedComments)}>return</button> */}
+            ) : (
+              <NoComments />
+            )}
+            {/* <button onClick={(returnedComments) => returnedCommentsHandler(returnedComments)}>return</button> */}
           </div>
         </Grid.Col>
-        <Grid.Col span="auto" />
+        <Grid.Col span="3" />
       </Grid>
     </div>
   );
