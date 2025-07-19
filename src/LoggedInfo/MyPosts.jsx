@@ -39,7 +39,7 @@ export default function MyPosts() {
         <PostCard
           postid={post._id}
           key={index}
-          community={post.community}
+          community={post.communityName}
           username={post.uname}
           userid={post.uid}
           title={post.title}

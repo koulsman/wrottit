@@ -17,45 +17,37 @@ export default function MyComments() {
   console.log("loggedUserid:", uid);
   console.log("loggedUser:", loggedUser);
   useEffect(() => {
-    async function fetchCommentedPostsId() {
-      try {
-        setIsFetching(true);
-        const response = await axios.get(
-          `${config.USERS_API}/users/${uid}/commented`
-        );
-        console.log("commented : " + response.data);
+  async function fetchCommentedPostsId() {
+    try {
+      setIsFetching(true);
 
-        const postsIds = response.data.map((element) => element.id);
-        console.log("Posts Ids:", postsIds);
-       
-         
-        setCommentsPosted(postsIds);
-        
-      
-        
-       
-          //   postsIds.map((element,index) => {
-          //       axios.get(`${config.POSTS_API}/posts/${element}`);
-                
-          //   })
+      // Step 1: Get all comment info
+      const response = await axios.get(
+        `${config.USERS_API}/users/${uid}/commented`
+      );
 
-          //  const fetchedPosts =await  Promise.all(postsIds);
-          //  setCommentedPosts(fetchedPosts)     
+      const postsIds = response.data.map((element) => element.id);
+      setCommentsPosted(postsIds);
 
-        
-            
-      
-      
-      } catch (error) {
-        console.log("Failed to fetch MyComments" + error);
-      } finally {
-        setIsFetching(false);
-      }
-      
+      // Step 2: Fetch post data for each ID
+      const fetchedPosts = await Promise.all(
+        postsIds.map((id) =>
+          axios.get(`${config.POSTS_API}/posts/${id}`).then((res) => res.data)
+        )
+      );
+
+      setCommentedPosts(fetchedPosts);
+    } catch (error) {
+      console.error("Failed to fetch MyComments", error);
+    } finally {
+      setIsFetching(false);
     }
+  }
 
+  if (uid) {
     fetchCommentedPostsId();
-  }, []);
+  }
+}, [uid]);
 
   return (
     <>
@@ -71,9 +63,21 @@ export default function MyComments() {
             ></img>
           )}
           aaaaa
-          {commentedPosts.map((element, index) => (
-            <div key={index}>{element}</div>
-          ))}
+          {commentedPosts.map((post, index) => (
+  <PostCard
+    key={index}
+    postid={post._id}
+    communityName={post.communityName}
+    username={post.uname}
+    userid={post.uid}
+    title={post.title}
+    content={post.content}
+    images={post.images}
+    comments={post.comments}
+    upvotes={post.upvotes}
+    savedBy={post.savedBy}
+  />
+))}
         </Grid.Col>
         <Grid.Col span="3"></Grid.Col>
       </Grid>

@@ -8,13 +8,13 @@ import { useState, useRef } from "react";
 
 export default function ImageCarousel({ images, allowPopup = true }) {
   const [imageCarouselWindow, setImageCarouselWindow] = useState(false);
-  
+  const [carouselKey, setCarouselKey] = useState(0);
 
   function openImageCarousel(event) {
-    event.stopPropagation();
-    setImageCarouselWindow(true);
-  }
-
+  event.stopPropagation();
+  setCarouselKey(prev => prev + 1); // Force re-render
+  setImageCarouselWindow(true);
+}
   function imageIndexHandler(image, index) {
     console.log(image + index);
   }
@@ -29,25 +29,23 @@ export default function ImageCarousel({ images, allowPopup = true }) {
         }}
       >
         {Array.isArray(images) && images.length > 1 ? (
-          <Carousel withIndicators  classNames={classes}>
-            {images.map((image, index) => (
-              <Carousel.Slide>
-                <img
-                  onLoad={(image, index) => imageIndexHandler(image, index)}
-                  onClick={allowPopup ? openImageCarousel : undefined}
-                  onUnload={() => setImageCarouselWindow(false)}
-                  key={index}
-                  src={image}
-                  alt={`Slide ${index + 1}`}
-                  style={{
-                    width: "50%",
-                    height: "50%",
-                    objectFit: "fill",
-                  }}
-                />
-              </Carousel.Slide>
-            ))}
-          </Carousel>
+          <Carousel key={carouselKey} withIndicators classNames={classes}>
+  {images.map((image, index) => (
+    <Carousel.Slide key={index}>
+      <img
+        onClick={allowPopup ? openImageCarousel : undefined}
+        src={image}
+        alt={`Slide ${index + 1}`}
+        style={{
+          width: "100%",
+          height: "100%",
+          margin: "auto",
+          objectFit: "fill",
+        }}
+      />
+    </Carousel.Slide>
+  ))}
+</Carousel>
         ) : (
           <img
             onLoad={(image, index) => imageIndexHandler(image, index)}

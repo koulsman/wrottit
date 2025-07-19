@@ -259,7 +259,7 @@ useEffect(() => {
                         </Menu.Dropdown>
                       </Menu>
                     </div>
-                    {/* {isFetching && (
+                    {isFetching && (
                       <div>
                         {" "}
                         <img
@@ -270,7 +270,7 @@ useEffect(() => {
                             margin: "auto",
                           }}
                         ></img>
-                        <img src={wrot} />
+                        {/* <img src={wrot} />
                         <img
                           src={speech}
                           style={{
@@ -278,9 +278,9 @@ useEffect(() => {
                             width: "10em",
                             margin: "auto",
                           }}
-                        />
+                        /> */}
                       </div>
-                    )} */}
+                    )}
                     {/* <div
                       style={{ position: "relative", display: "inline-block" }}
                     >
