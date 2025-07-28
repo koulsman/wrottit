@@ -48,7 +48,7 @@ export function Signup() {
         
         userImage: randomUserImageHandler(),
         // password
-        password: bcrypt.hashSync(password, 10)
+        password: password
       });
       const newUser = response.data;
       setLoggedUser(newUser); // Update loggedUser
@@ -56,9 +56,9 @@ export function Signup() {
       alert("Signup successful!");
       close();
     } catch (error) {
-      console.error("Error creating user:", error);
-      alert("Error creating user. Please try again.");
-    }
+  console.error("Error creating user:", error.response?.data || error.message);
+  alert(error.response?.data?.message || "Error creating user. Please try again.");
+}
   }
 
   useEffect(() => {
